@@ -103,3 +103,8 @@ async function executarBusca() {
 }
 
 executarBusca();
+
+function toggleImage() {
+    let img = document.getElementById("minhaImagem");
+    img
+}
