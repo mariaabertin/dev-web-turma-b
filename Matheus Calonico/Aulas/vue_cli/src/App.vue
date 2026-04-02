@@ -4,17 +4,32 @@
   <HomeComponente />
   <hr>
  <HomeComponente />
+ <hr>
+  <UsuarioComponent />
+  <hr>
+  <UsuarioComponent />
 </div>
 </template>
 
 <script>
 
 import HomeComponente from './components/HomeComponente.vue';
-
+import UsuarioComponent from './components/UsuarioComponent.vue';
 export default {
   name: 'App',
   components: { 
+
     HomeComponente,
+    UsuarioComponent,
+  },
+  mounted() {
+    console.log('App montado');
+  },
+  errorCaptured() {
+    console.error('Erro capturado:');
+  },
+  created() {
+    console.log('App criado');
   },
   data() {
     return {
