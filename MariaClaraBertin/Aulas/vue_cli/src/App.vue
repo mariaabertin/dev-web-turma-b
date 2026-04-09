@@ -3,9 +3,13 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HomeComponent />
     <hr>
-    <UsuarioComponent />
+    <UsuarioComponent v-show="componenteUsuarioVisivel"/>
     <hr>
     <EstiloComponent />
+    <br>
+    <ImagemComponent
+     @visibilidade-img="escutarVisibilidadeImg"
+     largura-img="300" url-img="https://i.imgflip.com/5c9g8g.jpg" />
   </div>
 </template>
 
@@ -14,6 +18,7 @@
 import EstiloComponent from './components/EstiloComponent.vue';
 import HomeComponent from './components/HomeComponent.vue';
 import UsuarioComponent from './components/UsuarioComponent.vue';
+import ImagemComponent from './components/ImagemComponent.vue';
 
 export default {
   name: 'App',
@@ -21,8 +26,18 @@ export default {
     HomeComponent,
     UsuarioComponent,
     EstiloComponent,
+    ImagemComponent,
   },
-
+  data() {
+    return {
+      componenteUsuarioVisivel: true,
+    }
+  },
+  methods: {
+    escutarVisibilidadeImg(isImgVisible) {
+      this.componenteUsuarioVisivel = !isImgVisible
+    }
+  },
   created() {
     console.log("created");
   },

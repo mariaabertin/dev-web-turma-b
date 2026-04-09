@@ -18,8 +18,8 @@
                 email: "maria@email.com",
                 isEnjoiable: true,
                 isNotEnjoiable: false,
-                altura: 200,
-                largura: 300,
+                altura: 100,
+                largura: 200,
                 urlImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYxNnA0WD25msFRX8UoiNOPCbtMEzk35BeMQ&s",
             };
         },
@@ -31,11 +31,11 @@
             }, 4*1000);
 
             setTimeout(() => {
-                for(let i = 300; i < 600; i++) {
+                for(let i = 200; i < 400; i++) {
                     setTimeout(() => {
                         this.largura = i;
                     }, 0);
-                    for(let j = 200; j < 400; j++){
+                    for(let j = 100; j < 200; j++){
                         setTimeout(() => {
                             this.altura = j;
                         }, 0);
