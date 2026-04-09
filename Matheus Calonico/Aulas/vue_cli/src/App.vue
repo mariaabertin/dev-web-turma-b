@@ -4,6 +4,8 @@
   <HomeComponente />
   <hr>
   <UsuarioComponent />
+  <hr>
+  <ImagemComponente />
 </div>
 </template>
 
@@ -11,10 +13,11 @@
 
 import HomeComponente from './components/HomeComponente.vue';
 import UsuarioComponent from './components/UsuarioComponent.vue';
+import ImagemComponente from './components/ImagemComponente.vue';
 export default {
   name: 'App',
   components: { 
-
+    ImagemComponente,
     HomeComponente,
     UsuarioComponent,
   },
