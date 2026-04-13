@@ -21,8 +21,8 @@ export default {
       nome: "Fernando",
       email: "fernando@gmail.com",
       isInterCampeao: true,
-      altura: 200,
-      largura: 300,
+      altura: 100,
+      largura: 200,
       urlImg:
         "https://midia.gruposinos.com.br/_midias/jpg/2025/12/07/800x500/1_interrrrr-22626640.jpg",
     };
@@ -33,12 +33,12 @@ export default {
       this.urlImg = "https://s01.video.glbimg.com/x216/5260812.jpg";
     }, 4 * 1000);
     setTimeout(() => {
-      this.altura = 300;
-      this.largura = 400;
+      this.altura = 200;
+      this.largura = 300;
     }, 5 * 1000);
     setTimeout(() => {
-      this.altura = 600;
-      this.largura = 800;
+      this.altura = 400;
+      this.largura = 600;
     }, 8 * 1000);
   },
 };
