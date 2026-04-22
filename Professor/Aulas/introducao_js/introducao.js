@@ -118,3 +118,8 @@ async function executarBusca() {
 }
 
 executarBusca();
+
+function toggleImage() {
+  let img = document.getElementById("minhaImagem");
+  img.style.display = img.style.display === "none" ? "block" : "none";
+}
