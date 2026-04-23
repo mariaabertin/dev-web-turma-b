@@ -55,7 +55,7 @@
                 <button @click="adicionarTarefa">Adicionar</button>
             </div>
             <ul>
-                <li v-for="tarefa in tarefas">
+                <li v-for="tarefa in tarefas" :key="tarefa.id">
                     <span>{{ tarefa.texto }}</span>
                     <div>
                         <button class="btn-concluir">Concluir</button>
@@ -79,10 +79,16 @@
             },
             methods: {
                 adicionarTarefa() {
+                    if (this.novaTarefa.trim() == "") {
+                        return
+                    }
+
                     this.tarefas.push({
+                        id: Date.now(),
                         texto: this.novaTarefa,
                         concluida: false
                     })
+
                     this.novaTarefa = ""
                 }
             }
