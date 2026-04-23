@@ -1,7 +1,7 @@
 # 📝 Atividade: Refatoração To-Do com Vue 3
 
 ## 🎯 Objetivo
-Refatorar o aplicativo de lista de tarefas desenvolvido em JavaScript puro para utilizar **Vue 3**, com foco no uso da diretiva **v-for**.
+Refatorar o aplicativo de lista de tarefas desenvolvido em JavaScript puro (https://github.com/fernandodx/dev-web-turma-b/tree/main/Professor/Aulas/to_do) para utilizar **Vue 3**, com foco no uso da diretiva **v-for**.
 
 ---
 
@@ -37,7 +37,7 @@ Recriar o To-Do mantendo:
 - `addEventListener`
 
 **Usar:**
-- Vue 3 (CDN)  
+- Vue 3 
 - `v-model`  
 - `@click`  
 - **v-for (obrigatório)**  
