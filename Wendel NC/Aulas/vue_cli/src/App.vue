@@ -1,27 +1,42 @@
 <template>
   <div>
-
     <img alt="Vue logo" src="./assets/logo.png">
-    <home-component/>
-    <hr/>
-    <HomeComponent/>
+
+    <HomeComponent />
+    <hr />
+
+    <HomeComponent />
+    <hr />
+
+    <UsuarioComponent />
   </div>
-
-
 </template>
-
-
-
 
 <script>
 import HomeComponent from './components/HomeComponent.vue';
+import UsuarioComponent from './components/UsuarioComponent.vue';
+import EstiloComponent from './components/EstiloComponent.vue';
 
 
 export default {
   name: 'App',
-  components:{
-    HomeComponent
+
+  components: {
+    HomeComponent,
+    UsuarioComponent
   },
+
+  created() {
+    console.log("created");
+  },
+
+  mounted() {
+    console.log("mounted");
+  },
+
+  errorCaptured() {
+    console.log("errorCaptured");
+  }
 };
 </script>
 
