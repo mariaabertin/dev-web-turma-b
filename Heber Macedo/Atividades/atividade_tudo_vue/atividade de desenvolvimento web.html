@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Vue 3</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .concluida { text-decoration: line-through; color: gray; }
+        li { margin-bottom: 8px; list-style: none; }
+        button { margin-left: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <h2>Minha Lista de Tarefas</h2>
+
+    <input 
+        v-model="novaTarefa" 
+        @keyup.enter="adicionar" 
+        placeholder="O que precisa ser feito?"
+    >
+    <button @click="adicionar">Adicionar</button>
+
+    <hr>
+
+    <ul>
+        <li v-for="(tarefa, index) in tarefas" :key="index">
+            <span 
+                :class="{ concluida: tarefa.feita }" 
+                @click="tarefa.feita = !tarefa.feita"
+                style="cursor: pointer;"
+            >
+                {{ tarefa.texto }}
+            </span>
+            
+            <button @click="remover(index)">Excluir</button>
+        </li>
+    </ul>
+    
+    <p v-if="tarefas.length === 0">Nenhuma tarefa pendente!</p>
+</div>
+
+<script>
+    const { createApp, ref } = Vue;
+
+    createApp({
+        setup() {
+            const novaTarefa = ref('');
+            const tarefas = ref([]);
+            const adicionar = () => {
+                if (novaTarefa.value.trim() !== '') {
+                    tarefas.value.push({
+                        texto: novaTarefa.value,
+                        feita: false
+                    });
+                    novaTarefa.value = '';
+                }
+            };
+            const remover = (index) => {
+                tarefas.value.splice(index, 1);
+            };
+
+            return {
+                novaTarefa,
+                tarefas,
+                adicionar,
+                remover
+            }
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>
