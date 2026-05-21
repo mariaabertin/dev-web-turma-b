@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Olá Pedidos</h1>
+    <h1>Pedidos</h1>
   </div>
 </template>
 <script>

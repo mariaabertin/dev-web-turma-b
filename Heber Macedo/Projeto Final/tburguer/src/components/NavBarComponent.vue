@@ -4,52 +4,54 @@
       <router-link to="/" id="logo-url">
         <img src="/img/logo_tburguer.png" id="logo" />
       </router-link>
+      <router-link to="/">Home</router-link> |
       <router-link to="/menu">Menu</router-link> |
       <router-link to="/pedidos">Pedidos</router-link>
     </nav>
   </div>
 </template>
-
 <script>
 export default {
   name: "NavBarComponent",
 };
 </script>
-
 <style scoped>
 #logo {
   width: 60px;
   height: 60px;
 }
 
+#logo:hover {
+  width: 70px;
+  height: 70px;
+  rotate: 360deg;
+  transition: 0.2s;
+}
+
 #nav #logo-url {
-  margin-right: auto;
+  margin: auto;
   margin-left: 0;
+}
+
+#nav {
+  background-color: #333;
+  border-bottom: darkgoldenrod 4px solid;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #nav a {
   color: darkgoldenrod;
   text-decoration: none;
-  margin: 12px;
-  transition: 0.5s;
+  margin-left: 20px;
+  font-size: 18px;
 }
 
 #nav a:hover {
   color: white;
-  font-size: 20px;
-}
-
-#logo-url:hover {
-  transform: rotate(360deg);
-  transition: transform 0.5s;
-}
-
-#nav {
-  background-color: #333;
-  border-bottom: 3px solid darkgoldenrod;
-  padding: 15px 50px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  font-size: 22px;
+  transition: 0.2s;
 }
 </style>

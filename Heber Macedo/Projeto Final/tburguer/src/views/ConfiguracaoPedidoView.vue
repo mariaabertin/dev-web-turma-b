@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Olá Config</h1>
+    <h1>Configuração do Pedido</h1>
   </div>
 </template>
 <script>

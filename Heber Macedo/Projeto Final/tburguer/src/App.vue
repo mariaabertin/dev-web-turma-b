@@ -1,12 +1,12 @@
 <template>
-  <NavBarComponent />
-  <banner-component />
-  <router-view />
+  <div>
+    <NavBarComponent />
+    <BannerComponent />
+    <router-view />
+  </div>
 </template>
-
 <script>
 import NavBarComponent from "./components/NavBarComponent.vue";
-import BannerComponent from "./components/BannerComponent.vue";
 import BannerComponent from "./components/BannerComponent.vue";
 export default {
   name: "App",
@@ -16,7 +16,6 @@ export default {
   },
 };
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
