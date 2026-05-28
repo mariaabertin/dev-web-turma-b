@@ -14,7 +14,7 @@
               <p id="nome-content">{{ burguer.nome }}</p>
               <p id="valor-content">R$ {{ burguer.valor }},00</p>
               <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button>Adicionar ao Carrinho</button>
+              <button @click="selecionarBurguer(burguer)">Selecionar</button>
             </div>
           </div>
         </div>
@@ -36,6 +36,11 @@ export default {
       const dados = await response.json();
       this.listaMenuHamburguers = dados.burgues;
       console.log(this.listaMenuHamburguers);
+    },
+    selecionarBurguer(burguerSelecionado) {
+      const parametroBurguer = JSON.stringify(burguerSelecionado);
+      const encodedBurguer = encodeURIComponent(parametroBurguer);
+      this.$router.push({ path: "/config-pedido", query: { burguer: encodedBurguer } });
     },
   },
   mounted() {
@@ -102,6 +107,7 @@ export default {
   white-space: pre-line;
   margin: 16px;
   text-overflow: ellipsis;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
@@ -132,6 +138,10 @@ export default {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.card-coluna button:hover {
+  background-color: navy;
 }
 
 </style>
