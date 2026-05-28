@@ -9,11 +9,11 @@
             width="300"
             height="200"
             :src="burguer.foto">
-            <div>
+            <div id="card-coluna">
               <p id="nome-content">{{burguer.nome}}</p>
               <p id="preco-content">R$ {{burguer.valor}},00</p>
               <p id="descricao-content">{{burguer.descricao}}</p>
-              <button>Selecionar</button>
+              <button @click="selecionarBurguer(burguer)">Selecionar</button>
             </div>
 
           </div>
@@ -37,6 +37,11 @@ export default {
       this.listaMenuHamburguers = dados.burgues;
       console.log(this.listaMenuHamburguers);
     },
+    selecionarBurguer(burguerSelecionado) {
+      const param = JSON.stringify(burguerSelecionado);
+      const burguerJson = encodeURIComponent(param);
+      this.$router.push({path: "/config-pedido", query: {burguer: burguerJson}})
+    }
   },
   mounted() {
     this.consultarMenu();
@@ -57,37 +62,38 @@ export default {
   position: relative;
 }
 
-.foto-hamburguer{
-  flex-shrink: 0;
-}
-
-.foto-hamburguer img{
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-}
-
 #scroll-horizontal {
   flex: 1;
   overflow-x: auto;
   white-space: nowrap;
   width: 900px;
   margin: 0 auto;
-  box-shadow: inset -10px 0px 15px -18px rgb(105, 104, 104);
+  box-shadow: inset -10px 0px 15px -20px grey;
 }
 
 #nome-content {
   font-size: 30px;
-  font-weight: center;
+  font-weight: bold;
+  text-align: center;
   width: 100%;
   margin: 12px;
 }
 
+.foto-hamburguer {
+  flex-shrink: 0;
+}
+
+.foto-hamburguer img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
 #preco-content {
-  font-size: 20px;
+  font-size: 35px;
   font-weight: bold;
   text-align: center;
-  color: rgb(49, 161, 124);
+  color: rgb(9, 129, 79);
 }
 
 #descricao-content {
@@ -97,6 +103,7 @@ export default {
   margin: 16px;
   white-space: pre-line;
   text-overflow: ellipsis;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
@@ -114,13 +121,20 @@ export default {
   height: 100%;
 }
 
-.card-coluna button {
+#card-coluna button {
   padding: 10px;
   width: 100%;
   border-radius: 10px;
   border: none;
-  color: rgb(175, 209, 121);
-  background-color: lightcyan;
+  color: rgb(255, 255, 255);
+  background-color: rgb(2, 102, 80);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#card-coluna button:hover {
+  color: rgb(208, 247, 208);
+  background-color: rgb(0, 54, 9);
 }
 
 </style>
