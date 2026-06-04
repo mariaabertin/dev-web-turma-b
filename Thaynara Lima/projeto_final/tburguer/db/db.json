@@ -39,45 +39,7 @@
       "descricao": "Pedido realizado"
     }
   ],
-  "pedidos": [
-    {
-      "nome": "Fernando",
-      "ponto": {
-        "id": 1,
-        "descricao": "Ao ponto"
-      },
-      "bebidas": [
-        {
-          "id": 1,
-          "nome": "Coca Cola Lata 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        }
-      ],
-      "complementos": [
-        {
-          "id": 1,
-          "nome": "Combo Bebida + Batata",
-          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
-          "valor": 11,
-          "eh_novidade": true
-        }
-      ],
-      "statusId": 6,
-      "hamburguer": {
-        "id": 1,
-        "nome": "Diretoria Alterado",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
-        "valor": 35,
-        "eh_novidade": true
-      },
-      "id": 2
-    }
-  ],
+  "pedidos": [],
   "opcionais": {
     "complemento": [
       {
