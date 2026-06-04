@@ -41,22 +41,22 @@
   ],
   "pedidos": [
     {
-      "nome": "Fernando",
+      "nome": "Maria4",
       "ponto": {
-        "id": 1,
-        "descricao": "Ao ponto"
+        "id": 3,
+        "descricao": "Mal passada"
       },
       "bebidas": [
         {
-          "id": 1,
-          "nome": "Coca Cola Lata 310 ml",
+          "id": 4,
+          "nome": "Del Valle Uva Lata 290 ml",
           "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
-          "valor": 6,
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431434651d7d4a1e285_75_75.jpeg",
+          "valor": 7,
           "eh_novidade": false
         }
       ],
-      "complementos": [
+      "complemento": [
         {
           "id": 1,
           "nome": "Combo Bebida + Batata",
@@ -66,16 +66,16 @@
           "eh_novidade": true
         }
       ],
-      "statusId": 6,
-      "hamburguer": {
-        "id": 1,
-        "nome": "Diretoria Alterado",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
-        "valor": 35,
+      "burguer": {
+        "id": 4,
+        "nome": "Campeiro",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696432070651d7fc6b7c98_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, alface americana fresca e crocante, tomate grelhado e defumado, suculento hambúrguer de 160 gramas, queijo derretido na brasa.",
+        "valor": 30,
         "eh_novidade": true
       },
-      "id": 2
+      "statusId": 5,
+      "id": 4
     }
   ],
   "opcionais": {
