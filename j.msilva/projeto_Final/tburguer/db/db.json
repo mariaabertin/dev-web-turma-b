@@ -45,17 +45,17 @@
   ],
   "pedidos": [
     {
-      "nome": "Fernando Dias",
+      "nome": "banana",
       "ponto": {
         "id": 1,
         "descricao": "Ao ponto"
       },
       "bebidas": [
         {
-          "id": 1,
-          "nome": "Coca Cola Lata 310 ml",
+          "id": 2,
+          "nome": "Shweppes Citrus 310 ml",
           "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16966989566521924cc9418_75_75.jpeg",
           "valor": 6,
           "eh_novidade": false
         }
@@ -78,8 +78,7 @@
           "eh_novidade": false
         }
       ],
-      "statusId": "4",
-      "hamburguer": {
+      "burguer": {
         "id": 2,
         "nome": "Veggie",
         "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
@@ -87,44 +86,8 @@
         "valor": 35,
         "eh_novidade": true
       },
+      "statusId": 5,
       "id": 2
-    },
-    {
-      "nome": "Teste 1",
-      "ponto": {
-        "id": 4,
-        "descricao": "Boi morreu em vão"
-      },
-      "bebidas": [
-        {
-          "id": 1,
-          "nome": "Coca Cola Lata 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        }
-      ],
-      "complemento": [
-        {
-          "id": 1,
-          "nome": "Combo Bebida + Batata",
-          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
-          "valor": 11,
-          "eh_novidade": true
-        }
-      ],
-      "statusId": "2",
-      "hamburguer": {
-        "id": 2,
-        "nome": "Veggie",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese secreta, tomate assado e defumado na lenha frutífera, blend de arroz negro, batata baroa e Shimeji 150 gramas grelhado e regado ao azeite , queijo derretido na brasa e molho secreto de cebola caramelizada, tudo preparado com aquele sabor de churrasco.",
-        "valor": 35,
-        "eh_novidade": true
-      },
-      "id": 3
     }
   ],
   "opcionais": {
