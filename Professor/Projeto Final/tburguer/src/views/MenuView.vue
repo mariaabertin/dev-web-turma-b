@@ -23,6 +23,8 @@
   </div>
 </template>
 <script>
+const BASE_URL = process.env.VUE_APP_API_BASE_URL;
+
 export default {
   name: "MenuView",
   data() {
@@ -32,7 +34,7 @@ export default {
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch("http://localhost:3000/menu");
+      const response = await fetch(`${BASE_URL}/menu`);
       const dados = await response.json();
       this.listaMenuHamburguers = dados.burgues;
       console.log(this.listaMenuHamburguers);
