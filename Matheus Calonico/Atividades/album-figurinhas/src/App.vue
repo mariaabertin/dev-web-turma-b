@@ -29,6 +29,32 @@
 
       <!-- TELA 1: Painel de grupos -->
       <template v-if="!selecaoAtiva && !erro">
+
+        <!-- Dropdown conforme requisito do professor -->
+        <section class="selector" aria-label="Seleção de país">
+          <label for="pais">Escolha uma seleção:</label>
+          <select
+            id="pais"
+            v-model="paisSelecionado"
+            @change="selecionarPorDropdown"
+            :disabled="carregandoPaises"
+            aria-label="Lista de seleções da Copa 2026"
+          >
+            <option value="" disabled>
+              {{ carregandoPaises ? 'Carregando seleções...' : '-- Selecione um país --' }}
+            </option>
+            <option v-for="selecao in selecoesCopa" :key="selecao.name" :value="selecao.name">
+              {{ selecao.nomePtBr }}
+            </option>
+          </select>
+          <img
+            v-if="bandeiraSelecionada"
+            :src="bandeiraSelecionada"
+            :alt="'Bandeira de ' + paisSelecionado"
+            class="bandeira-selecionada"
+          />
+        </section>
+
         <div v-if="carregandoPaises" class="loading-inicial">
           <div class="spinner" aria-hidden="true"></div>
           <p>Carregando seleções...</p>
@@ -165,6 +191,9 @@ export default {
       erro: '',
       requisicoeRestantes: null,
       temaAtual: 'tema-escuro',
+      // Dropdown
+      paisSelecionado: '',
+      bandeiraSelecionada: '',
     };
   },
 
@@ -174,6 +203,13 @@ export default {
   },
 
   computed: {
+    // Lista ordenada das 48 seleções para o dropdown
+    selecoesCopa() {
+      return [...SELECOES_COPA_2026].sort((a, b) =>
+        a.nomePtBr.localeCompare(b.nomePtBr, 'pt-BR')
+      );
+    },
+
     // Grupos ordenados de A a L com suas seleções
     gruposOrdenados() {
       const grupos = selecosPorGrupo();
@@ -258,7 +294,64 @@ export default {
       }
     },
 
-    // Ao clicar na seleção, vai para a tela de elenco
+    // Requisição 2 + 3 disparadas pelo dropdown (fluxo exigido pelo professor)
+    async selecionarPorDropdown() {
+      if (!this.paisSelecionado) return;
+
+      const selecao = SELECOES_COPA_2026.find(s => s.name === this.paisSelecionado);
+      this.bandeiraSelecionada = this.bandeiras[this.paisSelecionado] || '';
+      this.selecaoAtiva = selecao;
+      this.jogadores = [];
+      this.erro = '';
+      this.carregandoFigurinhas = true;
+
+      try {
+        // Requisição 2: busca o time pelo nome para obter o ID
+        const responseTime = await fetch(
+          `${process.env.VUE_APP_API_BASE_URL}/teams?name=${encodeURIComponent(this.paisSelecionado)}`,
+          { method: 'GET', headers: { 'x-apisports-key': process.env.VUE_APP_API_KEY } }
+        );
+        const dadosTime = await responseTime.json();
+
+        if (dadosTime.errors && Object.keys(dadosTime.errors).length > 0) {
+          this.erro = interpretarErroApi(dadosTime.errors); return;
+        }
+        if (!dadosTime.response || dadosTime.response.length === 0) {
+          this.erro = `Nenhuma seleção encontrada para "${selecao?.nomePtBr}".`; return;
+        }
+
+        const timeNacional = dadosTime.response.find(r => r.team.national) || dadosTime.response[0];
+        const teamId = timeNacional.team.id;
+
+        // Requisição 3: busca o elenco pelo ID
+        const responseElenco = await fetch(
+          `${process.env.VUE_APP_API_BASE_URL}/players/squads?team=${teamId}`,
+          { method: 'GET', headers: { 'x-apisports-key': process.env.VUE_APP_API_KEY } }
+        );
+        const dadosElenco = await responseElenco.json();
+
+        const quota = dadosElenco.errors ? null : parseInt(responseElenco.headers.get('x-ratelimit-requests-remaining'), 10);
+        if (quota !== null && !isNaN(quota)) this.requisicoeRestantes = quota;
+
+        if (dadosElenco.errors && Object.keys(dadosElenco.errors).length > 0) {
+          this.erro = interpretarErroApi(dadosElenco.errors); return;
+        }
+        if (!dadosElenco.response || dadosElenco.response.length === 0) {
+          this.erro = 'Nenhum jogador encontrado para esta seleção.'; return;
+        }
+
+        this.jogadores = dadosElenco.response[0].players || [];
+      } catch (e) {
+        if (e.name !== 'AbortError') {
+          console.error('[selecionarPorDropdown]', e);
+          this.erro = 'Erro ao buscar figurinhas. Tente novamente.';
+        }
+      } finally {
+        this.carregandoFigurinhas = false;
+      }
+    },
+
+    // Ao clicar na seleção no painel visual, vai para a tela de elenco
     async selecionarSelecao(selecao) {
       this.selecaoAtiva = selecao;
       this.jogadores = [];
@@ -399,6 +492,41 @@ header p  { color: var(--text-muted); font-size: 1rem; margin-top: 6px; }
 /* ============================================================
    PAINEL DE GRUPOS
    ============================================================ */
+/* Dropdown */
+.selector {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.selector label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.selector select {
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: var(--bg-selecao);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.selector select:hover,
+.selector select:focus { border-color: var(--accent); }
+.bandeira-selecionada {
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
 .painel-grupos {
   display: flex;
   flex-direction: column;
