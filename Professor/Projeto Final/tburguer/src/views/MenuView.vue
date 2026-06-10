@@ -14,7 +14,7 @@
               <p id="nome-content">{{ burguer.nome }}</p>
               <p id="preco-content">R$ {{ burguer.valor }},00</p>
               <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button>Selecionar</button>
+              <button @click="selecionarBurguer(burguer)">Selecionar</button>
             </div>
           </div>
         </div>
@@ -23,6 +23,8 @@
   </div>
 </template>
 <script>
+const BASE_URL = process.env.VUE_APP_API_BASE_URL;
+
 export default {
   name: "MenuView",
   data() {
@@ -32,10 +34,18 @@ export default {
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch("http://localhost:3000/menu");
+      const response = await fetch(`${BASE_URL}/menu`);
       const dados = await response.json();
       this.listaMenuHamburguers = dados.burgues;
       console.log(this.listaMenuHamburguers);
+    },
+    selecionarBurguer(burguerSelecionado) {
+      const param = JSON.stringify(burguerSelecionado);
+      const burguerJson = encodeURIComponent(param);
+      this.$router.push({
+        path: "/config-pedido",
+        query: { burguer: burguerJson },
+      });
     },
   },
   mounted() {
@@ -97,6 +107,7 @@ export default {
   margin: 16px;
   white-space: pre-line;
   text-overflow: ellipsis;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
@@ -119,7 +130,14 @@ export default {
   width: 100%;
   border-radius: 10px;
   border: none;
-  color: darkcyan;
-  background-color: lightcyan;
+  color: white;
+  background-color: green;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.card-coluna button:hover {
+  color: rgb(202, 246, 202);
+  background-color: rgb(0, 37, 22);
 }
 </style>
