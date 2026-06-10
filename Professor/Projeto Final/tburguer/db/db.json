@@ -45,42 +45,6 @@
   ],
   "pedidos": [
     {
-      "nome": "Bora Bora",
-      "ponto": {
-        "id": 3,
-        "descricao": "Mal passada"
-      },
-      "bebidas": [
-        {
-          "id": 3,
-          "nome": "Coca Cola Zero Lata 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431455651d7d5fd3661_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        },
-        {
-          "id": 2,
-          "nome": "Shweppes Citrus 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16966989566521924cc9418_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        }
-      ],
-      "complemento": [],
-      "burguer": {
-        "id": 1,
-        "nome": "Diretoria",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
-        "valor": 35,
-        "eh_novidade": true
-      },
-      "statusId": "4",
-      "id": 3
-    },
-    {
       "nome": "Teste Final",
       "ponto": {
         "id": 2,

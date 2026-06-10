@@ -7,8 +7,6 @@
 <script>
 import PedidoComponentVue from "@/components/PedidoComponent.vue";
 
-const BASE_URL = process.env.VUE_APP_API_BASE_URL;
-
 export default {
   name: "ConfiguracaoPedidoView",
   components: {

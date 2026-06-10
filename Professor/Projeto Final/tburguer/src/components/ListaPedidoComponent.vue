@@ -65,7 +65,6 @@
   </div>
 </template>
 <script>
-const BASE_URL = process.env.VUE_APP_API_BASE_URL;
 
 export default {
   name: "ListaPedidoComponent",
@@ -77,17 +76,17 @@ export default {
   },
   methods: {
     async consultarPedidos() {
-      const response = await fetch(`${BASE_URL}/pedidos`);
+      const response = await fetch(`${this.$apiUrl}/pedidos`);
       this.listaPedidosRealizados = await response.json();
     },
     async consultarStatusPedido() {
-      const response = await fetch(`${BASE_URL}/status_pedido`);
+      const response = await fetch(`${this.$apiUrl}/status_pedido`);
       this.listaStatusPedido = await response.json();
     },
     async atualizarStatusPedido(event, idPedido) {
       const idPedidoAtualizado = event.target.value;
       const atualizacaoJson = JSON.stringify({ statusId: idPedidoAtualizado });
-      await fetch(`${BASE_URL}/pedidos/${idPedido}`, {
+      await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
         method: "PATCH",
         headers: { "Content-type": "application/json" },
         body: atualizacaoJson,
@@ -95,7 +94,7 @@ export default {
       //fazer algo ápos alterar
     },
     async deletarPedido(idPedido) {
-      const response = await fetch(`${BASE_URL}/pedidos/${idPedido}`, {
+      const response = await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
         method: "DELETE",
       });
     },
