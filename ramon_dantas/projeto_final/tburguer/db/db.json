@@ -45,7 +45,7 @@
   ],
   "pedidos": [
     {
-      "nome": "Fernando Dias",
+      "nome": "Ramon ",
       "ponto": {
         "id": 1,
         "descricao": "Ao ponto"
@@ -78,22 +78,22 @@
           "eh_novidade": false
         }
       ],
-      "statusId": "4",
-      "hamburguer": {
-        "id": 2,
-        "nome": "Veggie",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese secreta, tomate assado e defumado na lenha frutífera, blend de arroz negro, batata baroa e Shimeji 150 gramas grelhado e regado ao azeite , queijo derretido na brasa e molho secreto de cebola caramelizada, tudo preparado com aquele sabor de churrasco.",
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
         "valor": 35,
         "eh_novidade": true
       },
-      "id": 2
+      "statusId": 5,
+      "id": 4
     },
     {
-      "nome": "Teste 1",
+      "nome": "Ramon ",
       "ponto": {
-        "id": 4,
-        "descricao": "Boi morreu em vão"
+        "id": 1,
+        "descricao": "Ao ponto"
       },
       "bebidas": [
         {
@@ -113,18 +113,746 @@
           "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
           "valor": 11,
           "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
         }
       ],
-      "statusId": "2",
-      "hamburguer": {
-        "id": 2,
-        "nome": "Veggie",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese secreta, tomate assado e defumado na lenha frutífera, blend de arroz negro, batata baroa e Shimeji 150 gramas grelhado e regado ao azeite , queijo derretido na brasa e molho secreto de cebola caramelizada, tudo preparado com aquele sabor de churrasco.",
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
         "valor": 35,
         "eh_novidade": true
       },
-      "id": 3
+      "statusId": 5,
+      "id": 5
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 6
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 7
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 8
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 9
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 10
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 11
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 12
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 13
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 14
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 15
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 16
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 17
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 18
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 19
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 20
+    },
+    {
+      "nome": "Ramon ",
+      "ponto": {
+        "id": 1,
+        "descricao": "Ao ponto"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca Cola Lata 310 ml",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Batata",
+          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
+          "valor": 11,
+          "eh_novidade": true
+        },
+        {
+          "id": 2,
+          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
+          "descricao": "",
+          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
+          "valor": 7,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Diretoria",
+        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
+        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      "statusId": 5,
+      "id": 21
     }
   ],
   "opcionais": {
