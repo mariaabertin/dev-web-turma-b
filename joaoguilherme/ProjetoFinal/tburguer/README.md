@@ -17,3 +17,9 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### BD 
+```
+node node_modules/json-server/lib/cli/bin.js --watch db/db.json --port 3000
+
+```
