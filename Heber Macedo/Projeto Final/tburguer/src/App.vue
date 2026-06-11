@@ -5,6 +5,7 @@
     <router-view />
   </div>
 </template>
+
 <script>
 import NavBarComponent from "./components/NavBarComponent.vue";
 import BannerComponent from "./components/BannerComponent.vue";
@@ -16,6 +17,7 @@ export default {
   },
 };
 </script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

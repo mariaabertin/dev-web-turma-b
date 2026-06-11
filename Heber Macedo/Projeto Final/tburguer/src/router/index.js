@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MenuView from "@/views/MenuView.vue";
 import PedidosView from "@/views/PedidosView.vue";
-import ConfiguracaoPedidoView from "@/views/ConfiguracaoPdidoView.vue";
+import ConfiguracaoPedidoView from "@/views/ConfiguracaoPedidoView.vue";
 
 const routes = [
   {

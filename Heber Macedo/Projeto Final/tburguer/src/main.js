@@ -1,5 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App);
+
+app.config.globalProperties.$apiUrl = process.env.VUE_APP_API_BASE_URL;
+
+app.use(router).mount("#app");

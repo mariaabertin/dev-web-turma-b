@@ -2,20 +2,20 @@
   <div>
     <h1>Menu</h1>
     <div id="scroll-horizontal">
-      <div id="card-content" v-for="burguer in listaMenuHamburguers" :key="burguer.id">
+      <div
+        id="card-content"
+        v-for="burguer in listaMenuHamburguers"
+        :key="burguer.id"
+      >
         <div id="card-linha">
           <div class="foto-hamburguer">
-            <img 
-            width="300"
-            height="200"
-            :src="burguer.foto">
-            <div id="card-coluna">
-              <p id="nome-content">{{burguer.nome}}</p>
-              <p id="preco-content">R$ {{burguer.valor}},00</p>
-              <p id="descricao-content">{{burguer.descricao}}</p>
+            <img :src="burguer.foto" />
+            <div class="card-coluna">
+              <p id="nome-content">{{ burguer.nome }}</p>
+              <p id="preco-content">R$ {{ burguer.valor }},00</p>
+              <p id="descricao-content">{{ burguer.descricao }}</p>
               <button @click="selecionarBurguer(burguer)">Selecionar</button>
             </div>
-
           </div>
         </div>
       </div>
@@ -25,14 +25,14 @@
 <script>
 export default {
   name: "MenuView",
-  data(){
-    return{
+  data() {
+    return {
       listaMenuHamburguers: [],
     };
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch ("http://localhost:3000/menu"); 
+      const response = await fetch(`${this.$apiUrl}/menu`);
       const dados = await response.json();
       this.listaMenuHamburguers = dados.burgues;
       console.log(this.listaMenuHamburguers);
@@ -40,12 +40,15 @@ export default {
     selecionarBurguer(burguerSelecionado) {
       const param = JSON.stringify(burguerSelecionado);
       const burguerJson = encodeURIComponent(param);
-      this.$router.push({path: "/config-pedido", query: {burguer: burguerJson}})
-    }
+      this.$router.push({
+        path: "/config-pedido",
+        query: { burguer: burguerJson },
+      });
+    },
   },
   mounted() {
     this.consultarMenu();
-  }
+  },
 };
 </script>
 <style scoped>
@@ -120,20 +123,19 @@ export default {
   height: 100%;
 }
 
-#card-coluna button {
+.card-coluna button {
   padding: 10px;
   width: 100%;
   border-radius: 10px;
   border: none;
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 117, 20);
+  color: white;
+  background-color: green;
   cursor: pointer;
   transition: 0.5s;
 }
 
-#card-coluna button:hover {
-  color: rgb(208, 247, 208);
-  background-color: rgb(0, 54, 9);
+.card-coluna button:hover {
+  color: rgb(202, 246, 202);
+  background-color: rgb(0, 37, 22);
 }
-
 </style>
