@@ -1,20 +1,20 @@
 <template>
   <div>
-    <h1>Menu</h1>
+    <h1>Nosso Menu de Pizzas</h1>
     <div id="scroll-horizontal">
       <div
         id="card-content"
-        v-for="burguer in listaMenuHamburguers"
-        :key="burguer.id"
+        v-for="pizza in listaMenuPizzas"
+        :key="pizza.id"
       >
         <div id="card-linha">
-          <div class="foto-hamburguer">
-            <img :src="burguer.foto" />
+          <div class="foto-pizza">
+            <img :src="pizza.foto" />
             <div class="card-coluna">
-              <p id="nome-content">{{ burguer.nome }}</p>
-              <p id="preco-content">R$ {{ burguer.valor }},00</p>
-              <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button @click="selecionarBurguer(burguer)">Selecionar</button>
+              <p id="nome-content">{{ pizza.nome }}</p>
+              <p id="preco-content">R$ {{ pizza.valor }},00</p>
+              <p id="descricao-content">{{ pizza.descricao }}</p>
+              <button @click="selecionarPizza(pizza)">Selecionar</button>
             </div>
           </div>
         </div>
@@ -27,22 +27,22 @@ export default {
   name: "MenuView",
   data() {
     return {
-      listaMenuHamburguers: [],
+      listaMenuPizzas: [],
     };
   },
   methods: {
     async consultarMenu() {
       const response = await fetch(`${this.$apiUrl}/menu`);
       const dados = await response.json();
-      this.listaMenuHamburguers = dados.burgues;
-      console.log(this.listaMenuHamburguers);
+      this.listaMenuPizzas = dados.burgues;
+      console.log(this.listaMenuPizzas);
     },
-    selecionarBurguer(burguerSelecionado) {
-      const param = JSON.stringify(burguerSelecionado);
-      const burguerJson = encodeURIComponent(param);
+    selecionarPizza(pizzaSelecionada) {
+      const param = JSON.stringify(pizzaSelecionada);
+      const pizzaJson = encodeURIComponent(param);
       this.$router.push({
         path: "/config-pedido",
-        query: { burguer: burguerJson },
+        query: { pizza: pizzaJson },
       });
     },
   },
@@ -81,11 +81,11 @@ export default {
   margin: 12px;
 }
 
-.foto-hamburguer {
+.foto-pizza {
   flex-shrink: 0;
 }
 
-.foto-hamburguer img {
+.foto-pizza img {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
@@ -95,7 +95,7 @@ export default {
   font-size: 35px;
   font-weight: bold;
   text-align: center;
-  color: darkgreen;
+  color: #ff6b35;
 }
 
 #descricao-content {
@@ -129,13 +129,13 @@ export default {
   border-radius: 10px;
   border: none;
   color: white;
-  background-color: green;
+  background-color: #ff6b35;
   cursor: pointer;
   transition: 0.5s;
 }
 
 .card-coluna button:hover {
-  color: rgb(202, 246, 202);
-  background-color: rgb(0, 37, 22);
+  color: #1a1a1a;
+  background-color: #ffd700;
 }
 </style>

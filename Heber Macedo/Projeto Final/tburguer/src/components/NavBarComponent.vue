@@ -4,6 +4,7 @@
       <router-link to="/" id="logo-url">
         <img src="/img/logo_tburguer.png" id="logo" />
       </router-link>
+      <span id="brand-name">PizzaFresh</span>
       <router-link to="/menu">Menu</router-link> |
       <router-link to="/pedidos">Pedidos</router-link>
     </nav>
@@ -22,21 +23,29 @@ export default {
   height: 60px;
 }
 
-#nav #logo-url {
+#brand-name {
+  color: #ff6b35;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 12px;
   margin-right: auto;
+}
+
+#nav #logo-url {
+  margin-right: 12px;
   margin-left: 0;
 }
 
 #nav a {
-  color: darkgoldenrod;
+  color: #ffd700;
   text-decoration: none;
   margin: 12px;
   transition: 0.5s;
 }
 
 #nav a:hover {
-  color: white;
-  font-size: 20px;
+  color: #ff6b35;
+  font-size: 16px;
 }
 
 #logo-url:hover {
@@ -45,8 +54,8 @@ export default {
 }
 
 #nav {
-  background-color: #333;
-  border-bottom: 3px solid darkgoldenrod;
+  background-color: #1a1a1a;
+  border-bottom: 3px solid #ff6b35;
   padding: 15px 50px;
   display: flex;
   justify-content: flex-end;

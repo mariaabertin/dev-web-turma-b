@@ -2,19 +2,19 @@
   "tipos_pontos": [
     {
       "id": 1,
-      "descricao": "Ao ponto"
+      "descricao": "Pequena (30cm)"
     },
     {
       "id": 2,
-      "descricao": "Bem passada"
+      "descricao": "Média (35cm)"
     },
     {
       "id": 3,
-      "descricao": "Mal passada"
+      "descricao": "Grande (40cm)"
     },
     {
       "id": 4,
-      "descricao": "Boi morreu em vão"
+      "descricao": "Gigante (45cm)"
     }
   ],
   "status_pedido": [
@@ -43,90 +43,7 @@
       "descricao": "Pedido realizado"
     }
   ],
-  "pedidos": [
-    {
-      "nome": "Teste Final",
-      "ponto": {
-        "id": 2,
-        "descricao": "Bem passada"
-      },
-      "bebidas": [
-        {
-          "id": 1,
-          "nome": "Coca Cola Lata 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        },
-        {
-          "id": 2,
-          "nome": "Shweppes Citrus 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16966989566521924cc9418_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        }
-      ],
-      "complemento": [
-        {
-          "id": 1,
-          "nome": "Combo Bebida + Batata",
-          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
-          "valor": 11,
-          "eh_novidade": true
-        }
-      ],
-      "burguer": {
-        "id": 1,
-        "nome": "Diretoria",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
-        "valor": 35,
-        "eh_novidade": true
-      },
-      "statusId": 5,
-      "id": 4
-    },
-    {
-      "nome": "Fernando Dias",
-      "ponto": {
-        "id": 4,
-        "descricao": "Boi morreu em vão"
-      },
-      "bebidas": [
-        {
-          "id": 2,
-          "nome": "Shweppes Citrus 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16966989566521924cc9418_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        }
-      ],
-      "complemento": [
-        {
-          "id": 1,
-          "nome": "Combo Bebida + Batata",
-          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
-          "valor": 11,
-          "eh_novidade": true
-        }
-      ],
-      "burguer": {
-        "id": 1,
-        "nome": "Diretoria",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
-        "valor": 35,
-        "eh_novidade": true
-      },
-      "statusId": 5,
-      "id": 5
-    }
-  ],
+  "pedidos": [],
   "opcionais": {
     "complemento": [
       {
@@ -185,69 +102,69 @@
     "limitado": [
       {
         "id": 1,
-        "nome": "Arretado",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1698926982654391866e311_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, suculento blend de 160 gramas flambado na manteiga de garrafa, coberto de queijo coalho e finalizado com geléia de pimenta Queensberry",
-        "valor": 38,
+        "nome": "Especial Premium",
+        "foto": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400&q=80",
+        "descricao": "Pizza artesanal com massa crocante, molho de tomate caseiro, mozzarella de búfala, calabresa premium e cebola roxa caramelizada",
+        "valor": 48,
         "eh_novidade": true
       }
     ],
     "burgues": [
       {
         "id": 1,
-        "nome": "Diretoria",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
+        "nome": "Margherita",
+        "foto": "https://images.unsplash.com/photo-1585238341710-4b4efa7d4d53?w=400&q=80",
+        "descricao": "Clássica pizza italiana com molho de tomate orgânico, mozzarella fresca, manjericão fresco e azeite de oliva extra virgem",
         "valor": 35,
         "eh_novidade": true
       },
       {
         "id": 2,
-        "nome": "Veggie",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese secreta, tomate assado e defumado na lenha frutífera, blend de arroz negro, batata baroa e Shimeji 150 gramas grelhado e regado ao azeite , queijo derretido na brasa e molho secreto de cebola caramelizada, tudo preparado com aquele sabor de churrasco.",
-        "valor": 35,
-        "eh_novidade": true
+        "nome": "Calabresa",
+        "foto": "https://images.unsplash.com/photo-1628840042765-356cda07f4ee?w=400&q=80",
+        "descricao": "Pizza suculenta com calabresa fatiada, cebola roxa, azeitonas pretas e mozzarella derretida na perfeição",
+        "valor": 38,
+        "eh_novidade": false
       },
       {
         "id": 3,
-        "nome": "Doritos",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429871651d772fb9fbe_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial, suculento blend de 160 gramas, queijo cheddar derretido na brasa, cream cheese e Doritos.",
-        "valor": 32,
+        "nome": "Frango com Catupiry",
+        "foto": "https://images.unsplash.com/photo-1589190882186-1fb2f8f46c6d?w=400&q=80",
+        "descricao": "Frango desfiado temperado, catupiry cremoso, milho doce e mozzarella em uma combinação irresistível",
+        "valor": 40,
         "eh_novidade": true
       },
       {
         "id": 4,
-        "nome": "Campeiro",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696432070651d7fc6b7c98_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, alface americana fresca e crocante, tomate grelhado e defumado, suculento hambúrguer de 160 gramas, queijo derretido na brasa.",
-        "valor": 30,
+        "nome": "Vegetariana",
+        "foto": "https://images.unsplash.com/photo-1571997477754-931f490aa5e0?w=400&q=80",
+        "descricao": "Abobrinha, berinjela, pimentão, cebola, tomate fresco, rúcula e mozzarella para os amantes de vegetais",
+        "valor": 32,
         "eh_novidade": true
       },
       {
         "id": 5,
-        "nome": "Braseirão",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1701549228656b94ac481d3_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, dois suculentos blend's de 160 gramas e queijo mussarela derretido na brasa.",
-        "valor": 30,
+        "nome": "Havaiana",
+        "foto": "https://images.unsplash.com/photo-1614707267537-b85faf00021e?w=400&q=80",
+        "descricao": "Presunto fumado, abacaxi caramelizado, cebola roxa e mozzarella em uma combinação doce e salgada",
+        "valor": 39,
         "eh_novidade": true
       },
       {
         "id": 6,
-        "nome": "Braseiro",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696432090651d7fda3ebe1_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, suculento blend de 160 gramas, triplo queijo cheddar derretido na brasa.",
-        "valor": 20,
+        "nome": "4 Queijos",
+        "foto": "https://images.unsplash.com/photo-1604103442097-8cc5189f3466?w=400&q=80",
+        "descricao": "Mozzarella, gorgonzola, parmesão e catupiry em uma explosão de sabores cremosos e intensos",
+        "valor": 42,
         "eh_novidade": true
       },
       {
         "id": 7,
-        "nome": "Churrasqueto",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16978359266532eb960c34d_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, suculento blend de 120 gramas, triplo queijo cheddar derretido na brasa.",
-        "valor": 15,
-        "eh_novidade": true
+        "nome": "Pepperoni",
+        "foto": "https://images.unsplash.com/photo-1628840042765-356cda07f4ee?w=400&q=80",
+        "descricao": "Fatias generosas de pepperoni crocante, mozzarella derretida e molho de tomate gourmet",
+        "valor": 36,
+        "eh_novidade": false
       }
     ]
   }

@@ -1,6 +1,6 @@
 <template>
   <div id="main-banner">
-    <h1>Hamburguer de Churrasqueiro</h1>
+    <h1>PizzaFresh - Pizza Artesanal</h1>
   </div>
 </template>
 
@@ -12,8 +12,8 @@ export default {
 
 <style scoped>
 #main-banner {
-  background-image: url("/public/img/banner.jpeg");
-  background-position: 0;
+  background-image: url("https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=1200&q=80");
+  background-position: center;
   background-size: cover;
   height: 500px;
   display: flex;
@@ -22,11 +22,13 @@ export default {
 }
 
 #main-banner h1 {
-  font-size: 40px;
+  font-size: 48px;
   color: white;
   text-align: center;
-  background: #333;
-  padding: 25px;
-  border-radius: 100px 0px 0px 100px;
+  background: rgba(26, 26, 26, 0.85);
+  padding: 30px 40px;
+  border-radius: 0 100px 100px 0;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 </style>
