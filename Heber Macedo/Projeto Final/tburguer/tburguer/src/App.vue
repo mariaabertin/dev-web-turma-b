@@ -2,7 +2,6 @@
   <div>
     <NavBarComponent />
     <BannerComponent />
-    <AlertComponent ref="globalAlert" />
     <router-view />
   </div>
 </template>
@@ -10,14 +9,11 @@
 <script>
 import NavBarComponent from "./components/NavBarComponent.vue";
 import BannerComponent from "./components/BannerComponent.vue";
-import AlertComponent from "./components/AlertComponent.vue";
-
 export default {
   name: "App",
   components: {
     NavBarComponent,
     BannerComponent,
-    AlertComponent,
   },
 };
 </script>
@@ -41,11 +37,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #ff6b35;
-}
-
-h1 {
-  color: #1a1a1a;
-  margin: 30px 0 20px 0;
+  color: #42b983;
 }
 </style>

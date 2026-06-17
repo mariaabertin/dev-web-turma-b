@@ -1,14 +1,13 @@
 <template>
   <div>
-    <alert-component-vue ref="alertComponent" />
     <div id="pedidos-tabela">
       <div>
         <div id="pedidos-tabela-cabecalho">
           <div id="ordem-id">#ID</div>
           <div>Nome</div>
-          <div>Pizza</div>
-          <div>Tamanho</div>
-          <div>Adicionais</div>
+          <div>Hamburguer</div>
+          <div>Ponto</div>
+          <div>opcionais</div>
           <div>Status</div>
           <div id="div-acoes">Ações</div>
         </div>
@@ -32,8 +31,8 @@
         </ul>
         <div class="divider"></div>
         <ul>
-          <li v-for="(bebida, index) in pedido.bebidas" :key="index">
-            {{ bebida.nome }}
+          <li v-for="(refri, index) in pedido.bebidas" :key="index">
+            {{ refri.nome }}
           </li>
         </ul>
       </div>
@@ -66,13 +65,9 @@
   </div>
 </template>
 <script>
-import AlertComponentVue from "./AlertComponent.vue";
 
 export default {
   name: "ListaPedidoComponent",
-  components: {
-    AlertComponentVue,
-  },
   data() {
     return {
       listaPedidosRealizados: [],
@@ -91,48 +86,17 @@ export default {
     async atualizarStatusPedido(event, idPedido) {
       const idPedidoAtualizado = event.target.value;
       const atualizacaoJson = JSON.stringify({ statusId: idPedidoAtualizado });
-      try {
-        await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
-          method: "PATCH",
-          headers: { "Content-type": "application/json" },
-          body: atualizacaoJson,
-        });
-        this.$refs.alertComponent.mostrarAlerta(
-          "sucesso",
-          "Status do pedido atualizado com sucesso!"
-        );
-      } catch (error) {
-        console.error(error);
-        this.$refs.alertComponent.mostrarAlerta(
-          "erro",
-          "Erro ao atualizar status do pedido"
-        );
-      }
+      await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
+        method: "PATCH",
+        headers: { "Content-type": "application/json" },
+        body: atualizacaoJson,
+      });
+      //fazer algo ápos alterar
     },
     async deletarPedido(idPedido) {
-      try {
-        const response = await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
-          method: "DELETE",
-        });
-        
-        if (response.ok) {
-          // Remove o pedido da lista imediatamente
-          this.listaPedidosRealizados = this.listaPedidosRealizados.filter(
-            (pedido) => pedido.id !== idPedido
-          );
-          
-          this.$refs.alertComponent.mostrarAlerta(
-            "sucesso",
-            "Pedido removido com sucesso!"
-          );
-        }
-      } catch (error) {
-        console.error(error);
-        this.$refs.alertComponent.mostrarAlerta(
-          "erro",
-          "Erro ao remover pedido"
-        );
-      }
+      const response = await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
+        method: "DELETE",
+      });
     },
   },
   mounted() {

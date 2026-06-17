@@ -1,20 +1,20 @@
 <template>
   <div>
-    <h1>Nosso Menu de Pizzas</h1>
+    <h1>Menu</h1>
     <div id="scroll-horizontal">
       <div
         id="card-content"
-        v-for="pizza in listaMenuPizzas"
-        :key="pizza.id"
+        v-for="burguer in listaMenuHamburguers"
+        :key="burguer.id"
       >
         <div id="card-linha">
-          <div class="foto-pizza">
-            <img :src="pizza.foto" />
+          <div class="foto-hamburguer">
+            <img :src="burguer.foto" />
             <div class="card-coluna">
-              <p id="nome-content">{{ pizza.nome }}</p>
-              <p id="preco-content">R$ {{ pizza.valor }},00</p>
-              <p id="descricao-content">{{ pizza.descricao }}</p>
-              <button @click="selecionarPizza(pizza)">Selecionar</button>
+              <p id="nome-content">{{ burguer.nome }}</p>
+              <p id="preco-content">R$ {{ burguer.valor }},00</p>
+              <p id="descricao-content">{{ burguer.descricao }}</p>
+              <button @click="selecionarBurguer(burguer)">Selecionar</button>
             </div>
           </div>
         </div>
@@ -27,22 +27,22 @@ export default {
   name: "MenuView",
   data() {
     return {
-      listaMenuPizzas: [],
+      listaMenuHamburguers: [],
     };
   },
   methods: {
     async consultarMenu() {
       const response = await fetch(`${this.$apiUrl}/menu`);
       const dados = await response.json();
-      this.listaMenuPizzas = dados.burgues;
-      console.log(this.listaMenuPizzas);
+      this.listaMenuHamburguers = dados.burgues;
+      console.log(this.listaMenuHamburguers);
     },
-    selecionarPizza(pizzaSelecionada) {
-      const param = JSON.stringify(pizzaSelecionada);
-      const pizzaJson = encodeURIComponent(param);
+    selecionarBurguer(burguerSelecionado) {
+      const param = JSON.stringify(burguerSelecionado);
+      const burguerJson = encodeURIComponent(param);
       this.$router.push({
         path: "/config-pedido",
-        query: { pizza: pizzaJson },
+        query: { burguer: burguerJson },
       });
     },
   },
@@ -81,11 +81,11 @@ export default {
   margin: 12px;
 }
 
-.foto-pizza {
+.foto-hamburguer {
   flex-shrink: 0;
 }
 
-.foto-pizza img {
+.foto-hamburguer img {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
@@ -95,7 +95,7 @@ export default {
   font-size: 35px;
   font-weight: bold;
   text-align: center;
-  color: #ff6b35;
+  color: darkgreen;
 }
 
 #descricao-content {
@@ -129,13 +129,13 @@ export default {
   border-radius: 10px;
   border: none;
   color: white;
-  background-color: #ff6b35;
+  background-color: green;
   cursor: pointer;
   transition: 0.5s;
 }
 
 .card-coluna button:hover {
-  color: #1a1a1a;
-  background-color: #ffd700;
+  color: rgb(202, 246, 202);
+  background-color: rgb(0, 37, 22);
 }
 </style>

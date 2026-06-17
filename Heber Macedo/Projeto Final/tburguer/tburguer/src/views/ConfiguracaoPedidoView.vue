@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Configurar Pedido</h1>
-    <pedido-component-vue :pizza="pizzaSelecionada" />
+    <h1>Configuração do Pedido</h1>
+    <pedido-component-vue :burguer="hamburguerSelecionado" />
   </div>
 </template>
 <script>
@@ -14,14 +14,14 @@ export default {
   },
   data() {
     return {
-      pizzaSelecionada: null,
+      hamburguerSelecionado: null,
     };
   },
   mounted() {
     const query = this.$route.query;
-    if (query.pizza) {
-      const decodePizza = JSON.parse(decodeURIComponent(query.pizza));
-      this.pizzaSelecionada = decodePizza;
+    if (query.burguer) {
+      const decodeBurguer = JSON.parse(decodeURIComponent(query.burguer));
+      this.hamburguerSelecionado = decodeBurguer;
     }
   },
 };
