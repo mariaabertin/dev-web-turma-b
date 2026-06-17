@@ -96,12 +96,12 @@ export default {
   },
   methods: {
     async getTiposPontos() {
-      const response = await fetch("http://localhost:3000/tipos_pontos");
+      const response = await fetch(`${this.$apiUrl}/tipos_pontos`);
       const dados = await response.json();
       this.listaPontosCarne = dados;
     },
     async getOpcionais() {
-      const response = await fetch("http://localhost:3000/opcionais");
+      const response = await fetch(`${this.$apiUrl}/opcionais`);
       const dados = await response.json();
       this.listaComplementos = dados.complemento;
       this.listaBebidas = dados.bebidas;
@@ -122,7 +122,7 @@ export default {
 
       const dadosJson = JSON.stringify(dadosPedido);
 
-      const req = await fetch("http://localhost:3000/pedidos", {
+      const req = await fetch(`${this.$apiUrl}/pedidos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: dadosJson,
@@ -136,4 +136,103 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#foto-content {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  position: relative;
+  z-index: -1;
+  justify-content: center;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+#nome-hamburguer-content {
+  font-size: 43px;
+  font-weight: bold;
+  text-align: start;
+  margin-bottom: -90px;
+  margin-left: 40px;
+  color: antiquewhite;
+  padding: 16px;
+}
+
+#form-pedido {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #222;
+  padding: 5px 12px;
+  flex-direction: start;
+  display: flex;
+  border-left: 4px solid darkgoldenrod;
+}
+
+input,
+select {
+  padding: 12px;
+  width: 300px;
+  border: solid #222 1px;
+  border-radius: 8px;
+  height: 20px;
+  font-size: 12px;
+}
+
+select {
+  height: 45px;
+}
+
+#opcionais-titulo {
+  width: 100%;
+}
+
+#opcionais-subtitulo {
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.checkbox-container span {
+  margin-left: 6px;
+  font-weight: bold;
+}
+
+.checkbox-container span,
+.checkbox-container input {
+  width: auto;
+  height: 20px;
+}
+
+.submit-btn {
+  background-color: #222;
+  color: darkgoldenrod;
+  font-weight: bold;
+  border: none;
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  transition: 0.5s;
+}
+
+.submit-btn:hover {
+  background-color: darkgoldenrod;
+  color: #222;
+}
+</style>
