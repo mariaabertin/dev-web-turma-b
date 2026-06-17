@@ -1,22 +1,22 @@
 <template>
-    <div>
+  <div>
     <nav id="nav">
-        <router-link to="/" id="logo-url">
-            <img src="/img/logo_tburguer.png" id="logo" />
-        </router-link> |
-        <router-link to="/menu">Menu</router-link> |
-        <router-link to="/pedidos">Pedidos</router-link>
+      <router-link to="/" id="logo-url">
+        <img src="/img/logo_tburguer.png" id="logo" />
+      </router-link>
+      <router-link to="/menu">Menu</router-link> |
+      <router-link to="/pedidos">Pedidos</router-link>
     </nav>
-</div>
-    </template>
+  </div>
+</template>
 
-    <script>
-    export default {
-        name: 'NavBarComponent'
-    };
-    </script>
+<script>
+export default {
+  name: "NavBarComponent",
+};
+</script>
 
-    <style scoped>
+<style scoped>
 #logo {
   width: 60px;
   height: 60px;
