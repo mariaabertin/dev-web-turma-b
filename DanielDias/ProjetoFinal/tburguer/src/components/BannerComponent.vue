@@ -1,6 +1,6 @@
 <template>
   <div id="main-banner">
-    <h1>Hamburguer de Churrasqueiro</h1>
+    <h1>Mamamia Pizzaria 🤌🏼</h1>
   </div>
 </template>
 
@@ -22,10 +22,12 @@ export default {
 }
 
 #main-banner h1 {
-  font-size: 40px;
+  font-size: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
   color: white;
   text-align: center;
-  background: #333;
+  background:green;
   padding: 25px;
   border-radius: 100px 0px 0px 100px;
 }
