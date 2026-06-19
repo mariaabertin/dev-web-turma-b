@@ -1,46 +1,47 @@
 <template>
   <div>
-    <h1>Menu</h1>
+    <h1>Menu - Mamma Mia</h1>
     <div id="scroll-horizontal">
-      <div id="card-content" v-for="burguer in listaMenuHamburguers" :key="burguer.id">
+      <!-- v-for adaptado para pizzas -->
+      <div id="card-content" v-for="pizza in listaMenuPizzas" :key="pizza.id">
         <div id="card-linha">
-          <div class="foto-hamburguer">
+          <div class="foto-pizza"> <!-- Mantida a classe original do seu CSS -->
             <img 
             width="300"
             height="200"
-            :src="burguer.foto">
+            :src="pizza.foto">
             <div id="card-coluna">
-              <p id="nome-content">{{burguer.nome}}</p>
-              <p id="preco-content">R$ {{burguer.valor}},00</p>
-              <p id="descricao-content">{{burguer.descricao}}</p>
-              <button @click="selecionarBurguer(burguer)">Selecionar</button>
+              <p id="nome-content">{{ pizza.nome }}</p>
+              <p id="preco-content">R$ {{ pizza.valor }},00</p>
+              <p id="descricao-content">{{ pizza.descricao }}</p>
+              <button @click="selecionarPizza(pizza)">Selecionar</button>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "MenuView",
   data(){
     return{
-      listaMenuHamburguers: [],
+      listaMenuPizzas: [],
     };
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch ("http://localhost:3000/menu"); 
+      const response = await fetch("https://api-mammamia.onrender.com/menu"); 
       const dados = await response.json();
-      this.listaMenuHamburguers = dados.burgues;
-      console.log(this.listaMenuHamburguers);
+      this.listaMenuPizzas = dados.pizzas;
+      console.log(this.listaMenuPizzas);
     },
-    selecionarBurguer(burguerSelecionado) {
-      const param = JSON.stringify(burguerSelecionado);
-      const burguerJson = encodeURIComponent(param);
-      this.$router.push({path: "/config-pedido", query: {burguer: burguerJson}})
+    selecionarPizza(pizzaSelecionada) {
+      const param = JSON.stringify(pizzaSelecionada);
+      const pizzaJson = encodeURIComponent(param);
+      this.$router.push({path: "/config-pedido", query: {pizza: pizzaJson}})
     }
   },
   mounted() {
@@ -79,11 +80,11 @@ export default {
   margin: 12px;
 }
 
-.foto-hamburguer {
+.foto-pizza {
   flex-shrink: 0;
 }
 
-.foto-hamburguer img {
+.foto-pizza img {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
@@ -136,5 +137,4 @@ export default {
   color: rgb(208, 247, 208);
   background-color: rgb(0, 54, 9);
 }
-
 </style>
