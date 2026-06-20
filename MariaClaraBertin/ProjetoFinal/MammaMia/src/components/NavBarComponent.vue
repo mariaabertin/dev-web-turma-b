@@ -33,7 +33,7 @@ nav a {
     color: darkgoldenrod;
     text-decoration: none;
     margin: 12px;
-    transition: 0.3s; /* Corrigido de 0.3 para 0.3s para a transição funcionar */
+    transition: 0.3s; 
 }
 
 nav a:hover {

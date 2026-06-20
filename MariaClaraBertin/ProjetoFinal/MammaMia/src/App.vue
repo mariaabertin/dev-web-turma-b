@@ -1,7 +1,6 @@
 <template>
   <div>
     <nav-bar-component />
-    <!-- O banner só vai aparecer na Home ou no Menu, limpando as outras telas -->
     <banner-component v-if="$route.path === '/' || $route.path === '/menu'" />
     <router-view />
   </div>
@@ -38,7 +37,6 @@ nav a {
   color: #2c3e50;
 }
 
-/* Atualizado de verde para combinar com o darkgoldenrod da sua Mamma Mia */
 nav a.router-link-exact-active {
   color: darkgoldenrod;
 }
