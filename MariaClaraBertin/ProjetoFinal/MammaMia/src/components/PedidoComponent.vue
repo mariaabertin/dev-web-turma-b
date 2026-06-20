@@ -1,13 +1,18 @@
 <template>
   <div>
+    <div v-if="msg" :class="['alert-container', alertType]">
+      <span class="icon">{{ iconSymbol }}</span>
+      <p>{{ msg }}</p>
+    </div>
+
     <form id="pedido-form" @submit="criarPedido($event)">
       <div>
         <p id="nome-hamburguer-content">
-          {{ burguer && burguer.nome ? burguer.nome : "--" }}
+          {{ pizza && pizza.nome ? pizza.nome : "--" }}
         </p>
         <img
           id="foto-content"
-          :src="burguer && burguer.foto ? burguer.foto : ''"
+          :src="pizza && pizza.foto ? pizza.foto : ''"
         />
       </div>
       <div class="inputs" id="form-pedido">
@@ -20,25 +25,25 @@
         />
       </div>
       <div class="inputs">
-        <label> Ponto da carne</label>
+        <label>Tamanho da Pizza</label>
         <select
-          v-model="pontoCarneSelecionado"
-          name="ponto-carne"
-          id="ponto-carne"
+          v-model="tamanhoSelecionado"
+          name="tamanho-pizza"
+          id="tamanho-pizza"
         >
-          <option value="" selected>Selecione o ponto</option>
+          <option value="" selected>Selecione o tamanho</option>
           <option
-            v-for="pontoCarne in listaPontosCarne"
-            :key="pontoCarne.id"
-            :value="pontoCarne"
+            v-for="tamanho in listaTamanhos"
+            :key="tamanho.id"
+            :value="tamanho"
           >
-            {{ pontoCarne.descricao }}
+            {{ tamanho.descricao }}
           </option>
         </select>
       </div>
       <div class="inputs">
         <label id="opcionais-titulo"> Selecione os opcionais</label>
-        <label id="opcionais-subtitulo"> Selecione os complementos</label>
+        <label id="opcionais-subtitulo"> Bordas recheadas e adicionais</label>
 
         <div
           v-for="complemento in listaComplementos"
@@ -77,31 +82,49 @@
     </form>
   </div>
 </template>
+
 <script>
 export default {
   name: "PedidoComponent",
   props: {
-    burguer: null,
+    // Propriedade atualizada recebendo o objeto da view pai
+    pizza: null,
   },
   data() {
     return {
-      listaPontosCarne: [],
+      listaTamanhos: [],
       listaComplementos: [],
       listaBebidas: [],
       nomeCliente: "",
-      pontoCarneSelecionado: "",
+      tamanhoSelecionado: "",
       listaComplementosSelecionados: [],
       listaBebidasSelecionadas: [],
+      // Estados para controle de feedback visual (Requisito 2)
+      msg: null,
+      alertType: "success"
     };
   },
+  computed: {
+    iconSymbol() {
+      const icons = {
+        success: "✓",
+        error: "✕",
+        warning: "⚠",
+        info: "ℹ"
+      };
+      return icons[this.alertType] || "ℹ";
+    }
+  },
   methods: {
-    async getTiposPontos() {
-      const response = await fetch("http://localhost:3000/tipos_pontos");
+    async getTiposTamanhos() {
+      // Atualizado para a URL do Render e rota correta de tamanhos
+      const response = await fetch("https://api-mammamia.onrender.com/tipos_tamanhos");
       const dados = await response.json();
-      this.listaPontosCarne = dados;
+      this.listaTamanhos = dados;
     },
     async getOpcionais() {
-      const response = await fetch("http://localhost:3000/opcionais");
+      // Atualizado para buscar da URL do Render
+      const response = await fetch("https://api-mammamia.onrender.com/opcionais");
       const dados = await response.json();
       this.listaComplementos = dados.complemento;
       this.listaBebidas = dados.bebidas;
@@ -109,34 +132,94 @@ export default {
     async criarPedido(e) {
       e.preventDefault();
 
+      // REQUISITO: Validação e Bloqueio de campos essenciais
+      if (!this.nomeCliente || !this.tamanhoSelecionado) {
+        this.msg = "Por favor, preencha o seu nome e selecione o tamanho da pizza!";
+        this.alertType = "error"; // Feedback Vermelho
+        return;
+      }
+
       const dadosPedido = {
         nome: this.nomeCliente,
-        ponto: this.pontoCarneSelecionado,
+        tamanho: this.tamanhoSelecionado,
         bebidas: Array.from(this.listaBebidasSelecionadas),
         complemento: Array.from(this.listaComplementosSelecionados),
-        burguer: this.burguer,
-        statusId: 5,
+        pizza: this.pizza,
+        statusId: 6, // Status inicial padrão ("Pedido realizado")
       };
-
-      console.log(dadosPedido);
 
       const dadosJson = JSON.stringify(dadosPedido);
 
-      const req = await fetch("http://localhost:3000/pedidos", {
+      const req = await fetch("https://api-mammamia.onrender.com/pedidos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: dadosJson,
       });
+
+      if (req.ok) {
+        // Feedback visual positivo (Feedback Verde)
+        this.msg = `Pedido realizado com sucesso para ${dadosPedido.nome}!`;
+        this.alertType = "success";
+
+        // Limpar o formulário
+        this.nomeCliente = "";
+        this.tamanhoSelecionado = "";
+        this.listaComplementosSelecionados = [];
+        this.listaBebidasSelecionadas = [];
+
+        // REQUISITO: Redirecionamento inteligente após 3 segundos
+        setTimeout(() => {
+          this.msg = null;
+          this.$router.push("/pedidos"); // Vai para a tela de monitoramento/listagem
+        }, 3000);
+      } else {
+        this.msg = "Ocorreu um erro ao enviar o pedido. Tente novamente.";
+        this.alertType = "error";
+      }
     },
   },
   mounted() {
-    this.getTiposPontos();
+    this.getTiposTamanhos();
     this.getOpcionais();
   },
 };
 </script>
 
 <style scoped>
+/* ESTILIZAÇÃO DO COMPONENTE DE ALERTA SEMÂNTICO (Requisito 2) */
+.alert-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 750px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-left: 6px solid #4caf50; /* Verde */
+}
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border-left: 6px solid #f44336; /* Vermelho */
+}
+.warning {
+  background-color: #fff3e0;
+  color: #ef6c00;
+  border-left: 6px solid #ff9800; /* Laranja */
+}
+.info {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border-left: 6px solid #2196f3; /* Azul */
+}
+
+/* Mantidos os estilos originais do seu formulário */
 #foto-content {
   margin-bottom: 16px;
   border-radius: 16px;

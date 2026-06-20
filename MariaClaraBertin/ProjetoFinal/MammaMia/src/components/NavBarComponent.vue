@@ -2,7 +2,7 @@
     <div>
     <nav>
         <router-link to="/" id="logo-url">
-            <img src="/img/logo_tburguer.png" id="logo" />
+            <img src="/img/logo_mammamia.png" id="logo" alt="Mamma Mia Logo" />
         </router-link>
 |
         <router-link to="/menu">Menu</router-link> |
@@ -32,7 +32,7 @@ nav a {
     color: darkgoldenrod;
     text-decoration: none;
     margin: 12px;
-    transition: 0.3;
+    transition: 0.3s; /* Corrigido de 0.3 para 0.3s para a transição funcionar */
 }
 
 nav a:hover {

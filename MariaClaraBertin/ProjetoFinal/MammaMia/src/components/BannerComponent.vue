@@ -1,20 +1,24 @@
 <template>
-    <div id="main-banner">
-        <h1>Hambúrguer de Churrasqueiro</h1>
+    <div id="main-banner" :style="{ backgroundImage: 'url(' + bannerUrl + ')' }">
+        <h1>A Verdadeira Pizza Italiana</h1>
     </div>
 </template>
 
 <script>
 export default {
     name: "BannerComponent",
+    data() {
+        return {
+            bannerUrl: "/img/banner_pizza.jpeg"
+        }
+    }
 };
 </script>
 
 <style scoped> 
 #main-banner {
-    background-image: url("/public/img/banner.jpeg");
-    background-position: 0;
-    background-size: conver;
+    background-position: center;
+    background-size: cover;
     height: 500px;
     display: flex;
     align-items: center;
@@ -29,5 +33,4 @@ export default {
     padding: 25px;
     border-radius: 100px 0px 0px 100px;
 }
-
 </style>
