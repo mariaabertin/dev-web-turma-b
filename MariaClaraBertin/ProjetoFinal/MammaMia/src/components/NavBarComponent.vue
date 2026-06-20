@@ -20,6 +20,8 @@ export default {
 #logo {
     width: 60px;
     height: 60px;
+    clip-path: circle(46% at 50% 50%);
+    object-fit: cover;
 }
 
 nav #logo-url {

@@ -1,21 +1,26 @@
 <template>
-  <div>
-    <h1>Menu - Mamma Mia</h1>
+  <div class="menu-container">
+    <h1 class="menu-titulo">Menu Mamma Mia</h1>
+    <p class="menu-subtitulo">Tradizione e Passione in Ogni Fetta</p>
+    
     <div id="scroll-horizontal">
-      <!-- v-for adaptado para pizzas -->
       <div id="card-content" v-for="pizza in listaMenuPizzas" :key="pizza.id">
-        <div id="card-linha">
-          <div class="foto-pizza"> <!-- Mantida a classe original do seu CSS -->
+        <div class="card-inner">
+          <div class="foto-pizza">
             <img 
-            width="300"
-            height="200"
-            :src="pizza.foto">
-            <div id="card-coluna">
-              <p id="nome-content">{{ pizza.nome }}</p>
-              <p id="preco-content">R$ {{ pizza.valor }},00</p>
-              <p id="descricao-content">{{ pizza.descricao }}</p>
-              <button @click="selecionarPizza(pizza)">Selecionar</button>
-            </div>
+              width="300"
+              height="200"
+              :src="pizza.foto"
+              :alt="pizza.nome"
+            />
+          </div>
+          <div class="card-coluna">
+            <p id="nome-content">{{ pizza.nome }}</p>
+            <p id="preco-content">R$ {{ pizza.valor }},00</p>
+            <p id="descricao-content">{{ pizza.descricao }}</p>
+            <button class="btn-selecionar" @click="selecionarPizza(pizza)">
+              Selecionar
+            </button>
           </div>
         </div>
       </div>
@@ -41,9 +46,9 @@ export default {
         } else {
           this.listaMenuPizzas = dados;
         }
-        console.log("Dados carregados com sucesso:", this.listaMenuPizzas);
+        console.log("Dados carregados com sucesso!", this.listaMenuPizzas);
       } catch (error) {
-        console.error("Erro ao buscar o menu:", error);
+        console.error("Erro ao buscar o menu", error);
       }
     },
     selecionarPizza(pizzaSelecionada) {
@@ -59,90 +64,146 @@ export default {
 </script>
 
 <style scoped>
-#card-content {
-  display: inline-block;
-  width: 280px;
-  min-height: 500px;
-  margin: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px #444;
-  position: relative;
+.menu-container {
+  background-color: #faf9f6;
+  padding: 40px 0;
+  min-height: 100vh;
+}
+
+.menu-titulo {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 38px;
+  color: #5c1d24; 
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.menu-subtitulo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #b8860b; 
+  margin-bottom: 30px;
 }
 
 #scroll-horizontal {
-  flex: 1;
+  display: flex;
+  justify-content: flex-start;
   overflow-x: auto;
-  white-space: nowrap;
-  width: 900px;
+  gap: 10px;
+  width: 95% ;
+  max-width: 1100px;
   margin: 0 auto;
-  box-shadow: inset -10px 0px 15px -20px grey;
+  padding: 20px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #b8860b #faf9f6;
 }
 
-#nome-content {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  width: 100%;
-  margin: 12px;
+#card-content {
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 290px;
+  min-height: 520px;
+  background-color: #ffffff;
+  border: 1px solid #eae6df;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(92, 29, 36, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+#card-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(92, 29, 36, 0.12);
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 
 .foto-pizza {
-  flex-shrink: 0;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-bottom: 3px solid #b8860b; 
 }
 
 .foto-pizza img {
   width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-}
-
-#preco-content {
-  font-size: 35px;
-  font-weight: bold;
-  text-align: center;
-  color: rgb(9, 129, 79);
-}
-
-#descricao-content {
-  font-size: 16px;
-  text-align: left;
-  color: gray;
-  margin: 16px;
-  white-space: pre-line;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-}
-
-.card-linha {
-  display: flex;
-  flex-direction: row;
   height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+#card-content:hover .foto-pizza img {
+  transform: scale(1.05);
 }
 
 .card-coluna {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  padding: 15px;
-  height: 100%;
+  justify-content: space-between;
 }
 
-#card-coluna button {
-  padding: 10px;
+#nome-content {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #333333;
+  margin: 0 0 8px 0;
+  white-space: normal;
+}
+
+#preco-content {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: #5c1d24; 
+  margin: 0 0 12px 0;
+}
+
+#descricao-content {
+  font-size: 14px;
+  text-align: center; 
+  color: #666666;
+  margin-bottom: 20px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+}
+
+.btn-selecionar {
+  padding: 12px;
   width: 100%;
-  border-radius: 10px;
-  border: none;
-  color: rgb(255, 255, 255);
-  background-color: rgb(2, 102, 80);
+  border-radius: 8px;
+  border: 1px solid #435424;
+  color: #ffffff;
+  background-color: #556b2f; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  margin-top: auto;
 }
 
-#card-coluna button:hover {
-  color: rgb(208, 247, 208);
-  background-color: rgb(0, 54, 9);
+.btn-selecionar:hover {
+  background-color: #435424;
+  border-color: #2b3617;
+  box-shadow: 0 4px 8px rgba(85, 107, 47, 0.3);
 }
 </style>
