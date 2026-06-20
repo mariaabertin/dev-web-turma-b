@@ -1,4 +1,4 @@
-# 🍕 Mamma Mia — Pizzeria & Trattoria
+# 🍕 Mamma Mia
 
 Sitema de gerenciamento e monitoramento de pedidos em tempo real desenvolvido em **Vue 3**, adaptado a partir da estrutura base do projeto *T-Burguer*. O projeto foi totalmente reformulado para atender ao segmento gastronômico de pizzarias clássicas italianas. Tem como abjetivo possuir uma interface responsiva e integrada a um banco de dados em nuvem.
 
