@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div v-if="msg" :class="['alert-container', alertType]">
-      <span class="icon">{{ iconSymbol }}</span>
-      <p>{{ msg }}</p>
-    </div>
+    <mensagem-component v-if="msg" :msg="msg" :tipo="alertType" />
 
     <form id="pedido-form" @submit="criarPedido($event)">
       <div>
@@ -84,10 +81,14 @@
 </template>
 
 <script>
+import MensagemComponent from '@/components/MensagemComponent.vue';
+
 export default {
   name: "PedidoComponent",
+  components: {
+    MensagemComponent
+  },
   props: {
-    // Propriedade atualizada recebendo o objeto da view pai
     pizza: null,
   },
   data() {
@@ -99,31 +100,17 @@ export default {
       tamanhoSelecionado: "",
       listaComplementosSelecionados: [],
       listaBebidasSelecionadas: [],
-      // Estados para controle de feedback visual (Requisito 2)
       msg: null,
-      alertType: "success"
+      alertType: "sucesso"
     };
-  },
-  computed: {
-    iconSymbol() {
-      const icons = {
-        success: "✓",
-        error: "✕",
-        warning: "⚠",
-        info: "ℹ"
-      };
-      return icons[this.alertType] || "ℹ";
-    }
   },
   methods: {
     async getTiposTamanhos() {
-      // Atualizado para a URL do Render e rota correta de tamanhos
       const response = await fetch("https://api-mammamia.onrender.com/tipos_tamanhos");
       const dados = await response.json();
       this.listaTamanhos = dados;
     },
     async getOpcionais() {
-      // Atualizado para buscar da URL do Render
       const response = await fetch("https://api-mammamia.onrender.com/opcionais");
       const dados = await response.json();
       this.listaComplementos = dados.complemento;
@@ -132,10 +119,9 @@ export default {
     async criarPedido(e) {
       e.preventDefault();
 
-      // REQUISITO: Validação e Bloqueio de campos essenciais
       if (!this.nomeCliente || !this.tamanhoSelecionado) {
-        this.msg = "Por favor, preencha o seu nome e selecione o tamanho da pizza!";
-        this.alertType = "error"; // Feedback Vermelho
+        this.msg = "Erro de Preenchimento: Os campos 'Nome' e 'Tamanho da Pizza' precisam estar preenchidos!";
+        this.alertType = "erro"; 
         return;
       }
 
@@ -145,36 +131,38 @@ export default {
         bebidas: Array.from(this.listaBebidasSelecionadas),
         complemento: Array.from(this.listaComplementosSelecionados),
         pizza: this.pizza,
-        statusId: 6, // Status inicial padrão ("Pedido realizado")
+        statusId: 6,
       };
 
       const dadosJson = JSON.stringify(dadosPedido);
 
-      const req = await fetch("https://api-mammamia.onrender.com/pedidos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: dadosJson,
-      });
+      try {
+        const req = await fetch("https://api-mammamia.onrender.com/pedidos", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: dadosJson,
+        });
 
-      if (req.ok) {
-        // Feedback visual positivo (Feedback Verde)
-        this.msg = `Pedido realizado com sucesso para ${dadosPedido.nome}!`;
-        this.alertType = "success";
+        if (req.ok) {
+          this.msg = `Molto bene! Pedido realizado com sucesso para ${dadosPedido.nome}!`;
+          this.alertType = "sucesso";
 
-        // Limpar o formulário
-        this.nomeCliente = "";
-        this.tamanhoSelecionado = "";
-        this.listaComplementosSelecionados = [];
-        this.listaBebidasSelecionadas = [];
+          this.nomeCliente = "";
+          this.tamanhoSelecionado = "";
+          this.listaComplementosSelecionados = [];
+          this.listaBebidasSelecionadas = [];
 
-        // REQUISITO: Redirecionamento inteligente após 3 segundos
-        setTimeout(() => {
-          this.msg = null;
-          this.$router.push("/pedidos"); // Vai para a tela de monitoramento/listagem
-        }, 3000);
-      } else {
-        this.msg = "Ocorreu um erro ao enviar o pedido. Tente novamente.";
-        this.alertType = "error";
+          setTimeout(() => {
+            this.msg = null;
+            this.$router.push("/pedidos");
+          }, 2000);
+        } else {
+          this.msg = "Ocorreu um erro ao processar o envio.";
+          this.alertType = "erro";
+        }
+      } catch (error) {
+        this.msg = "Erro de conexão com o banco de dados.";
+        this.alertType = "erro";
       }
     },
   },
@@ -186,40 +174,7 @@ export default {
 </script>
 
 <style scoped>
-/* ESTILIZAÇÃO DO COMPONENTE DE ALERTA SEMÂNTICO (Requisito 2) */
-.alert-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 24px;
-  border-radius: 8px;
-  margin: 20px auto;
-  max-width: 750px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.success {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  border-left: 6px solid #4caf50; /* Verde */
-}
-.error {
-  background-color: #ffebee;
-  color: #c62828;
-  border-left: 6px solid #f44336; /* Vermelho */
-}
-.warning {
-  background-color: #fff3e0;
-  color: #ef6c00;
-  border-left: 6px solid #ff9800; /* Laranja */
-}
-.info {
-  background-color: #e3f2fd;
-  color: #1565c0;
-  border-left: 6px solid #2196f3; /* Azul */
-}
 
-/* Mantidos os estilos originais do seu formulário */
 #foto-content {
   margin-bottom: 16px;
   border-radius: 16px;

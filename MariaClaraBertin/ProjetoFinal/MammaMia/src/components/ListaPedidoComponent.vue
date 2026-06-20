@@ -1,12 +1,12 @@
 <template>
   <div>
-    <!-- Renderização opcional de alerta de remoção caso queira usar futuramente -->
+    <mensagem-component v-if="msg" :msg="msg" :tipo="alertType" />
+
     <div id="pedidos-tabela">
       <div>
         <div id="pedidos-tabela-cabecalho">
           <div id="ordem-id">#ID</div>
           <div>Nome</div>
-          <!-- Rótulos atualizados para o segmento de pizzaria -->
           <div>Pizza</div>
           <div>Tamanho</div>
           <div>Opcionais</div>
@@ -23,7 +23,6 @@
     >
       <div id="ordem-numero">{{ pedido.id }}</div>
       <div>{{ pedido.nome }}</div>
-      <!-- Ajustado para ler as propriedades corretas do seu novo db.json -->
       <div>{{ pedido.pizza && pedido.pizza.nome ? pedido.pizza.nome : '--' }}</div>
       <div>{{ pedido.tamanho && pedido.tamanho.descricao ? pedido.tamanho.descricao : '--' }}</div>
       <div>
@@ -70,22 +69,27 @@
 </template>
 
 <script>
+import MensagemComponent from '@/components/MensagemComponent.vue';
+
 export default {
   name: "ListaPedidoComponent",
+  components: {
+    MensagemComponent
+  },
   data() {
     return {
       listaPedidosRealizados: [],
       listaStatusPedido: [],
+      msg: null,
+      alertType: "aviso" 
     };
   },
   methods: {
     async consultarPedidos() {
-      // Atualizado para a API do Render
       const response = await fetch("https://api-mammamia.onrender.com/pedidos");
       this.listaPedidosRealizados = await response.json();
     },
     async consultarStatusPedido() {
-      // Atualizado para a API do Render
       const response = await fetch("https://api-mammamia.onrender.com/status_pedido");
       this.listaStatusPedido = await response.json();
     },
@@ -93,7 +97,6 @@ export default {
       const idPedidoAtualizado = event.target.value;
       const atualizacaoJson = JSON.stringify({ statusId: Number(idPedidoAtualizado) });
       
-      // Atualizado para a API do Render
       await fetch(`https://api-mammamia.onrender.com/pedidos/${idPedido}`, {
         method: "PATCH",
         headers: { "Content-type": "application/json" },
@@ -101,16 +104,21 @@ export default {
       });
     },
     async deletarPedido(event, idPedido) {
-      // Atualizado para a API do Render
       const req = await fetch(`https://api-mammamia.onrender.com/pedidos/${idPedido}`, {
         method: "DELETE",
       });
 
       if (req.ok) {
-        // REQUISITO 3: Atualização de estado e interface re-renderizada na hora sem refresh
         this.listaPedidosRealizados = this.listaPedidosRealizados.filter(
           (pedido) => pedido.id !== idPedido
         );
+
+        this.msg = `Aviso: O pedido #${idPedido} foi removido com sucesso.`;
+        this.alertType = "aviso";
+
+        setTimeout(() => {
+          this.msg = null;
+        }, 3000);
       }
     },
   },
@@ -149,7 +157,7 @@ export default {
   width: 100%;
   padding: 12px;
   border-bottom: 1px dotted #222;
-  align-items: center; /* Centraliza verticalmente o conteúdo da linha */
+  align-items: center; 
 }
 
 #pedidos-tabela-cabecalho #ordem-id,
