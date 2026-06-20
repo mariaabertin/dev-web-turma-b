@@ -54,7 +54,7 @@ Registro salvo com sucesso no banco de dados do Render.
 # 3. Na tela de Pedidos, o usuário clica no botão de Excluir (Lixeira)
 Envia requisição para remover pedido /pedidos/id...
 Removido da nuvem. Array filtrado via .filter() local instantaneamente.
-[MensagemComponent]: Alternando estado -> TIPO: "aviso" (Caixa Laranja + ⚠️).
+[MensagemComponent]: Alternando estado -> TIPO: "aviso" (Caixa Laranja ⚠️).
 ```
 
 ⚠️ Nota de Usabilidade (UX): Na tela de Configuração do Pedido, a mensagem de feedback visual é injetada estrategicamente logo abaixo do título principal da página. Dependendo do tamanho do monitor ou da rolagem atual do usuário no formulário, pode ser necessário rolar a página para cima para visualizar claramente o banner do alerta (seja ele de erro ou de sucesso).
