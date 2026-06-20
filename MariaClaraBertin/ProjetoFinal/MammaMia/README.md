@@ -5,6 +5,7 @@ Sitema de gerenciamento e monitoramento de pedidos em tempo real desenvolvido em
 ---
 
 ## Links do Projeto
+* **Repositório do projeto (GitHub):** [https://github.com/mariaabertin/mammamia](https://github.com/mariaabertin/mammamia)
 * **API Oficial (Render):** [https://api-mammamia.onrender.com/menu](https://api-mammamia.onrender.com/menu)
 * **Sistema publicado (Vercel):** [https://mammamia-kc85ab4rq-sitemammamia.vercel.app](https://mammamia-kc85ab4rq-sitemammamia.vercel.app)
 
