@@ -2,9 +2,8 @@
     <div>
     <nav>
         <router-link to="/" id="logo-url">
-            <img src="/img/logo_mammamia.png" id="logo" alt="Mamma Mia Logo" />
-        </router-link>
-|
+    <img :src="'/img/logo_mammamia.png'" id="logo" alt="Mamma Mia Logo" />
+</router-link>
         <router-link to="/menu">Menu</router-link> |
         <router-link to="/pedidos">Pedidos</router-link>
     </nav>

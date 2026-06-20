@@ -33,10 +33,18 @@ export default {
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch("https://api-mammamia.onrender.com/menu"); 
-      const dados = await response.json();
-      this.listaMenuPizzas = dados.pizzas;
-      console.log(this.listaMenuPizzas);
+      try {
+        const response = await fetch("https://api-mammamia.onrender.com/menu"); 
+        const dados = await response.json();
+        if (dados && dados.pizzas) {
+          this.listaMenuPizzas = dados.pizzas;
+        } else {
+          this.listaMenuPizzas = dados;
+        }
+        console.log("Dados carregados com sucesso:", this.listaMenuPizzas);
+      } catch (error) {
+        console.error("Erro ao buscar o menu:", error);
+      }
     },
     selecionarPizza(pizzaSelecionada) {
       const param = JSON.stringify(pizzaSelecionada);
