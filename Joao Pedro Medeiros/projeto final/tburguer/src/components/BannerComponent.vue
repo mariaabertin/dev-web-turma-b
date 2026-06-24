@@ -10,8 +10,7 @@ export default {
   computed: {
     bannerStyle() {
       return {
-        backgroundImage:
-          "linear-gradient(90deg, rgba(36, 71, 60, 0.72), rgba(36, 71, 60, 0.12)), url('/img/banner.jpeg')",
+        backgroundImage: `linear-gradient(90deg, rgba(36, 71, 60, 0.72), rgba(36, 71, 60, 0.12)), url('${process.env.BASE_URL}img/banner.jpeg')`,
       };
     },
   },
