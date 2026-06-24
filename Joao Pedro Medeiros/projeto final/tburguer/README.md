@@ -12,6 +12,16 @@ Principais alteracoes realizadas:
 - atualizacao do `db/db.json` para endpoints de floricultura: `menu`, `tamanhos`, `opcionais`, `status_pedido` e `pedidos`;
 - monitoramento de pedidos com atualizacao de status e exclusao em tempo real em `ListaPedidoComponent.vue`.
 
+## Checklist do aluno
+
+- [x] Definir o novo tema e escopo do projeto, usando um segmento diferente de hamburgueres: floricultura T-Flor.
+- [x] Adaptar textos, campos, dados e trocar imagens ilustrativas para a nova identidade visual.
+- [x] Configurar validacao de formularios para impedir pedidos vazios ou sem campos obrigatorios.
+- [x] Desenvolver alertas semanticos reativos com os estados de erro, aviso, informacao e sucesso.
+- [x] Garantir diretrizes de experiencia do usuario com redirecionamento automatico apos o pedido e lista atualizada em tempo real.
+- [x] Publicar as aplicacoes com front-end no GitHub Pages e mock JSON Server publico.
+- [x] Construir README com mudancas realizadas, trechos de codigo, logica dos alertas e links publicos.
+
 Trecho da validacao principal:
 
 ```js
