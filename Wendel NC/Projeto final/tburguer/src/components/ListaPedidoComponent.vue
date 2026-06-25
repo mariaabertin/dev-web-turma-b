@@ -5,9 +5,9 @@
         <div id="pedidos-tabela-cabecalho">
           <div id="ordem-id">#ID</div>
           <div>Nome</div>
-          <div>Hamburguer</div>
-          <div>Ponto</div>
-          <div>opcionais</div>
+          <div>Açaí</div>
+          <div>Tamanho</div>
+          <div>Opcionais</div>
           <div>Status</div>
           <div id="div-acoes">Ações</div>
         </div>
@@ -21,18 +21,18 @@
     >
       <div id="ordem-numero">{{ pedido.id }}</div>
       <div>{{ pedido.nome }}</div>
-      <div>{{ pedido.burguer.nome }}</div>
-      <div>{{ pedido.ponto.descricao }}</div>
+      <div>{{ pedido.acai && pedido.acai.nome ? pedido.acai.nome : "--" }}</div>
+      <div>{{ pedido.tamanho && pedido.tamanho.descricao ? pedido.tamanho.descricao : "--" }}</div>
       <div>
         <ul>
-          <li v-for="(complemento, index) in pedido.complemento" :key="index">
-            {{ complemento.nome }}
+          <li v-for="(recheio, index) in pedido.recheios" :key="index">
+            {{ recheio.nome }}
           </li>
         </ul>
         <div class="divider"></div>
         <ul>
-          <li v-for="(refri, index) in pedido.bebidas" :key="index">
-            {{ refri.nome }}
+          <li v-for="(adicional, index) in pedido.adicionais" :key="index">
+            {{ adicional.nome }}
           </li>
         </ul>
       </div>
@@ -64,8 +64,8 @@
     </div>
   </div>
 </template>
-<script>
 
+<script>
 export default {
   name: "ListaPedidoComponent",
   data() {
@@ -91,12 +91,15 @@ export default {
         headers: { "Content-type": "application/json" },
         body: atualizacaoJson,
       });
-      //fazer algo ápos alterar
+      // Atualização em tempo real (Regra 4)
+      await this.consultarPedidos();
     },
     async deletarPedido(idPedido) {
-      const response = await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
+      await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
         method: "DELETE",
       });
+      // Atualização em tempo real (Regra 4)
+      await this.consultarPedidos();
     },
   },
   mounted() {
@@ -105,6 +108,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 #pedidos-tabela {
   width: 100%;
@@ -121,7 +125,7 @@ export default {
 #pedidos-tabela-cabecalho {
   font-weight: bold;
   padding: 12px;
-  border-bottom: 2px solid #222;
+  border-bottom: 3px solid #4a148c;
 }
 
 #pedidos-tabela-cabecalho div,
@@ -132,7 +136,7 @@ export default {
 .pedidos-tabela-linha {
   width: 100%;
   padding: 12px;
-  border-bottom: 1px dotted #222;
+  border-bottom: 1px dotted #6a1b9a;
 }
 
 #pedidos-tabela-cabecalho #ordem-id,

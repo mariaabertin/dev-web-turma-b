@@ -1,20 +1,20 @@
 <template>
   <div>
-    <h1>Menu</h1>
+    <h1>Cardápio</h1>
     <div id="scroll-horizontal">
       <div
         id="card-content"
-        v-for="burguer in listaMenuHamburguers"
-        :key="burguer.id"
+        v-for="acai in listaMenuAcais"
+        :key="acai.id"
       >
         <div id="card-linha">
-          <div class="foto-hamburguer">
-            <img :src="burguer.foto" />
+          <div class="foto-acai">
+            <div class="foto-placeholder">🍇</div>
             <div class="card-coluna">
-              <p id="nome-content">{{ burguer.nome }}</p>
-              <p id="preco-content">R$ {{ burguer.valor }},00</p>
-              <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button @click="selecionarBurguer(burguer)">Selecionar</button>
+              <p id="nome-content">{{ acai.nome }}</p>
+              <p id="preco-content">R$ {{ acai.valor }},00</p>
+              <p id="descricao-content">{{ acai.descricao }}</p>
+              <button @click="selecionarAcai(acai)">Selecionar</button>
             </div>
           </div>
         </div>
@@ -22,27 +22,28 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "MenuView",
   data() {
     return {
-      listaMenuHamburguers: [],
+      listaMenuAcais: [],
     };
   },
   methods: {
     async consultarMenu() {
       const response = await fetch(`${this.$apiUrl}/menu`);
       const dados = await response.json();
-      this.listaMenuHamburguers = dados.burgues;
-      console.log(this.listaMenuHamburguers);
+      this.listaMenuAcais = dados.acais;
+      console.log(this.listaMenuAcais);
     },
-    selecionarBurguer(burguerSelecionado) {
-      const param = JSON.stringify(burguerSelecionado);
-      const burguerJson = encodeURIComponent(param);
+    selecionarAcai(acaiSelecionado) {
+      const param = JSON.stringify(acaiSelecionado);
+      const acaiJson = encodeURIComponent(param);
       this.$router.push({
         path: "/config-pedido",
-        query: { burguer: burguerJson },
+        query: { acai: acaiJson },
       });
     },
   },
@@ -51,6 +52,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 #card-content {
   display: inline-block;
@@ -62,6 +64,7 @@ export default {
   overflow: hidden;
   box-shadow: 0 4px 8px #444;
   position: relative;
+  background: white;
 }
 
 #scroll-horizontal {
@@ -73,37 +76,39 @@ export default {
   box-shadow: inset -10px 0px 15px -20px grey;
 }
 
+.foto-placeholder {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, #4a148c, #7b1fa2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+}
+
 #nome-content {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: bold;
   text-align: center;
   width: 100%;
-  margin: 12px;
-}
-
-.foto-hamburguer {
-  flex-shrink: 0;
-}
-
-.foto-hamburguer img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
+  margin: 12px 0;
+  white-space: normal;
+  color: #4a148c;
 }
 
 #preco-content {
-  font-size: 35px;
+  font-size: 28px;
   font-weight: bold;
   text-align: center;
-  color: darkgreen;
+  color: #6a1b9a;
 }
 
 #descricao-content {
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
   color: gray;
   margin: 16px;
-  white-space: pre-line;
+  white-space: normal;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -129,13 +134,14 @@ export default {
   border-radius: 10px;
   border: none;
   color: white;
-  background-color: green;
+  background-color: #6a1b9a;
   cursor: pointer;
   transition: 0.5s;
+  font-size: 16px;
 }
 
 .card-coluna button:hover {
-  color: rgb(202, 246, 202);
-  background-color: rgb(0, 37, 22);
+  color: #e1bee7;
+  background-color: #4a148c;
 }
 </style>

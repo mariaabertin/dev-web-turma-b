@@ -4,7 +4,7 @@
       <router-link to="/" id="logo-url">
         <img src="/img/logo_tburguer.png" id="logo" />
       </router-link>
-      <router-link to="/menu">Menu</router-link> |
+      <router-link to="/menu">Cardápio</router-link> |
       <router-link to="/pedidos">Pedidos</router-link>
     </nav>
   </div>
@@ -28,7 +28,7 @@ export default {
 }
 
 #nav a {
-  color: darkgoldenrod;
+  color: #ffe082;
   text-decoration: none;
   margin: 12px;
   transition: 0.5s;
@@ -45,8 +45,8 @@ export default {
 }
 
 #nav {
-  background-color: #333;
-  border-bottom: 3px solid darkgoldenrod;
+  background-color: #4a148c;
+  border-bottom: 3px solid #ce93d8;
   padding: 15px 50px;
   display: flex;
   justify-content: flex-end;

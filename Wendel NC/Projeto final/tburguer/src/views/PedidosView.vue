@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Gerenciamento de Pedidos</h1>
+    <h1>Pedidos Realizados 🍇</h1>
     <lista-pedido-component-vue />
   </div>
 </template>
@@ -16,5 +16,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
