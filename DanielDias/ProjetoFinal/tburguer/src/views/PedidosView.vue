@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>Olá Pedidos</h1>
-    <lista-pedido-component-vue />
+    <ListaPedidoComponentVue />
   </div>
 </template>
+
 <script>
 import ListaPedidoComponentVue from "@/components/ListaPedidoComponent.vue";
 
@@ -14,4 +14,5 @@ export default {
   },
 };
 </script>
+
 <style scoped></style>

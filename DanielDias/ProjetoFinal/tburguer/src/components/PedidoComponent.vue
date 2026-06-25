@@ -1,124 +1,146 @@
 <template>
-  <div>
+  <div id="pedido-container">
     <form id="pedido-form" @submit="criarPedido($event)">
-      <div>
-        <p id="nome-hamburguer-content">
-          {{ burguer && burguer.nome ? burguer.nome : "--" }}
+      <div id="info-prato-selecionado">
+        <p id="nome-prato-content">
+          {{ prato && prato.nome ? prato.nome : "--" }}
         </p>
         <img
           id="foto-content"
-          :src="burguer && burguer.foto ? burguer.foto : ''"
+          :src="prato && prato.foto ? prato.foto : ''"
         />
       </div>
+
+      <AlertaComponent :mensagem="alertaMensagem" :tipo="alertaTipo" />
+
       <div class="inputs" id="form-pedido">
-        <label>Nome</label>
+        <label>Nome do Cliente <span class="obrigatorio">*</span></label>
         <input
           v-model="nomeCliente"
           type="text"
-          placeholder="Digite seu Nome"
+          placeholder="Digite seu nome"
           id="nome-cliente"
         />
       </div>
+
       <div class="inputs">
-        <label> Ponto da carne</label>
-        <select
-          v-model="pontoCarneSelecionado"
-          name="ponto-carne"
-          id="ponto-carne"
-        >
-          <option value="" selected>Selecione o ponto</option>
+        <label>Molho <span class="obrigatorio">*</span></label>
+        <select v-model="molhoSelecionado">
+          <option value="">Selecione</option>
           <option
-            v-for="pontoCarne in listaPontosCarne"
-            :key="pontoCarne.id"
-            :value="pontoCarne"
+            v-for="molho in listaMolhos"
+            :key="molho.id"
+            :value="molho"
           >
-            {{ pontoCarne.descricao }}
+            {{ molho.descricao }}
           </option>
         </select>
       </div>
-      <div class="inputs">
-        <label id="opcionais-titulo"> Selecione os opcionais</label>
-        <label id="opcionais-subtitulo"> Selecione os complementos</label>
 
+      <div class="inputs">
+        <label>Acompanhamentos</label>
         <div
-          v-for="complemento in listaComplementos"
-          :key="complemento.id"
-          class="checkbox-container"
+          v-for="acompanhamento in listaAcompanhamentos"
+          :key="acompanhamento.id"
         >
           <input
             type="checkbox"
-            :name="complemento.nome"
-            :value="complemento"
-            v-model="listaComplementosSelecionados"
+            :value="acompanhamento"
+            v-model="listaAcompanhamentosSelecionados"
           />
-          <span>{{ complemento.nome }}</span>
+          {{ acompanhamento.nome }} — R$ {{ acompanhamento.valor }},00
         </div>
+      </div>
 
-        <label>Adicione uma bebida</label>
-
+      <div class="inputs">
+        <label>Bebidas</label>
         <div
           v-for="bebida in listaBebidas"
           :key="bebida.id"
-          class="checkbox-container"
         >
           <input
             type="checkbox"
-            :name="bebida.nome"
             :value="bebida"
             v-model="listaBebidasSelecionadas"
           />
-          <span>{{ bebida.nome }}</span>
+          {{ bebida.nome }} — R$ {{ bebida.valor }},00
         </div>
+      </div>
 
-        <div class="inputs">
-          <input type="submit" class="submit-btn" value="Confirmar Pedido" />
-        </div>
+      <div id="btn-container">
+        <button type="submit">Fazer Pedido</button>
       </div>
     </form>
   </div>
 </template>
+
 <script>
+import AlertaComponent from "./AlertaComponent.vue";
+
 export default {
   name: "PedidoComponent",
+  components: {
+    AlertaComponent,
+  },
   props: {
-    burguer: null,
+    prato: null,
   },
   data() {
     return {
-      listaPontosCarne: [],
-      listaComplementos: [],
+      listaMolhos: [],
+      listaAcompanhamentos: [],
       listaBebidas: [],
       nomeCliente: "",
-      pontoCarneSelecionado: "",
-      listaComplementosSelecionados: [],
+      molhoSelecionado: "",
+      listaAcompanhamentosSelecionados: [],
       listaBebidasSelecionadas: [],
+      alertaMensagem: "",
+      alertaTipo: "",
     };
   },
   methods: {
-    async getTiposPontos() {
-      const response = await fetch(`${this.$apiUrl}/tipos_pontos`);
+    async getMolhos() {
+      const response = await fetch(`${this.$apiUrl}/tipos_molho`);
       const dados = await response.json();
-      this.listaPontosCarne = dados;
+      this.listaMolhos = dados;
     },
     async getOpcionais() {
       const response = await fetch(`${this.$apiUrl}/opcionais`);
       const dados = await response.json();
-      this.listaComplementos = dados.complemento;
+      this.listaAcompanhamentos = dados.acompanhamentos;
       this.listaBebidas = dados.bebidas;
+    },
+    exibirAlerta(mensagem, tipo) {
+      this.alertaMensagem = mensagem;
+      this.alertaTipo = tipo;
+    },
+    limparAlerta() {
+      this.alertaMensagem = "";
+      this.alertaTipo = "";
     },
     async criarPedido(e) {
       e.preventDefault();
 
+      if (!this.nomeCliente) {
+        this.exibirAlerta("Campo obrigatório: informe o Nome do Cliente.", "erro");
+        return;
+      }
+
+      if (!this.molhoSelecionado) {
+        this.exibirAlerta("Campo obrigatório: selecione o Molho desejado.", "erro");
+        return;
+      }
+
+      this.exibirAlerta("Enviando seu pedido...", "info");
+
       const dadosPedido = {
         nome: this.nomeCliente,
-        ponto: this.pontoCarneSelecionado,
+        molho: this.molhoSelecionado,
         bebidas: Array.from(this.listaBebidasSelecionadas),
-        complemento: Array.from(this.listaComplementosSelecionados),
-        burguer: this.burguer,
+        acompanhamentos: Array.from(this.listaAcompanhamentosSelecionados),
+        prato: this.prato,
         statusId: 5,
       };
-
-      console.log(dadosPedido);
 
       const dadosJson = JSON.stringify(dadosPedido);
 
@@ -127,112 +149,102 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: dadosJson,
       });
+
+      if (req.status == 201) {
+        this.exibirAlerta("Pedido realizado com sucesso! 🥐", "sucesso");
+        setTimeout(() => {
+          this.$router.push("/pedidos");
+        }, 1500);
+      } else {
+        this.exibirAlerta("Erro ao realizar pedido. Tente novamente.", "erro");
+      }
     },
   },
   mounted() {
-    this.getTiposPontos();
+    this.getMolhos();
     this.getOpcionais();
+    this.exibirAlerta("Selecione o molho e os opcionais para continuar.", "info");
   },
 };
 </script>
 
 <style scoped>
+#pedido-container {
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#info-prato-selecionado {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#nome-prato-content {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 28px;
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
 #foto-content {
-  margin-bottom: 16px;
-  border-radius: 16px;
-  position: relative;
-  z-index: -1;
-  justify-content: center;
-  width: 100%;
+  width: 250px;
   height: 180px;
   object-fit: cover;
-}
-
-#nome-hamburguer-content {
-  font-size: 43px;
-  font-weight: bold;
-  text-align: start;
-  margin-bottom: -90px;
-  margin-left: 40px;
-  color: antiquewhite;
-  padding: 16px;
-}
-
-#form-pedido {
-  max-width: 750px;
-  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid #d4a847;
 }
 
 .inputs {
+  margin-bottom: 18px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  gap: 6px;
 }
 
-label {
+.inputs label {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
   font-weight: bold;
-  margin-bottom: 16px;
-  color: #222;
-  padding: 5px 12px;
-  flex-direction: start;
-  display: flex;
-  border-left: 4px solid darkgoldenrod;
+  color: #2c2c2c;
+  font-size: 16px;
 }
 
-input,
-select {
-  padding: 12px;
-  width: 300px;
-  border: solid #222 1px;
-  border-radius: 8px;
-  height: 20px;
-  font-size: 12px;
-}
-
-select {
-  height: 45px;
-}
-
-#opcionais-titulo {
+.inputs input[type="text"],
+.inputs select {
+  padding: 8px;
+  border: 1px solid #d4a847;
+  border-radius: 5px;
+  font-size: 14px;
   width: 100%;
 }
 
-#opcionais-subtitulo {
-  display: flex;
-  align-items: flex-start;
-  align-content: center;
-  width: 100%;
-  margin-bottom: 12px;
+.obrigatorio {
+  color: #e53e3e;
+  font-style: normal;
 }
 
-.checkbox-container span {
-  margin-left: 6px;
-  font-weight: bold;
+#btn-container {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.checkbox-container span,
-.checkbox-container input {
-  width: auto;
-  height: 20px;
-}
-
-.submit-btn {
-  background-color: #222;
-  color: darkgoldenrod;
-  font-weight: bold;
+button {
+  background-color: #2c2c2c;
+  color: #f5e6c8;
   border: none;
-  font-size: 18px;
-  border-radius: 12px;
-  padding: 16px;
-  margin: 0 auto;
+  padding: 10px 30px;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
-  height: auto;
-  transition: 0.5s;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-.submit-btn:hover {
-  background-color: darkgoldenrod;
-  color: #222;
+button:hover {
+  background-color: #d4a847;
+  color: #2c2c2c;
 }
 </style>

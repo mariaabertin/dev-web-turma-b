@@ -1,141 +1,128 @@
 <template>
-  <div>
-    <h1>Menu</h1>
-    <div id="scroll-horizontal">
+  <div id="menu-container">
+    <h2 id="menu-titulo">Notre Menu</h2>
+    <div id="lista-menu">
       <div
-        id="card-content"
-        v-for="burguer in listaMenuHamburguers"
-        :key="burguer.id"
+        v-for="prato in listaMenuPratos"
+        :key="prato.id"
+        id="menu-item"
       >
-        <div id="card-linha">
-          <div class="foto-hamburguer">
-            <img :src="burguer.foto" />
-            <div class="card-coluna">
-              <p id="nome-content">{{ burguer.nome }}</p>
-              <p id="preco-content">R$ {{ burguer.valor }},00</p>
-              <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button @click="selecionarBurguer(burguer)">Selecionar</button>
-            </div>
-          </div>
+        <img :src="prato.foto" :alt="prato.nome" id="foto-prato" />
+        <div id="info-prato">
+          <h3>{{ prato.nome }}</h3>
+          <p id="preco-prato">R$ {{ prato.valor }},00</p>
+          <span v-if="prato.eh_novidade" id="badge-novidade">✨ Novidade</span>
         </div>
+        <button @click="selecionarPrato(prato)">Selecionar</button>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "MenuView",
   data() {
     return {
-      listaMenuHamburguers: [],
+      listaMenuPratos: [],
     };
   },
   methods: {
-    async consultarMenu() {
+    async getMenu() {
       const response = await fetch(`${this.$apiUrl}/menu`);
       const dados = await response.json();
-      this.listaMenuHamburguers = dados.burgues;
-      console.log(this.listaMenuHamburguers);
+      this.listaMenuPratos = dados.pratos;
     },
-    selecionarBurguer(burguerSelecionado) {
-      const param = JSON.stringify(burguerSelecionado);
-      const burguerJson = encodeURIComponent(param);
+    selecionarPrato(prato) {
+      const pratoJson = encodeURIComponent(JSON.stringify(prato));
       this.$router.push({
         path: "/config-pedido",
-        query: { burguer: burguerJson },
+        query: { prato: pratoJson },
       });
     },
   },
   mounted() {
-    this.consultarMenu();
+    this.getMenu();
   },
 };
 </script>
+
 <style scoped>
-#card-content {
-  display: inline-block;
-  width: 280px;
-  min-height: 500px;
-  margin: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px #444;
-  position: relative;
+#menu-container {
+  padding: 30px;
 }
 
-#scroll-horizontal {
-  flex: 1;
-  overflow-x: auto;
-  white-space: nowrap;
-  width: 900px;
-  margin: 0 auto;
-  box-shadow: inset -10px 0px 15px -20px grey;
-}
-
-#nome-content {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  width: 100%;
-  margin: 12px;
-}
-
-.foto-hamburguer {
-  flex-shrink: 0;
-}
-
-.foto-hamburguer img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-}
-
-#preco-content {
+#menu-titulo {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: #2c2c2c;
   font-size: 35px;
-  font-weight: bold;
-  text-align: center;
-  color: darkgreen;
+  margin-bottom: 20px;
 }
 
-#descricao-content {
-  font-size: 16px;
-  text-align: left;
-  color: gray;
-  margin: 16px;
-  white-space: pre-line;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-}
-
-.card-linha {
+#lista-menu {
   display: flex;
-  flex-direction: row;
-  height: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.card-coluna {
-  flex-grow: 1;
+#menu-item {
+  border: 2px solid #d4a847;
+  border-radius: 8px;
   padding: 15px;
-  height: 100%;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-.card-coluna button {
-  padding: 10px;
-  width: 100%;
-  border-radius: 10px;
+#foto-prato {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+#info-prato {
+  text-align: center;
+}
+
+#info-prato h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: #2c2c2c;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+#preco-prato {
+  color: darkgreen;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#badge-novidade {
+  font-size: 12px;
+  color: #d4a847;
+  font-weight: bold;
+}
+
+button {
+  background-color: #2c2c2c;
+  color: #f5e6c8;
   border: none;
-  color: white;
-  background-color: green;
+  padding: 8px 16px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: 0.5s;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
-.card-coluna button:hover {
-  color: rgb(202, 246, 202);
-  background-color: rgb(0, 37, 22);
+button:hover {
+  background-color: #d4a847;
+  color: #2c2c2c;
 }
 </style>

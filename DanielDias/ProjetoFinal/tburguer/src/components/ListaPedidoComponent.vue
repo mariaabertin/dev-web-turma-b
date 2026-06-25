@@ -1,42 +1,38 @@
 <template>
-  <div>
-    <div id="pedidos-tabela">
-      <div>
-        <div id="pedidos-tabela-cabecalho">
-          <div id="ordem-id">#ID</div>
-          <div>Nome</div>
-          <div>Hamburguer</div>
-          <div>Ponto</div>
-          <div>opcionais</div>
-          <div>Status</div>
-          <div id="div-acoes">Ações</div>
-        </div>
-      </div>
+  <div id="lista-pedidos-container">
+    <h2 id="pedidos-titulo">Pedidos Realizados</h2>
+    <div v-if="listaPedidosRealizados.length === 0" id="sem-pedidos">
+      <p>Nenhum pedido realizado ainda.</p>
     </div>
-
     <div
-      class="pedidos-tabela-linha"
       v-for="pedido in listaPedidosRealizados"
       :key="pedido.id"
+      id="pedido-item"
     >
-      <div id="ordem-numero">{{ pedido.id }}</div>
-      <div>{{ pedido.nome }}</div>
-      <div>{{ pedido.burguer.nome }}</div>
-      <div>{{ pedido.ponto.descricao }}</div>
-      <div>
+      <div id="info-pedido">
+        <p><strong>Cliente:</strong> {{ pedido.nome }}</p>
+        <p><strong>Prato:</strong> {{ pedido.prato.nome }}</p>
+        <p><strong>Molho:</strong> {{ pedido.molho.descricao }}</p>
+
+        <p><strong>Acompanhamentos:</strong></p>
         <ul>
-          <li v-for="(complemento, index) in pedido.complemento" :key="index">
-            {{ complemento.nome }}
+          <li
+            v-for="(acompanhamento, index) in pedido.acompanhamentos"
+            :key="index"
+          >
+            {{ acompanhamento.nome }}
           </li>
         </ul>
-        <div class="divider"></div>
+
+        <p><strong>Bebidas:</strong></p>
         <ul>
-          <li v-for="(refri, index) in pedido.bebidas" :key="index">
-            {{ refri.nome }}
+          <li v-for="(bebida, index) in pedido.bebidas" :key="index">
+            {{ bebida.nome }}
           </li>
         </ul>
       </div>
-      <div>
+
+      <div id="acoes-pedido">
         <select
           @change="atualizarStatusPedido($event, pedido.id)"
           name="status"
@@ -52,20 +48,20 @@
             {{ status.descricao }}
           </option>
         </select>
-      </div>
-      <div id="div-acoes">
+
         <img
           @click="deletarPedido(pedido.id)"
           src="/img/icone_lixeira.png"
           width="35px"
           height="35px"
+          id="icone-deletar"
         />
       </div>
     </div>
   </div>
 </template>
-<script>
 
+<script>
 export default {
   name: "ListaPedidoComponent",
   data() {
@@ -79,9 +75,10 @@ export default {
       const response = await fetch(`${this.$apiUrl}/pedidos`);
       this.listaPedidosRealizados = await response.json();
     },
-    async consultarStatusPedido() {
+    async getStatusPedido() {
       const response = await fetch(`${this.$apiUrl}/status_pedido`);
-      this.listaStatusPedido = await response.json();
+      const dados = await response.json();
+      this.listaStatusPedido = dados;
     },
     async atualizarStatusPedido(event, idPedido) {
       const idPedidoAtualizado = event.target.value;
@@ -91,54 +88,85 @@ export default {
         headers: { "Content-type": "application/json" },
         body: atualizacaoJson,
       });
-      //fazer algo ápos alterar
     },
     async deletarPedido(idPedido) {
-      const response = await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
+      await fetch(`${this.$apiUrl}/pedidos/${idPedido}`, {
         method: "DELETE",
       });
+      this.consultarPedidos();
     },
   },
   mounted() {
     this.consultarPedidos();
-    this.consultarStatusPedido();
+    this.getStatusPedido();
   },
 };
 </script>
+
 <style scoped>
-#pedidos-tabela {
-  width: 100%;
-  margin: 0 auto;
+#lista-pedidos-container {
+  padding: 30px;
 }
 
-#pedidos-tabela-cabecalho,
-#pedidos-tabela-linhas,
-.pedidos-tabela-linha {
+#pedidos-titulo {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: #2c2c2c;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#sem-pedidos p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: #888;
+  font-size: 16px;
+}
+
+#pedido-item {
+  border: 2px solid #d4a847;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-#pedidos-tabela-cabecalho {
-  font-weight: bold;
-  padding: 12px;
-  border-bottom: 2px solid #222;
+#info-pedido p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #2c2c2c;
 }
 
-#pedidos-tabela-cabecalho div,
-.pedidos-tabela-linha div {
-  width: 18%;
+#info-pedido ul {
+  margin: 4px 0 8px 20px;
+  font-size: 14px;
+  color: #444;
 }
 
-.pedidos-tabela-linha {
-  width: 100%;
-  padding: 12px;
-  border-bottom: 1px dotted #222;
+#acoes-pedido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-#pedidos-tabela-cabecalho #ordem-id,
-.pedidos-tabela-linha #ordem-numero,
-.pedidos-tabela-linha #div-acoes,
-#pedidos-tabela-cabecalho #div-acoes {
-  width: 5%;
+.status {
+  padding: 6px;
+  border: 1px solid #d4a847;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#icone-deletar {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#icone-deletar:hover {
+  opacity: 0.6;
 }
 </style>
