@@ -1,35 +1,30 @@
-export const BASE_URL = "https://jsonkeeper.com/b/1MTFX";
+const dadosLocais = {
+  "produtos": [
+    { "id": 1, "nome": "Banho Simples", "preco": 40, "imagem": "banho.jpg" },
+    { "id": 2, "nome": "Tosa Completa", "preco": 60, "imagem": "tosa.jpg" },
+    { "id": 3, "nome": "Hidratação Control", "preco": 35, "imagem": "hidratacao.jpg" },
+    { "id": 4, "nome": "Spa de Ofurô", "preco": 90, "imagem": "spa.jpg" }
+  ],
+  "pedidos": []
+};
 
-async function tratarResposta(resposta) {
-  if (!resposta.ok) {
-    throw new Error(`Erro na API: ${resposta.status}`);
-  }
-  return resposta.json();
-}
+export const BASE_URL = "LOCAL_MOCK";
 
 export async function buscarProdutos() {
-  const dados = await tratarResposta(await fetch(BASE_URL));
-  return dados.produtos || [];
+  return Promise.resolve(dadosLocais.produtos);
 }
 
 export async function buscarPedidos() {
-  const dados = await tratarResposta(await fetch(BASE_URL));
-  return dados.pedidos || [];
+  return Promise.resolve(dadosLocais.pedidos);
 }
 
 export async function criarPedido(pedido) {
-  const resposta = await fetch(BASE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(pedido),
-  });
-  return tratarResposta(resposta);
+  const novoPedido = { id: Date.now(), ...pedido };
+  dadosLocais.pedidos.push(novoPedido);
+  return Promise.resolve(novoPedido);
 }
 
 export async function excluirPedido(id) {
-  // Simulação de DELETE para os testes do projeto
-  const resposta = await fetch(BASE_URL, {
-    method: "DELETE",
-  });
-  return tratarResposta(resposta);
+  dadosLocais.pedidos = dadosLocais.pedidos.filter(p => p.id !== id);
+  return Promise.resolve({ sucesso: true });
 }
