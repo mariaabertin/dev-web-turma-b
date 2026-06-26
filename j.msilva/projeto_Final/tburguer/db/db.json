@@ -1,20 +1,20 @@
 {
-  "tipos_pontos": [
+  "tipos_switch": [
     {
       "id": 1,
-      "descricao": "Ao ponto"
+      "descricao": "Linear (Vermelho)"
     },
     {
       "id": 2,
-      "descricao": "Bem passada"
+      "descricao": "Tátil (Marrom)"
     },
     {
       "id": 3,
-      "descricao": "Mal passada"
+      "descricao": "Clicky (Azul)"
     },
     {
       "id": 4,
-      "descricao": "Boi morreu em vão"
+      "descricao": "Speed (Prata)"
     }
   ],
   "status_pedido": [
@@ -24,11 +24,11 @@
     },
     {
       "id": 2,
-      "descricao": "Em produção"
+      "descricao": "Em separação"
     },
     {
       "id": 3,
-      "descricao": "A caminho"
+      "descricao": "Enviado"
     },
     {
       "id": 4,
@@ -43,174 +43,95 @@
       "descricao": "Pedido realizado"
     }
   ],
-  "pedidos": [
-    {
-      "nome": "banana",
-      "ponto": {
-        "id": 1,
-        "descricao": "Ao ponto"
-      },
-      "bebidas": [
-        {
-          "id": 2,
-          "nome": "Shweppes Citrus 310 ml",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16966989566521924cc9418_75_75.jpeg",
-          "valor": 6,
-          "eh_novidade": false
-        }
-      ],
-      "complemento": [
-        {
-          "id": 1,
-          "nome": "Combo Bebida + Batata",
-          "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
-          "valor": 11,
-          "eh_novidade": true
-        },
-        {
-          "id": 2,
-          "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
-          "descricao": "",
-          "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
-          "valor": 7,
-          "eh_novidade": false
-        }
-      ],
-      "burguer": {
-        "id": 2,
-        "nome": "Veggie",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese secreta, tomate assado e defumado na lenha frutífera, blend de arroz negro, batata baroa e Shimeji 150 gramas grelhado e regado ao azeite , queijo derretido na brasa e molho secreto de cebola caramelizada, tudo preparado com aquele sabor de churrasco.",
-        "valor": 35,
-        "eh_novidade": true
-      },
-      "statusId": 5,
-      "id": 2
-    }
-  ],
+  "pedidos": [],
   "opcionais": {
-    "complemento": [
+    "acessorios": [
       {
         "id": 1,
-        "nome": "Combo Bebida + Batata",
-        "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
-        "valor": 11,
-        "eh_novidade": true
+        "nome": "Keycap Set PBT Doubleshot",
+        "descricao": "Conjunto de teclas em PBT com impressão doubleshot, durável e sem desgaste com uso prolongado",
+        "valor": 89
       },
       {
         "id": 2,
-        "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
-        "valor": 7,
-        "eh_novidade": false
-      }
-    ],
-    "bebidas": [
-      {
-        "id": 1,
-        "nome": "Coca Cola Lata 310 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
-      },
-      {
-        "id": 2,
-        "nome": "Shweppes Citrus 310 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16966989566521924cc9418_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
+        "nome": "Wrist Rest de Madeira",
+        "descricao": "Apoio de pulso em madeira natural com acabamento envernizado, compatível com TKL e Full Size",
+        "valor": 59
       },
       {
         "id": 3,
-        "nome": "Coca Cola Zero Lata 310 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431455651d7d5fd3661_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
+        "nome": "Switch Puller + Keycap Puller",
+        "descricao": "Kit removedor de switch e keycap em metal, essencial para personalização e manutenção",
+        "valor": 29
+      }
+    ],
+    "cabos": [
+      {
+        "id": 1,
+        "nome": "Cabo USB-C Padrão 1.5m",
+        "valor": 19
       },
       {
-        "id": 4,
-        "nome": "Del Valle Uva Lata 290 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431434651d7d4a1e285_75_75.jpeg",
-        "valor": 7,
-        "eh_novidade": false
+        "id": 2,
+        "nome": "Cabo Coiled USB-C Roxo 1.8m",
+        "valor": 79
+      },
+      {
+        "id": 3,
+        "nome": "Cabo Braided USB-C Branco 1.5m",
+        "valor": 49
       }
     ]
   },
   "menu": {
-    "limitado": [
+    "teclados": [
       {
         "id": 1,
-        "nome": "Arretado",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1698926982654391866e311_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, suculento blend de 160 gramas flambado na manteiga de garrafa, coberto de queijo coalho e finalizado com geléia de pimenta Queensberry",
-        "valor": 38,
-        "eh_novidade": true
-      }
-    ],
-    "burgues": [
-      {
-        "id": 1,
-        "nome": "Diretoria",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
-        "valor": 35,
+        "nome": "Attack Shark K86",
+        "foto": "/img/attack_shark_k86.png",
+        "descricao": "Layout 75% TKL com conectividade tri-mode (USB-C, 2.4GHz e Bluetooth 5.0). Estrutura com gasket mount para som mais suave, hot-swap em todas as teclas e iluminação RGB por tecla. Bateria de 4000mAh com mais de 200h de autonomia sem RGB.",
+        "valor": 279,
         "eh_novidade": true
       },
       {
         "id": 2,
-        "nome": "Veggie",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese secreta, tomate assado e defumado na lenha frutífera, blend de arroz negro, batata baroa e Shimeji 150 gramas grelhado e regado ao azeite , queijo derretido na brasa e molho secreto de cebola caramelizada, tudo preparado com aquele sabor de churrasco.",
-        "valor": 35,
+        "nome": "Attack Shark AKS068",
+        "foto": "/img/attack_shark_aks068.png",
+        "descricao": "Teclado 65% com estrutura gasket mount e tri-mode de conectividade (USB-C, 2.4GHz e Bluetooth 5.0). PCB com hot-swap universal, foam interno para isolamento acústico e RGB south-facing. Compatível com switches de 3 e 5 pinos.",
+        "valor": 329,
         "eh_novidade": true
       },
       {
         "id": 3,
-        "nome": "Doritos",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429871651d772fb9fbe_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial, suculento blend de 160 gramas, queijo cheddar derretido na brasa, cream cheese e Doritos.",
-        "valor": 32,
-        "eh_novidade": true
+        "nome": "Ninja Leap 60%",
+        "foto": "/img/ninja_leap_60.png",
+        "descricao": "Teclado mecânico compacto no formato 60%, com Bluetooth 5.0 e cabo USB-C desmontável. Design clean e minimalista ideal para setups com pouco espaço. RGB por tecla com múltiplos efeitos e bateria interna de longa duração.",
+        "valor": 189,
+        "eh_novidade": false
       },
       {
         "id": 4,
-        "nome": "Campeiro",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696432070651d7fc6b7c98_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, alface americana fresca e crocante, tomate grelhado e defumado, suculento hambúrguer de 160 gramas, queijo derretido na brasa.",
-        "valor": 30,
+        "nome": "Fizz Sunrise",
+        "foto": "/img/teclado_fizz_sunrise.png",
+        "descricao": "Teclado gamer com colorway Sunrise exclusivo — gradiente entre laranja, amarelo e vermelho nas keycaps. Layout ABNT2 full size, retroiluminação RGB, switches Outemu linear pré-lubrificados e placa de aço inoxidável para rigidez máxima.",
+        "valor": 149,
         "eh_novidade": true
       },
       {
         "id": 5,
-        "nome": "Braseirão",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1701549228656b94ac481d3_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, dois suculentos blend's de 160 gramas e queijo mussarela derretido na brasa.",
-        "valor": 30,
-        "eh_novidade": true
+        "nome": "Keychron K8",
+        "foto": "/img/keychron_k8.jpg",
+        "descricao": "Referência no mercado enthusiast: layout TKL (80%) com suporte a switches Gateron hot-swap, retroiluminação RGB e estrutura em plástico de alta resistência. Compatível nativamente com Windows e macOS, com teclas dedicadas para ambos os sistemas.",
+        "valor": 459,
+        "eh_novidade": false
       },
       {
         "id": 6,
-        "nome": "Braseiro",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696432090651d7fda3ebe1_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, suculento blend de 160 gramas, triplo queijo cheddar derretido na brasa.",
-        "valor": 20,
-        "eh_novidade": true
-      },
-      {
-        "id": 7,
-        "nome": "Churrasqueto",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16978359266532eb960c34d_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, suculento blend de 120 gramas, triplo queijo cheddar derretido na brasa.",
-        "valor": 15,
-        "eh_novidade": true
+        "nome": "Ducky One 3",
+        "foto": "/img/ducky_one3.jpg",
+        "descricao": "Ícone do mundo dos teclados mecânicos: Full Size com keycaps PBT Doubleshot de altíssima durabilidade, PCB hot-swap compatível com switches de 3 e 5 pinos e RGB por tecla. Construção sólida com placa de aço, reconhecida mundialmente pela qualidade de digitação.",
+        "valor": 699,
+        "eh_novidade": false
       }
     ]
   }

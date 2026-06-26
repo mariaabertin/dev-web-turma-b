@@ -1,238 +1,337 @@
 <template>
-  <div>
+  <div id="pedido-wrapper">
+
+    <div id="produto-card" v-if="teclado">
+      <img id="foto-content" :src="teclado.foto" :alt="teclado.nome" />
+      <div id="produto-info">
+        <p id="nome-teclado-content">{{ teclado.nome }}</p>
+        <p id="valor-content">R$ {{ teclado.valor }},00</p>
+        <p id="descricao-content">{{ teclado.descricao }}</p>
+      </div>
+    </div>
+
     <form id="pedido-form" @submit="criarPedido($event)">
-      <div>
-        <p id="nome-hamburguer-content">
-          {{ burguer && burguer.nome ? burguer.nome : "--" }}
-        </p>
-        <img
-          id="foto-content"
-          :src="burguer && burguer.foto ? burguer.foto : ''"
-        />
-      </div>
-      <div class="inputs" id="form-pedido">
-        <label>Nome</label>
-        <input
-          v-model="nomeCliente"
-          type="text"
-          placeholder="Digite seu Nome"
-          id="nome-cliente"
-        />
-      </div>
-      <div class="inputs">
-        <label> Ponto da carne</label>
-        <select
-          v-model="pontoCarneSelecionado"
-          name="ponto-carne"
-          id="ponto-carne"
-        >
-          <option value="" selected>Selecione o ponto</option>
-          <option
-            v-for="pontoCarne in listaPontosCarne"
-            :key="pontoCarne.id"
-            :value="pontoCarne"
-          >
-            {{ pontoCarne.descricao }}
-          </option>
-        </select>
-      </div>
-      <div class="inputs">
-        <label id="opcionais-titulo"> Selecione os opcionais</label>
-        <label id="opcionais-subtitulo"> Selecione os complementos</label>
 
-        <div
-          v-for="complemento in listaComplementos"
-          :key="complemento.id"
-          class="checkbox-container"
-        >
+      <div id="alerta-ancora">
+        <AlertComponent :tipo="alerta.tipo" :mensagem="alerta.mensagem" />
+      </div>
+
+      <div id="form-pedido">
+
+        <div class="inputs">
+          <label>Nome do Cliente</label>
           <input
-            type="checkbox"
-            :name="complemento.nome"
-            :value="complemento"
-            v-model="listaComplementosSelecionados"
+            v-model="nomeCliente"
+            type="text"
+            placeholder="Digite seu nome completo"
+            id="nome-cliente"
           />
-          <span>{{ complemento.nome }}</span>
-        </div>
-
-        <label>Adicione uma bebida</label>
-
-        <div
-          v-for="bebida in listaBebidas"
-          :key="bebida.id"
-          class="checkbox-container"
-        >
-          <input
-            type="checkbox"
-            :name="bebida.nome"
-            :value="bebida"
-            v-model="listaBebidasSelecionadas"
-          />
-          <span>{{ bebida.nome }}</span>
         </div>
 
         <div class="inputs">
-          <input type="submit" class="submit-btn" value="Confirmar Pedido" />
+          <label>Tipo de Switch</label>
+          <select v-model="switchSelecionado" name="tipo-switch" id="tipo-switch">
+            <option value="" selected>Selecione o tipo de switch</option>
+            <option
+              v-for="tipoSwitch in listaTiposSwitch"
+              :key="tipoSwitch.id"
+              :value="tipoSwitch"
+            >
+              {{ tipoSwitch.descricao }}
+            </option>
+          </select>
         </div>
+
+        <div class="inputs">
+          <label id="opcionais-titulo">Opcionais</label>
+
+          <span class="opcao-grupo-label">Acessórios</span>
+          <div
+            v-for="acessorio in listaAcessorios"
+            :key="acessorio.id"
+            class="checkbox-container"
+          >
+            <input
+              type="checkbox"
+              :name="acessorio.nome"
+              :value="acessorio"
+              v-model="listaAcessoriosSelecionados"
+            />
+            <span>{{ acessorio.nome }}</span>
+            <span class="opcao-valor">+ R$ {{ acessorio.valor }},00</span>
+          </div>
+
+          <span class="opcao-grupo-label">Cabos</span>
+          <div
+            v-for="cabo in listaCabos"
+            :key="cabo.id"
+            class="checkbox-container"
+          >
+            <input
+              type="checkbox"
+              :name="cabo.nome"
+              :value="cabo"
+              v-model="listaCabosSelecionados"
+            />
+            <span>{{ cabo.nome }}</span>
+            <span class="opcao-valor">+ R$ {{ cabo.valor }},00</span>
+          </div>
+        </div>
+
+        <input type="submit" class="submit-btn" value="Confirmar Pedido" />
+
       </div>
     </form>
   </div>
 </template>
+
 <script>
+import AlertComponent from "@/components/AlertComponent.vue";
+
 export default {
   name: "PedidoComponent",
+  components: {
+    AlertComponent,
+  },
   props: {
-    burguer: null,
+    teclado: null,
   },
   data() {
     return {
-      listaPontosCarne: [],
-      listaComplementos: [],
-      listaBebidas: [],
+      listaTiposSwitch: [],
+      listaAcessorios: [],
+      listaCabos: [],
       nomeCliente: "",
-      pontoCarneSelecionado: "",
-      listaComplementosSelecionados: [],
-      listaBebidasSelecionadas: [],
+      switchSelecionado: "",
+      listaAcessoriosSelecionados: [],
+      listaCabosSelecionados: [],
+      alerta: {
+        tipo: "",
+        mensagem: "",
+      },
     };
   },
   methods: {
-    async getTiposPontos() {
-      const response = await fetch("http://localhost:3000/tipos_pontos");
+    async getTiposSwitch() {
+      const response = await fetch(`${process.env.VUE_APP_API_URL}/tipos_switch`);
       const dados = await response.json();
-      this.listaPontosCarne = dados;
+      this.listaTiposSwitch = dados;
     },
     async getOpcionais() {
-      const response = await fetch("http://localhost:3000/opcionais");
+      const response = await fetch(`${process.env.VUE_APP_API_URL}/opcionais`);
       const dados = await response.json();
-      this.listaComplementos = dados.complemento;
-      this.listaBebidas = dados.bebidas;
+      this.listaAcessorios = dados.acessorios;
+      this.listaCabos = dados.cabos;
+    },
+    exibirAlerta(tipo, mensagem) {
+      this.alerta.tipo = tipo;
+      this.alerta.mensagem = mensagem;
+      this.$nextTick(() => {
+        const el = document.getElementById("alerta-ancora");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
     },
     async criarPedido(e) {
       e.preventDefault();
 
+      if (!this.nomeCliente.trim()) {
+        this.exibirAlerta("erro", "O nome do cliente é obrigatório.");
+        return;
+      }
+
+      if (!this.switchSelecionado) {
+        this.exibirAlerta("erro", "Selecione o tipo de switch do teclado.");
+        return;
+      }
+
       const dadosPedido = {
         nome: this.nomeCliente,
-        ponto: this.pontoCarneSelecionado,
-        bebidas: Array.from(this.listaBebidasSelecionadas),
-        complemento: Array.from(this.listaComplementosSelecionados),
-        burguer: this.burguer,
+        tipoSwitch: this.switchSelecionado,
+        cabos: Array.from(this.listaCabosSelecionados),
+        acessorios: Array.from(this.listaAcessoriosSelecionados),
+        teclado: this.teclado,
         statusId: 5,
       };
 
-      console.log(dadosPedido);
-
-      const dadosJson = JSON.stringify(dadosPedido);
-
-      const req = await fetch("http://localhost:3000/pedidos", {
+      const req = await fetch(`${process.env.VUE_APP_API_URL}/pedidos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: dadosJson,
+        body: JSON.stringify(dadosPedido),
       });
+
+      if (req.status === 201) {
+        this.exibirAlerta("sucesso", "Pedido realizado com sucesso!");
+        setTimeout(() => {
+          this.$router.push("/pedidos");
+        }, 1500);
+      } else {
+        this.exibirAlerta("erro", "Erro ao registrar o pedido. Tente novamente.");
+      }
     },
   },
   mounted() {
-    this.getTiposPontos();
+    this.getTiposSwitch();
     this.getOpcionais();
   },
 };
 </script>
 
 <style scoped>
+#pedido-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* Card do produto selecionado */
+#produto-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background-color: #16213e;
+  border: 1px solid #7c3aed;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
 #foto-content {
-  margin-bottom: 16px;
-  border-radius: 16px;
-  position: relative;
-  z-index: -1;
-  justify-content: center;
-  width: 100%;
-  height: 180px;
+  width: 260px;
+  min-width: 260px;
+  height: 190px;
   object-fit: cover;
 }
 
-#nome-hamburguer-content {
-  font-size: 43px;
-  font-weight: bold;
-  text-align: start;
-  margin-bottom: -90px;
-  margin-left: 40px;
-  color: antiquewhite;
-  padding: 16px;
+#produto-info {
+  padding: 20px 20px 20px 0;
+  flex: 1;
 }
 
+#nome-teclado-content {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+}
+
+#valor-content {
+  font-size: 20px;
+  font-weight: bold;
+  color: #7c3aed;
+  margin-bottom: 12px;
+}
+
+#descricao-content {
+  font-size: 13px;
+  color: #a5b4fc;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Formulário */
 #form-pedido {
-  max-width: 750px;
-  margin: 0 auto;
+  background-color: #16213e;
+  border: 1px solid #2d2d5e;
+  border-radius: 12px;
+  padding: 28px;
 }
 
 .inputs {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 label {
   font-weight: bold;
-  margin-bottom: 16px;
-  color: #222;
+  margin-bottom: 12px;
+  color: #e2e8f0;
   padding: 5px 12px;
-  flex-direction: start;
   display: flex;
-  border-left: 4px solid darkgoldenrod;
+  border-left: 4px solid #7c3aed;
 }
 
-input,
+input[type="text"],
 select {
   padding: 12px;
-  width: 300px;
-  border: solid #222 1px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #3d3d7e;
   border-radius: 8px;
-  height: 20px;
-  font-size: 12px;
+  height: 46px;
+  font-size: 14px;
+  background-color: #0f0f1a;
+  color: #e2e8f0;
+  transition: border-color 0.3s;
 }
 
-select {
-  height: 45px;
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: #7c3aed;
 }
 
 #opcionais-titulo {
   width: 100%;
 }
 
-#opcionais-subtitulo {
+.opcao-grupo-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 12px 0 8px;
+  display: block;
+}
+
+.checkbox-container {
   display: flex;
-  align-items: flex-start;
-  align-content: center;
-  width: 100%;
-  margin-bottom: 12px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #1e1e3e;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #7c3aed;
 }
 
 .checkbox-container span {
-  margin-left: 6px;
-  font-weight: bold;
+  font-size: 14px;
+  color: #e2e8f0;
 }
 
-.checkbox-container span,
-.checkbox-container input {
-  width: auto;
-  height: 20px;
+.opcao-valor {
+  margin-left: auto;
+  font-size: 13px;
+  color: #7c3aed;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .submit-btn {
-  background-color: #222;
-  color: darkgoldenrod;
+  background-color: #7c3aed;
+  color: white;
   font-weight: bold;
   border: none;
-  font-size: 18px;
-  border-radius: 12px;
-  padding: 16px;
-  margin: 0 auto;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 14px;
+  margin-top: 8px;
   cursor: pointer;
   width: 100%;
-  height: auto;
-  transition: 0.5s;
+  transition: background-color 0.3s;
 }
 
 .submit-btn:hover {
-  background-color: darkgoldenrod;
-  color: #222;
+  background-color: #6d28d9;
 }
 </style>

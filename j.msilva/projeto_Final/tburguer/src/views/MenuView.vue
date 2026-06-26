@@ -1,46 +1,57 @@
 <template>
   <div>
-    <h1>Menu</h1>
-    <div id="scroll-horizontal">
-      <div
-        id="card-content"
-        v-for="burguer in listaMenuHamburguers"
-        :key="burguer.id"
-      >
-        <div id="card-linha">
-          <div class="foto-hamburguer">
-            <img width="300" height="200" :src="burguer.foto" />
-            <div class="card-coluna">
-              <p id="nome-content">{{ burguer.nome }}</p>
-              <p id="valor-content">R$ {{ burguer.valor }},00</p>
-              <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button @click="selecionarBurguer(burguer)">Selecionar</button>
-            </div>
+    <BannerComponent />
+
+    <div id="catalogo-section">
+      <h1 id="catalogo-titulo">Nosso Catálogo</h1>
+
+      <div id="catalogo-grid">
+        <div
+          class="card-content"
+          v-for="teclado in listaMenuTeclados"
+          :key="teclado.id"
+        >
+          <div class="card-imagem">
+            <img :src="teclado.foto" :alt="teclado.nome" />
+          </div>
+          <div class="card-corpo">
+            <p class="card-nome">{{ teclado.nome }}</p>
+            <p class="card-valor">R$ {{ teclado.valor }},00</p>
+            <p class="card-descricao">{{ teclado.descricao }}</p>
+            <button @click="selecionarTeclado(teclado)">Selecionar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 <script>
+import BannerComponent from "@/components/BannerComponent.vue";
+
 export default {
   name: "MenuView",
+  components: {
+    BannerComponent,
+  },
   data() {
     return {
-      listaMenuHamburguers: [],
+      listaMenuTeclados: [],
     };
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch("http://localhost:3000/menu");
+      const response = await fetch(`${process.env.VUE_APP_API_URL}/menu`);
       const dados = await response.json();
-      this.listaMenuHamburguers = dados.burgues;
-      console.log(this.listaMenuHamburguers);
+      this.listaMenuTeclados = dados.teclados;
     },
-    selecionarBurguer(burguerSelecionado) {
-      const parametroBurguer = JSON.stringify(burguerSelecionado);
-      const encodedBurguer = encodeURIComponent(parametroBurguer);
-      this.$router.push({ path: "/config-pedido", query: { burguer: encodedBurguer } });
+    selecionarTeclado(tecladoSelecionado) {
+      const parametroTeclado = JSON.stringify(tecladoSelecionado);
+      const encodedTeclado = encodeURIComponent(parametroTeclado);
+      this.$router.push({
+        path: "/config-pedido",
+        query: { teclado: encodedTeclado },
+      });
     },
   },
   mounted() {
@@ -48,100 +59,99 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-
-#card-content {
-  display: inline-block;
-  width: 280px;
-  min-height: 500px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  align-items: center;
-  margin: 20px;
+#catalogo-titulo {
+  color: #e2e8f0;
+  margin: 32px 0 16px;
+  font-size: 28px;
+  text-align: center;
 }
 
-#scroll-horizontal {
-  flex: 1;
-  overflow-x: auto;
-  white-space: nowrap;
-  width: 900px;
+#catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
   margin: 0 auto;
-  box-shadow: inset -10px 0px 15px -20px rgba(0, 0, 0, 0.1), inset 10px 0px 15px -20px rgba(0, 0, 0, 0.1);
+  padding: 0 24px 48px;
 }
 
-#nome-content {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  width: 100%;
-  margin: 12px;
-} 
-
-.foto-hamburguer {
-  flex-shrink: 0;
-}
-
-.foto-hamburguer img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-}
-
-#valor-content {
-  font-size: 35px;
-  font-weight: bold;
-  text-align: center;
-  color: darkblue;
-  width: 100%;
-  margin: 12px;
-}
-
-#descricao-content {
-  font-size: 16px;
-  color: darkslateblue;
-  text-align: left;
-  width: 100%;
-  white-space: pre-line;
-  margin: 16px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-}
-
-.card-linha {
+.card-content {
   display: flex;
-  flex-direction: row;
-  height: 100%;
+  flex-direction: column;
+  background-color: #16213e;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
-.card-coluna {
-  flex-grow: 1;
-  height: 15px;
-  padding: 15px;
+.card-content:hover {
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.35);
+  transform: translateY(-4px);
 }
 
-.card-coluna button {
-  padding: 10px;
+.card-imagem {
   width: 100%;
-  border: none;
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: darkblue;
+  height: 210px;
+  background-color: #0f0f1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.card-imagem img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.card-corpo {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-nome {
+  font-size: 17px;
+  font-weight: bold;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+}
+
+.card-valor {
+  font-size: 22px;
+  font-weight: bold;
+  color: #7c3aed;
+  margin-bottom: 12px;
+}
+
+.card-descricao {
+  font-size: 13px;
+  color: #a5b4fc;
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.card-corpo button {
+  width: 100%;
+  padding: 11px 20px;
+  background-color: #7c3aed;
   color: white;
-  border-radius: 5px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.card-coluna button:hover {
-  background-color: navy;
+.card-corpo button:hover {
+  background-color: #6d28d9;
 }
-
 </style>

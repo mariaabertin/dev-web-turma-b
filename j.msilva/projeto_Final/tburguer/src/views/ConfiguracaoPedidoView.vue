@@ -1,31 +1,50 @@
 <template>
   <div>
-    <h1>Configuração do Pedido</h1>
-    <pedido-component :burguer="burguerSelecionado" />
+    <h1 id="config-titulo">Configuração do Pedido</h1>
+    <AlertComponent
+      v-if="avisoSemTeclado"
+      tipo="aviso"
+      mensagem="Nenhum teclado selecionado. Redirecionando para o Menu..."
+    />
+    <pedido-component v-else :teclado="tecladoSelecionado" />
   </div>
 </template>
 
 <script>
 import PedidoComponent from "@/components/PedidoComponent.vue";
+import AlertComponent from "@/components/AlertComponent.vue";
 
 export default {
   name: "ConfiguracaoPedidoView",
   components: {
     PedidoComponent,
+    AlertComponent,
   },
   data() {
     return {
-      burguerSelecionado: null,
+      tecladoSelecionado: null,
+      avisoSemTeclado: false,
     };
   },
-  mounted(){
+  mounted() {
     const query = this.$route.query;
-    if( query.burguer ) {
-      const decodedBurguer = JSON.parse(decodeURIComponent(query.burguer));
-      this.burguerSelecionado = decodedBurguer;
+    if (query.teclado) {
+      const decodedTeclado = JSON.parse(decodeURIComponent(query.teclado));
+      this.tecladoSelecionado = decodedTeclado;
+    } else {
+      this.avisoSemTeclado = true;
+      setTimeout(() => {
+        this.$router.push("/menu");
+      }, 2500);
     }
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#config-titulo {
+  color: #e2e8f0;
+  margin: 24px 0;
+  font-size: 28px;
+}
+</style>
