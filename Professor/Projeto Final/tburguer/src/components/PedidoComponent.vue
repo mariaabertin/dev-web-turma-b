@@ -78,8 +78,6 @@
   </div>
 </template>
 <script>
-const BASE_URL = process.env.VUE_APP_API_BASE_URL;
-
 export default {
   name: "PedidoComponent",
   props: {
@@ -98,12 +96,12 @@ export default {
   },
   methods: {
     async getTiposPontos() {
-      const response = await fetch(`${BASE_URL}/tipos_pontos`);
+      const response = await fetch(`${this.$apiUrl}/tipos_pontos`);
       const dados = await response.json();
       this.listaPontosCarne = dados;
     },
     async getOpcionais() {
-      const response = await fetch(`${BASE_URL}/opcionais`);
+      const response = await fetch(`${this.$apiUrl}/opcionais`);
       const dados = await response.json();
       this.listaComplementos = dados.complemento;
       this.listaBebidas = dados.bebidas;
@@ -124,7 +122,7 @@ export default {
 
       const dadosJson = JSON.stringify(dadosPedido);
 
-      const req = await fetch(`${BASE_URL}/pedidos`, {
+      const req = await fetch(`${this.$apiUrl}/pedidos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: dadosJson,
