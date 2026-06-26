@@ -49,80 +49,94 @@ export default {
 
 <style scoped>
 #menu-container {
-  padding: 30px;
+  padding: 40px 48px;
+  background-color: #faf8f4;
+  min-height: 60vh;
 }
 
 #menu-titulo {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-style: italic;
-  color: #2c2c2c;
-  font-size: 35px;
-  margin-bottom: 20px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8a7f6e;
+  font-style: normal;
+  margin-bottom: 28px;
+  font-family: Georgia, serif;
 }
 
 #lista-menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
 }
 
 #menu-item {
-  border: 2px solid #d4a847;
-  border-radius: 8px;
-  padding: 15px;
+  background: #ffffff;
+  border-radius: 10px;
   width: 220px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.2s;
+}
+
+#menu-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 #foto-prato {
-  width: 200px;
+  width: 100%;
   height: 150px;
   object-fit: cover;
-  border-radius: 5px;
 }
 
 #info-prato {
-  text-align: center;
+  padding: 12px 14px 4px;
 }
 
 #info-prato h3 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
-  color: #2c2c2c;
-  font-size: 16px;
-  margin: 5px 0;
+  color: #1e1e1e;
+  font-size: 15px;
+  margin: 0 0 4px;
 }
 
 #preco-prato {
-  color: darkgreen;
+  color: #4a7c59;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
+  margin: 0;
 }
 
 #badge-novidade {
-  font-size: 12px;
-  color: #d4a847;
-  font-weight: bold;
+  display: inline-block;
+  font-size: 10px;
+  font-style: normal;
+  background-color: #fef3dc;
+  color: #a07820;
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
 }
 
 button {
-  background-color: #2c2c2c;
-  color: #f5e6c8;
+  margin: 12px 14px 14px;
+  background-color: #1e1e1e;
+  color: #f0e6cc;
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
+  padding: 9px 0;
+  border-radius: 6px;
   cursor: pointer;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
   font-size: 14px;
-  transition: 0.3s;
+  font-family: Georgia, serif;
+  transition: background-color 0.2s;
 }
 
 button:hover {
   background-color: #d4a847;
-  color: #2c2c2c;
+  color: #1e1e1e;
 }
 </style>
