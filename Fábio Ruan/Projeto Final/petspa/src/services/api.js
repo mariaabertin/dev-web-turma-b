@@ -1,4 +1,4 @@
-export const BASE_URL = "https://my-json-server.typicode.com/ofxzinho/dev-web-turma-b";
+export const BASE_URL = "https://jsonkeeper.com/b/1MTFX";
 
 async function tratarResposta(resposta) {
   if (!resposta.ok) {
@@ -8,17 +8,17 @@ async function tratarResposta(resposta) {
 }
 
 export async function buscarProdutos() {
-  const resposta = await fetch(`${BASE_URL}/produtos`);
-  return tratarResposta(resposta);
+  const dados = await tratarResposta(await fetch(BASE_URL));
+  return dados.produtos || [];
 }
 
 export async function buscarPedidos() {
-  const resposta = await fetch(`${BASE_URL}/pedidos`);
-  return tratarResposta(resposta);
+  const dados = await tratarResposta(await fetch(BASE_URL));
+  return dados.pedidos || [];
 }
 
 export async function criarPedido(pedido) {
-  const resposta = await fetch(`${BASE_URL}/pedidos`, {
+  const resposta = await fetch(BASE_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(pedido),
@@ -27,7 +27,8 @@ export async function criarPedido(pedido) {
 }
 
 export async function excluirPedido(id) {
-  const resposta = await fetch(`${BASE_URL}/pedidos/${id}`, {
+  // Simulação de DELETE para os testes do projeto
+  const resposta = await fetch(BASE_URL, {
     method: "DELETE",
   });
   return tratarResposta(resposta);
