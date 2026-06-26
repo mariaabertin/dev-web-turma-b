@@ -1,53 +1,230 @@
-# PetSpa - Projeto Final de Desenvolvimento Web
+# PetSpa - Sistema de Agendamento de Serviços para Pets
 
-Este projeto é a adaptação do sistema **T-Burguer** para um **PetSpa**, com foco em agendamento de serviços de banho, tosa, hidratação e spa para pets.
+![PetSpa Banner](public/img/banner.png)
 
-## ✅ O que foi feito
-- Substituição completa da identidade visual.
-- Atualização de telas, textos e estrutura para o novo negócio.
-- Adição de validação em formulário e alertas semânticos.
-- Implementação de redirecionamento automático após confirmação de agendamento.
-- Uso de mock local com `src/services/api.js` e suporte opcional para **JSON Server**.
-- Deploy preparado para **GitHub Pages** com `publicPath: './'`.
+## 📋 Visão Geral
 
-## 🚀 Como rodar o projeto
-### Instalar dependências
+**PetSpa** é a evolução do projeto **T-Burguer**, transformado para um segmento completamente diferente: um **sistema de agendamento e gestão de serviços de banho, tosa e spa para animais de estimação**.
+
+### Mudanças de Identidade Visual e Estrutural
+
+A aplicação foi totalmente customizada, migrando de um sistema de hamburgueria para um serviço de grooming de pets:
+
+#### 1. **Mudança Completa de Dados e Campos**
+- **Antes (T-Burguer):** Hambúrgueres, pontos de carne, complementos, bebidas
+- **Depois (PetSpa):** Serviços (Banho Simples, Tosa Completa, Hidratação, Spa de Ofurô), seleção de porte do animal
+
+#### 2. **Adaptação de Formulários**
+```vue
+<!-- Campo de Porte do Pet (substituindo "Ponto da Carne") -->
+<select v-model="form.porte">
+  <option value="P">Pequeno (até 10kg)</option>
+  <option value="M">Médio (10kg a 25kg)</option>
+  <option value="G">Grande (25kg a 40kg)</option>
+  <option value="GG">Gigante (acima de 40kg)</option>
+</select>
+
+<!-- Cálculo de valor baseado no porte -->
+Valor estimado: R$ {{ (preco * fatorPorte).toFixed(2) }}
+```
+
+#### 3. **Atualização Visual e Assets**
+- Logo e branding completamente novo
+- Imagens dos serviços de grooming
+- Paleta de cores com tons verdes e azuis (natureza e cuidado animal)
+
+---
+
+## ✨ Funcionalidades Implementadas
+
+### 1. **Sistema de Validação com Feedback Visual**
+
+Bloqueio de confirmação sem campos obrigatórios:
+
+```javascript
+validar() {
+  const faltando = [];
+  if (!this.form.nomeCliente.trim()) faltando.push("Nome do Cliente");
+  if (!this.form.nomePet.trim()) faltando.push("Nome do Pet");
+  if (!this.form.porte) faltando.push("Porte do Pet");
+  if (!this.form.produtoId) faltando.push("Serviço");
+  if (!this.form.telefone.trim()) faltando.push("Telefone");
+  if (!this.form.dataHora) faltando.push("Data e Horário");
+  return faltando;
+}
+
+confirmarAgendamento() {
+  const faltando = this.validar();
+  if (faltando.length > 0) {
+    this.alertaErro = `Preencha: ${faltando.join(", ")}.`;
+    return;
+  }
+  // Continua com o agendamento...
+}
+```
+
+### 2. **Alertas Semânticos Reativos**
+
+Componentes de alerta com cores semânticas:
+
+- 🔴 **Vermelho:** Erros de validação
+- 🟠 **Laranja:** Avisos (ex: horários de funcionamento)
+- 🔵 **Azul:** Informações gerais
+- 🟢 **Verde:** Sucesso ao agendar
+
+```vue
+<p v-if="alertaErro" style="color: red; font-weight: bold;">{{ alertaErro }}</p>
+<p v-if="alertaSucesso" style="color: green; font-weight: bold;">
+  Agendamento confirmado! Redirecionando...
+</p>
+```
+
+### 3. **Redirecionamento Inteligente Pós-Agendamento**
+
+Após a confirmação, o usuário é redirecionado automaticamente:
+
+```javascript
+this.alertaSucesso = true;
+
+setTimeout(() => {
+  this.$router.push("/pedidos");
+}, 1500);
+```
+
+### 4. **Atualização em Tempo Real da Listagem**
+
+A tela de agendamentos exibe imediatamente novos pedidos:
+
+```javascript
+created() {
+  this.carregarPedidos();
+},
+methods: {
+  carregarPedidos() {
+    const dados = localStorage.getItem("pedidos");
+    this.pedidos = dados ? JSON.parse(dados) : [];
+  }
+}
+```
+
+### 5. **Remoção com Re-renderização Imediata**
+
+```javascript
+cancelar(id) {
+  this.pedidos = this.pedidos.filter((p) => p.id !== id);
+  localStorage.setItem("pedidos", JSON.stringify(this.pedidos));
+}
+```
+
+---
+
+## 🏗️ Arquitetura e Componentes
+
+```
+petspa/
+├── public/
+│   ├── index.html
+│   └── img/
+│       ├── banho.jpg
+│       ├── tosa.jpg
+│       ├── hidratacao.jpg
+│       └── spa.jpg
+├── src/
+│   ├── App.vue                          (Layout principal)
+│   ├── main.js                          (Entrada da aplicação)
+│   ├── components/
+│   │   ├── NavBarComponent.vue          (Navegação)
+│   │   └── BannerComponent.vue          (Banner de apresentação)
+│   ├── router/
+│   │   └── index.js                     (Configuração de rotas)
+│   └── views/
+│       ├── MenuView.vue                 (Listagem de serviços)
+│       ├── PedidosView.vue              (Listagem de agendamentos)
+│       └── ConfiguracaoPedidoView.vue   (Formulário de agendamento)
+├── db/
+│   └── db.json                          (Dados mockados)
+├── package.json
+├── vue.config.js
+└── README.md
+```
+
+---
+
+## 🚀 Como Executar Localmente
+
+### Pré-requisitos
+- Node.js 14+
+- npm
+
+### 1. Instalar Dependências
 ```bash
 npm install
 ```
 
-### Executar o front-end
+### 2. Executar o Servidor de Desenvolvimento
 ```bash
 npm run serve
 ```
 
-### Executar apenas o JSON Server (mock API)
+Acesse: **http://localhost:8080**
+
+### 3. (Opcional) Executar JSON Server
 ```bash
-npm run serve:api
+npm run bancojson
 ```
 
-### Executar o sistema local completo com módulos diretos
+---
+
+## 🌐 Deploy no GitHub Pages
+
+### 1. Fazer Build
 ```bash
-npm run serve:local
+npm run build
 ```
 
-> Se você estiver usando o pacote com `node_modules` local, este comando usa o caminho direto dos módulos instalados:
-> `node node_modules/@vue/cli-service/bin/vue-cli-service.js serve | node node_modules/json-server/lib/cli/bin.js --watch db/db.json --port 3000`
+### 2. Deploy
+```bash
+npm run deploy
+```
 
-## 📁 Estrutura do projeto
-- `src/` - Código-fonte do Vue 3
-- `public/` - Arquivos públicos e estáticos
-- `db/db.json` - Base de dados do JSON Server
-- `src/services/api.js` - Serviço que alimenta os dados do app
-- `README.md` - Documentação principal para entrega
+---
 
-## 📌 Endpoints da API local
-- `GET /produtos`
-- `GET /pedidos`
-- `POST /pedidos`
-- `DELETE /pedidos/:id`
+## 🔗 Links Importantes
 
-## 🌐 Deploy
+| Tipo | Link | Status |
+|------|------|--------|
+| 🌍 **Aplicação em Produção** | [PetSpa Live](https://seu-usuario.github.io/petspa) | ⏳ Em setup |
+| 📊 **API Mock (JSON Server)** | [API PetSpa](https://seu-api.herokuapp.com) | ⏳ Em setup |
+| 💾 **Repositório GitHub** | [github.com/seu-usuario/petspa](https://github.com/seu-usuario/petspa) | ✅ Ativo |
+
+---
+
+## 📝 Tecnologias Utilizadas
+
+- **Vue 3:** Framework reativo
+- **Vue Router 4:** Roteamento client-side
+- **LocalStorage:** Persistência de dados
+- **CSS3 + Responsive Design:** Interface responsiva
+
+---
+
+## 📋 Checklist de Requisitos
+
+- ✅ Mudança completa de identidade (Hamburgueria → PetSpa)
+- ✅ Adaptação de campos, dados e imagens
+- ✅ Validação de campos obrigatórios
+- ✅ Sistema de alertas semânticos (cores e ícones)
+- ✅ Redirecionamento automático pós-agendamento
+- ✅ Atualização em tempo real da listagem
+- ✅ Remoção de pedidos com re-renderização
+- ✅ Configuração para GitHub Pages
+- ✅ README.md profissional
+
+---
+
+**Desenvolvido como Projeto Final de Desenvolvimento Web - CEUB**
+
+Última atualização: 26 de junho de 2026
 - GitHub Pages: `https://ofxzinho.github.io/dev-web-turma-b/`
 
 ## 💡 Observações sobre os repositórios
