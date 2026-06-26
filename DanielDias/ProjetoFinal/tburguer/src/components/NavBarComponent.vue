@@ -17,45 +17,39 @@ export default {
 </script>
 
 <style scoped>
-#logo-texto {
-  font-size: 22px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-style: italic;
-  color: #f5e6c8;
-  font-weight: bold;
+#nav {
+  background-color: #1e1e1e;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid #d4a847;
 }
 
-#nav #logo-url {
+#logo-url {
   margin-right: auto;
-  margin-left: 0;
+  text-decoration: none;
+}
+
+#logo-texto {
+  font-size: 21px;
+  font-style: italic;
+  color: #f0e6cc;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 #nav a {
-  color: #f5e6c8;
+  color: #c9c0aa;
   text-decoration: none;
-  margin: 20px;
-  transition: 0.5s;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-style: italic;
-  font-size: 18px;
+  margin-left: 28px;
+  font-style: normal;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  padding-bottom: 3px;
+  transition: color 0.2s;
 }
 
 #nav a:hover {
-  color: #d4a847;
-  font-size: 20px;
-}
-
-#logo-url:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
-#nav {
-  background-color: #2c2c2c;
-  border-bottom: 4px solid #d4a847;
-  padding: 15px 50px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  color: #f0e6cc;
 }
 </style>
