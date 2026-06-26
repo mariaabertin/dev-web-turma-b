@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://my-json-server.typicode.com/ofxzinho/dev-web-turma-b";
 
 async function tratarResposta(resposta) {
   if (!resposta.ok) {
