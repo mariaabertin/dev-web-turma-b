@@ -1,0 +1,195 @@
+{
+  "opcoes_frete": [
+    {
+      "id": 1,
+      "descricao": "Transportadora Ninja (1 a 2 dias úteis)"
+    },
+    {
+      "id": 2,
+      "descricao": "SEDEX Correios (2 a 4 dias úteis)"
+    },
+    {
+      "id": 3,
+      "descricao": "PAC Correios (7 a 10 dias úteis)"
+    },
+    {
+      "id": 4,
+      "descricao": "Retirada na Loja Física (Imediato)"
+    }
+  ],
+  "status_pedido": [
+    {
+      "id": 1,
+      "descricao": "Aguardando Pagamento"
+    },
+    {
+      "id": 2,
+      "descricao": "Pagamento Aprovado"
+    },
+    {
+      "id": 3,
+      "descricao": "Em Separação"
+    },
+    {
+      "id": 4,
+      "descricao": "Faturado e Enviado"
+    },
+    {
+      "id": 5,
+      "descricao": "Saiu para Entrega"
+    },
+    {
+      "id": 6,
+      "descricao": "Entregue"
+    }
+  ],
+  "pedidos": [],
+  "opcionais": {
+    "hardware_extra": [
+      {
+        "id": 1,
+        "nome": "Kit Memória RAM 16GB (2x8GB) DDR4",
+        "descricao": "Frequência de 3200MHz, com dissipador de calor e iluminação RGB.",
+        "foto": "https://images.unsplash.com/photo-1562976540-b508567f58f4?q=80&w=250&auto=format&fit=crop",
+        "valor": 320,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "SSD NVMe M.2 1TB",
+        "descricao": "Leitura de 3500MB/s e gravação de 3000MB/s. Mais velocidade para o seu setup.",
+        "foto": "https://images.unsplash.com/photo-1597849149431-155e8249de65?q=80&w=250&auto=format&fit=crop",
+        "valor": 450,
+        "eh_novidade": false
+      }
+    ],
+    "perifericos": [
+      {
+        "id": 1,
+        "nome": "Teclado Mecânico Switch Brown",
+        "descricao": "Formato TKL 80%, layout ABNT2, teclas double-shot injection e iluminação customizável.",
+        "foto": "https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=250&auto=format&fit=crop",
+        "valor": 280,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Mouse Sem Fio Ergonômico",
+        "descricao": "Conexão 2.4GHz e Bluetooth, sensor de alta precisão de 10.000 DPI, design focado no conforto prolongado.",
+        "foto": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=250&auto=format&fit=crop",
+        "valor": 190,
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Headset Gamer com Microfone Noise Cancelling",
+        "descricao": "Som surround 7.1 virtual, drivers de 50mm e conchas super macias.",
+        "foto": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=250&auto=format&fit=crop",
+        "valor": 250,
+        "eh_novidade": false
+      }
+    ]
+  },
+  "catalogo": {
+    "desktops": [
+      {
+        "id": 1,
+        "nome": "PC Gamer Pichado Pro",
+        "foto": "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m7b1rys5icek02",
+        "descricao": "Processador Ryzen 5 5600X, Placa de Vídeo RTX 3060 12GB, 16GB RAM DDR4, SSD 500GB NVMe. O custo-benefício perfeito para rodar tudo no Alto.",
+        "valor": 4500,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Desktop Dell OptiPlex Small Form Factor",
+        "foto": "https://images0.kabum.com.br/produtos/fotos/sync_mirakl/688080/xlarge/Desktop-Dell-Optiplex-7020-Mini-Core-i5-12500t-8GB-Ddr4-256gb-Nvme-WINDOWS-11-Pro_1751312437.jpg",
+        "descricao": "Processador Core i7 13ª Gen, 16GB RAM, SSD 512GB, Windows 11 Pro. Design compacto e eficiente para ambientes corporativos.",
+        "valor": 5200,
+        "eh_novidade": false
+      },
+      {
+        "id": 3,
+        "nome": "PC Gamer Elite RTX 4070",
+        "foto": "https://images6.kabum.com.br/produtos/fotos/sync_mirakl/697206/xlarge/PC-Gamer-Ryzen-7-9800x3d-RTX-4070-Super-32gb-Ddr5-RGB-SSD-Nvme-2TB-1000w-80-Plus-Gold-Toppc01-e_1775063612.webp",
+        "descricao": "Processador Ryzen 7 7800X3D, RTX 4070 12GB, 32GB RAM DDR5, SSD 1TB NVMe. Desempenho extremo para 1440p e entusiastas.",
+        "valor": 11500,
+        "eh_novidade": true
+      },
+      {
+        "id": 4,
+        "nome": "HP Pavilion Desktop Tower",
+        "foto": "https://images8.kabum.com.br/produtos/fotos/magalu/977298/xlarge/Computador-PC-HP-Pavilion-Slimline-400-010br_1763600537.jpg",
+        "descricao": "Processador Core i5 12ª Gen, 8GB RAM, SSD 256GB. Versátil e confiável para multitarefas domésticas e estudos.",
+        "valor": 3200,
+        "eh_novidade": false
+      },
+      {
+        "id": 5,
+        "nome": "Workstation Alienware Aurora R16",
+        "foto": "https://images7.kabum.com.br/produtos/fotos/sync_mirakl/945367/xlarge/Desktop-Dell-Alienware-Aurora-Intel-Core-Ultra-9-RTX-5070-32gb-1TB-SSD-WINDOWS-11-Aw-u9285k-m20p_1771853161.png",
+        "descricao": "Processador Core i9 14ª Gen, RTX 4090, 64GB RAM DDR5, SSD 2TB. Potência bruta para criação de conteúdo e jogos em 4K.",
+        "valor": 22000,
+        "eh_novidade": true
+      },
+      {
+        "id": 6,
+        "nome": "PC Gamer de Entrada Ryzen 5",
+        "foto": "https://images4.kabum.com.br/produtos/fotos/sync_mirakl/661594/xlarge/PC-Gamer-Skill-Aquarium-AMD-Ryzen-5-5600GT-16GB-Radeon-Vega-7-SSD-512GB-M-2-Fonte-500w-Preto-SKA003_1781786040.png",
+        "descricao": "Processador Ryzen 5 4600G com gráfico integrado, 8GB RAM, SSD 240GB. A porta de entrada acessível para o universo gamer.",
+        "valor": 2100,
+        "eh_novidade": false
+      }
+    ],
+    "notebooks": [
+      {
+        "id": 1,
+        "nome": "Notebook Gamer Nitro 5",
+        "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_670475-MLA99453294496_112025-F.webp",
+        "descricao": "Tela 15.6 IPS 144Hz, Processador Core i5 11ª Gen, GTX 1650, 8GB RAM, SSD 512GB. Portabilidade sem abrir mão da performance.",
+        "valor": 4100,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "MacBook Air M2",
+        "foto": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/macbook-air-13-digitalmat-gallery-6-202503?wid=728&hei=666&fmt=png-alpha&.v=RWZDcE1Pa2MvREpxR2hwendCZFpRa2EvQmI5ZjZseVhPSEJZVkYxZ09JdG1rMDNtTGpFOG9kR2JjS3UwZGZGOHhaVXN2UmVLZWxyY01GTDZmcDYxbitZbnd2dEloRUI0QkxmQVJESllzWlRXaWVndk1QTmVyQ3Y4OGJ2Rm1zMHk",
+        "descricao": "Chip M2 da Apple, Tela Liquid Retina de 13.6 polegadas, 8GB de RAM, SSD 256GB. Design ultrafino e bateria de longa duração.",
+        "valor": 7500,
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Dell Inspiron 15 3000",
+        "foto": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/dell/dell-15-intel-3530/media-gallery/laptop-dell-dc15250nt-bk-plastic-gallery-3.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=686&qlt=100,1&resMode=sharp2&size=686,402&chrss=full",
+        "descricao": "Processador Core i3 12ª Gen, Tela Full HD de 15.6, 8GB RAM, SSD 256GB. Ideal para produtividade e estudos no dia a dia.",
+        "valor": 2800,
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Lenovo Legion Slim 5i",
+        "foto": "https://p1-ofp.static.pub/medias/26050595576_LOQ15IRX9WHBKLTLunaGreyIMG_202309261024281774875610563.png?width=584&height=584",
+        "descricao": "Processador Core i7 13ª Gen, RTX 4060, 16GB RAM, SSD 1TB. Performance de elite em um chassi gamer compacto.",
+        "valor": 9200,
+        "eh_novidade": true
+      },
+      {
+        "id": 5,
+        "nome": "Samsung Galaxy Book4",
+        "foto": "https://samsungbrshop.vtexassets.com/arquivos/ids/244145-800-auto?v=638791285955930000",
+        "descricao": "Processador Core i5 13ª Gen, 8GB RAM, SSD 512GB, Tela AMOLED. Leveza e integração impecável com o ecossistema Galaxy.",
+        "valor": 4500,
+        "eh_novidade": false
+      },
+      {
+        "id": 6,
+        "nome": "ASUS Vivobook 16",
+        "foto": "https://dlcdnwebimgs.asus.com/gain/c0459a8d-dfee-499d-8f2d-d27b2c61bb93/w800/fwebp",
+        "descricao": "Processador Ryzen 7 7730U, 16GB RAM, SSD 512GB, Tela ampla de 16 polegadas. Focado em multitarefas e conforto visual.",
+        "valor": 3900,
+        "eh_novidade": false
+      }
+    ]
+  }
+}
