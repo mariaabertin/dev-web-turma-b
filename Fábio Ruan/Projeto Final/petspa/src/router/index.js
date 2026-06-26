@@ -1,7 +1,7 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import MenuView from "@/views/MenuView.vue";
-import ConfiguracaoPedidoView from "@/views/ConfiguracaoPedidoVIew.vue";
 import PedidosView from "@/views/PedidosView.vue";
+import ConfiguracaoPedidoView from "@/views/ConfiguracaoPedidoVIew.vue";
 
 const routes = [
   {
@@ -11,23 +11,23 @@ const routes = [
   },
   {
     path: "/menu",
-    name: "servicos",
+    name: "menu",
     component: MenuView,
   },
   {
     path: "/pedidos",
-    name: "agendamentos",
+    name: "pedidos",
     component: PedidosView,
   },
   {
-    path: "/config",
-    name: "agendar",
+    path: "/config-pedido",
+    name: "config-pedido",
     component: ConfiguracaoPedidoView,
   },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(process.env.BASE_URL),
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 

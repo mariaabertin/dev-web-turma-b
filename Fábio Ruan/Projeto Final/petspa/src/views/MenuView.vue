@@ -3,27 +3,16 @@
     <div class="servicos-pagina">
       <h1>Nossos Serviços</h1>
 
-      <div class="container-alerta">
-        <AlertaComponent
-          v-if="erroCarregamento"
-          tipo="erro"
-          mensagem="Não foi possível carregar os serviços da API. Verifique a URL configurada em src/services/api.js."
-          @fechar="erroCarregamento = false"
-        />
-      </div>
-
-      <p v-if="carregando">Carregando serviços...</p>
-
-      <div v-else class="lista-servicos">
+      <div class="lista-servicos">
         <div v-for="produto in produtos" :key="produto.id" class="card-servico">
           <img
-            :src="imagemUrl(produto.imagem)"
+            :src="produto.imagem"
             :alt="produto.nome"
             class="servico-imagem"
           />
           <h2>{{ produto.nome }}</h2>
           <p class="descricao">{{ produto.descricao }}</p>
-          <p class="preco">a partir de R$ {{ (produto.precoBase ?? produto.preco).toFixed(2) }}</p>
+          <p class="preco">a partir de R$ {{ produto.preco.toFixed(2) }}</p>
           <button @click="agendar(produto)">Agendar este serviço</button>
         </div>
       </div>
@@ -32,38 +21,45 @@
 </template>
 
 <script>
-import AlertaComponent from "@/components/AlertaComponent.vue";
-import { buscarProdutos } from "@/services/api";
-
 export default {
   name: "MenuView",
-  components: { AlertaComponent },
   data() {
     return {
-      produtos: [],
-      carregando: true,
-      erroCarregamento: false,
+      produtos: [
+        {
+          id: 1,
+          nome: "Banho Simples",
+          preco: 40,
+          imagem: "/img/banho.jpg",
+          descricao: "Banho rápido com shampoo neutro e secagem.",
+        },
+        {
+          id: 2,
+          nome: "Tosa Completa",
+          preco: 60,
+          imagem: "/img/tosa.jpg",
+          descricao: "Tosa completa com acabamento e hidratação.",
+        },
+        {
+          id: 3,
+          nome: "Hidratação Control",
+          preco: 35,
+          imagem: "/img/hidratacao.jpg",
+          descricao: "Tratamento hidratante para pelos secos e quebradiços.",
+        },
+        {
+          id: 4,
+          nome: "Spa de Ofurô",
+          preco: 90,
+          imagem: "/img/spa.jpg",
+          descricao: "Experiência completa com aroma-terapia e relaxamento.",
+        },
+      ],
     };
   },
-  async created() {
-    try {
-      this.produtos = await buscarProdutos();
-    } catch (erro) {
-      console.error(erro);
-      this.erroCarregamento = true;
-    } finally {
-      this.carregando = false;
-    }
-  },
   methods: {
-    imagemUrl(imagem) {
-      if (!imagem) return "";
-      return /^https?:\/\//.test(imagem)
-        ? imagem
-        : `${process.env.BASE_URL}img/${imagem}`;
-    },
     agendar(produto) {
-      this.$router.push({ path: "/config", query: { produtoId: produto.id } });
+      this.$router.push({ path: "/config-pedido", query: { produtoId: produto.id } });
     },
   },
 };

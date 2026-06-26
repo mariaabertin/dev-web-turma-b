@@ -2,22 +2,13 @@
   <div class="agendamentos-pagina">
     <h1>Agendamentos</h1>
 
-    <AlertaComponent
-      v-if="alertaSucesso"
-      tipo="sucesso"
-      mensagem="Agendamento cancelado com sucesso."
-      @fechar="alertaSucesso = false"
-    />
-
-    <p v-if="estoquePedidos.carregando">Carregando agendamentos...</p>
-
-    <p v-else-if="estoquePedidos.itens.length === 0" class="vazio">
+    <p v-if="pedidos.length === 0" class="vazio">
       Nenhum agendamento ainda.
       <router-link to="/menu">Agende o primeiro serviço do seu pet</router-link>.
     </p>
 
     <div v-else class="lista-agendamentos">
-      <div v-for="pedido in estoquePedidos.itens" :key="pedido.id" class="card-agendamento">
+      <div v-for="pedido in pedidos" :key="pedido.id" class="card-agendamento">
         <div class="info">
           <strong>{{ pedido.nomePet }}</strong> ({{ pedido.porte }}) — {{ pedido.servicoNome }}
           <br />
@@ -37,25 +28,24 @@
 </template>
 
 <script>
-import AlertaComponent from "@/components/AlertaComponent.vue";
-import { estoquePedidos, carregarPedidosIniciais, removerPedido } from "@/store/pedidos";
-
 export default {
   name: "PedidosView",
-  components: { AlertaComponent },
   data() {
     return {
-      estoquePedidos,
-      alertaSucesso: false,
+      pedidos: [],
     };
   },
-  async created() {
-    await carregarPedidosIniciais();
+  created() {
+    this.carregarPedidos();
   },
   methods: {
-    async cancelar(id) {
-      await removerPedido(id);
-      this.alertaSucesso = true;
+    carregarPedidos() {
+      const dados = localStorage.getItem("pedidos");
+      this.pedidos = dados ? JSON.parse(dados) : [];
+    },
+    cancelar(id) {
+      this.pedidos = this.pedidos.filter((p) => p.id !== id);
+      localStorage.setItem("pedidos", JSON.stringify(this.pedidos));
     },
     formatarData(valor) {
       if (!valor) return "";

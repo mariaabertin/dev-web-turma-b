@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f2f6f2;
+  color: #1f2937;
+}
+
+button,
+input,
+a {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+main {
+  padding: 0 0 2rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input:focus,
+button:focus,
+a:focus {
+  outline: 2px solid #0f766e;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .page-container {
+    padding: 1rem 0.8rem 1.5rem;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-card img {
+    width: 100%;
+    height: auto;
+  }
+}

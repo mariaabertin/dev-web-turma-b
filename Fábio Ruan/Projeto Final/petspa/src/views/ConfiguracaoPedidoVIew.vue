@@ -2,29 +2,8 @@
   <div class="agendar-pagina">
     <h1>Agendar Serviço</h1>
 
-    <AlertaComponent
-      tipo="info"
-      mensagem="O valor exibido é uma estimativa. O valor final pode variar conforme o porte e o estado do pelo do pet."
-    />
-
-    <AlertaComponent
-      v-if="avisoDiaFechado"
-      tipo="aviso"
-      mensagem="Funcionamos de terça a sábado, das 9h às 18h. Você pode enviar mesmo assim, nossa equipe confirma o melhor horário disponível."
-    />
-
-    <AlertaComponent
-      v-if="alertaErro"
-      tipo="erro"
-      :mensagem="alertaErro"
-      @fechar="alertaErro = ''"
-    />
-
-    <AlertaComponent
-      v-if="alertaSucesso"
-      tipo="sucesso"
-      mensagem="Agendamento confirmado! Redirecionando para a lista de agendamentos..."
-    />
+    <p v-if="alertaErro" style="color: red; font-weight: bold;">{{ alertaErro }}</p>
+    <p v-if="alertaSucesso" style="color: green; font-weight: bold;">Agendamento confirmado! Redirecionando...</p>
 
     <form class="formulario" @submit.prevent="confirmarAgendamento">
       <label>
@@ -50,24 +29,11 @@
 
       <label>
         Serviço *
-        <select v-model="form.produtoId" :disabled="carregandoProdutos">
-          <option value="" disabled>
-            {{ carregandoProdutos ? "Carregando..." : "Selecione" }}
-          </option>
+        <select v-model="form.produtoId">
+          <option value="" disabled>Selecione</option>
           <option v-for="produto in produtos" :key="produto.id" :value="String(produto.id)">
             {{ produto.nome }}
           </option>
-        </select>
-      </label>
-
-      <label v-if="precisaTipoTosa">
-        Tipo de Tosa *
-        <select v-model="form.tipoTosa">
-          <option value="" disabled>Selecione</option>
-          <option value="higienica">Higiênica apenas</option>
-          <option value="maquina">Máquina (pelo curto uniforme)</option>
-          <option value="tesoura">Tesoura (estilizada)</option>
-          <option value="indicacao">Não sei, quero indicação da equipe</option>
         </select>
       </label>
 
@@ -101,23 +67,37 @@
 </template>
 
 <script>
-import AlertaComponent from "@/components/AlertaComponent.vue";
-import { buscarProdutos } from "@/services/api";
-import { adicionarPedido } from "@/store/pedidos";
-
 export default {
   name: "ConfiguracaoPedidoView",
-  components: { AlertaComponent },
   data() {
     return {
-      produtos: [],
-      carregandoProdutos: true,
+      produtos: [
+        {
+          id: 1,
+          nome: "Banho Simples",
+          preco: 40,
+        },
+        {
+          id: 2,
+          nome: "Tosa Completa",
+          preco: 60,
+        },
+        {
+          id: 3,
+          nome: "Hidratação Control",
+          preco: 35,
+        },
+        {
+          id: 4,
+          nome: "Spa de Ofurô",
+          preco: 90,
+        },
+      ],
       form: {
         nomeCliente: "",
         nomePet: "",
         porte: "",
         produtoId: "",
-        tipoTosa: "",
         telefone: "",
         dataHora: "",
         observacoes: "",
@@ -129,16 +109,7 @@ export default {
   },
   computed: {
     produtoSelecionado() {
-      return (
-        this.produtos.find((produto) => String(produto.id) === String(this.form.produtoId)) ||
-        null
-      );
-    },
-    precisaTipoTosa() {
-      return (
-        !!this.produtoSelecionado &&
-        ["tosa", "banho+tosa"].includes(this.produtoSelecionado.categoria)
-      );
+      return this.produtos.find((p) => String(p.id) === String(this.form.produtoId)) || null;
     },
     fatorPorte() {
       const fatores = { P: 1.0, M: 1.25, G: 1.55, GG: 1.9 };
@@ -148,21 +119,8 @@ export default {
       if (!this.produtoSelecionado) return 0;
       return this.produtoSelecionado.preco * this.fatorPorte;
     },
-    avisoDiaFechado() {
-      if (!this.form.dataHora) return false;
-      const dia = new Date(this.form.dataHora).getDay(); // 0 = domingo, 1 = segunda
-      return dia === 0 || dia === 1;
-    },
   },
-  async created() {
-    try {
-      this.produtos = await buscarProdutos();
-    } catch (erro) {
-      console.error(erro);
-    } finally {
-      this.carregandoProdutos = false;
-    }
-
+  created() {
     const produtoQuery = this.$route.query.produtoId;
     if (produtoQuery) {
       this.form.produtoId = String(produtoQuery);
@@ -175,15 +133,14 @@ export default {
       if (!this.form.nomePet.trim()) faltando.push("Nome do Pet");
       if (!this.form.porte) faltando.push("Porte do Pet");
       if (!this.form.produtoId) faltando.push("Serviço");
-      if (this.precisaTipoTosa && !this.form.tipoTosa) faltando.push("Tipo de Tosa");
       if (!this.form.telefone.trim()) faltando.push("Telefone");
       if (!this.form.dataHora) faltando.push("Data e Horário");
       return faltando;
     },
-    async confirmarAgendamento() {
+    confirmarAgendamento() {
       const faltando = this.validar();
       if (faltando.length > 0) {
-        this.alertaErro = `Preencha os campos obrigatórios: ${faltando.join(", ")}.`;
+        this.alertaErro = `Preencha: ${faltando.join(", ")}.`;
         this.alertaSucesso = false;
         return;
       }
@@ -198,14 +155,16 @@ export default {
         porte: this.form.porte,
         produtoId: this.form.produtoId,
         servicoNome: this.produtoSelecionado.nome,
-        tipoTosa: this.form.tipoTosa || null,
         telefone: this.form.telefone.trim(),
         dataHora: this.form.dataHora,
         observacoes: this.form.observacoes.trim(),
         valor: this.valorEstimado,
       };
 
-      await adicionarPedido(novoPedido);
+      // Salva no localStorage
+      const pedidosExistentes = JSON.parse(localStorage.getItem("pedidos") || "[]");
+      pedidosExistentes.push(novoPedido);
+      localStorage.setItem("pedidos", JSON.stringify(pedidosExistentes));
 
       this.enviando = false;
       this.alertaSucesso = true;
