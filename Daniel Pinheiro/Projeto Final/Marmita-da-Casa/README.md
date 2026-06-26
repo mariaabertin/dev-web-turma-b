@@ -79,3 +79,8 @@ A API fica disponível em `http://localhost:3000` e o front-end em `http://local
 Este projeto foi desenvolvido com foco em aprender a estrutura do projeto do professor, mantendo o uso de componentes, rotas, fetch e JSON Server de forma simples e consistente.
 
 Projeto acadêmico — Desenvolvimento Web (Vue 3).
+
+LINKS:
+marmita-da-casa-git-main-daniel-pinheiro.vercel.app
+https://marmita-da-casa-banco-json.onrender.com
+
