@@ -72,11 +72,24 @@ Componentes de alerta com cores semânticas:
 - 🔵 **Azul:** Informações gerais
 - 🟢 **Verde:** Sucesso ao agendar
 
+O componente `AlertComponent.vue` recebe `tipo` e `mensagem` via props e aplica automaticamente a cor e o ícone corretos:
+
 ```vue
-<p v-if="alertaErro" style="color: red; font-weight: bold;">{{ alertaErro }}</p>
-<p v-if="alertaSucesso" style="color: green; font-weight: bold;">
-  Agendamento confirmado! Redirecionando...
-</p>
+<!-- Uso na tela de agendamento -->
+<AlertComponent tipo="info" mensagem="Atendemos de segunda a sábado, das 8h às 18h." />
+<AlertComponent tipo="erro" :mensagem="alertaErro" />
+<AlertComponent tipo="aviso" :mensagem="alertaAviso" />
+<AlertComponent tipo="sucesso" :mensagem="alertaSucesso ? 'Agendamento confirmado! Redirecionando...' : ''" />
+```
+
+O componente valida o `tipo` via `validator` e renderiza o ícone e a cor correspondentes:
+
+```vue
+<!-- AlertComponent.vue -->
+<div v-if="mensagem" :class="['alerta', `alerta-${tipo}`]">
+  <span class="alerta-icone">{{ icones[tipo] }}</span>
+  <span>{{ mensagem }}</span>
+</div>
 ```
 
 ### 3. **Redirecionamento Inteligente Pós-Agendamento**
@@ -194,7 +207,7 @@ npm run deploy
 | Tipo | Link | Status |
 |------|------|--------|
 | 🌍 **Aplicação em Produção** | [PetSpa Live](https://ofxzinho.github.io/dev-web-turma-b/) | ✅ Ativo |
-| 📊 **API Mock (JSON Server)** | [API PetSpa](https://seu-api.herokuapp.com) | ⏳ Em setup |
+| 📊 **API Mock (JSON Server)** | Não publicada — dados persistidos via localStorage | ⚠️ Não disponível |
 | 💾 **Repositório GitHub** | [github.com/ofxzinho/dev-web-turma-b](https://github.com/ofxzinho/dev-web-turma-b) | ✅ Ativo |
 
 ---

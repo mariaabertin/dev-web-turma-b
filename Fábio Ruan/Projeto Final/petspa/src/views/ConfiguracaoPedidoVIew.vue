@@ -2,8 +2,11 @@
   <div class="agendar-pagina">
     <h1>Agendar Serviço</h1>
 
-    <p v-if="alertaErro" style="color: red; font-weight: bold;">{{ alertaErro }}</p>
-    <p v-if="alertaSucesso" style="color: green; font-weight: bold;">Agendamento confirmado! Redirecionando...</p>
+    <AlertComponent tipo="info" mensagem="Atendemos de segunda a sábado, das 8h às 18h. Escolha um horário dentro desse período." />
+
+    <AlertComponent tipo="erro" :mensagem="alertaErro" />
+    <AlertComponent tipo="aviso" :mensagem="alertaAviso" />
+    <AlertComponent tipo="sucesso" :mensagem="alertaSucesso ? 'Agendamento confirmado! Redirecionando para seus agendamentos...' : ''" />
 
     <form class="formulario" @submit.prevent="confirmarAgendamento">
       <label>
@@ -44,7 +47,7 @@
 
       <label>
         Data e Horário desejado *
-        <input v-model="form.dataHora" type="datetime-local" />
+        <input v-model="form.dataHora" type="datetime-local" @change="verificarData" />
       </label>
 
       <label>
@@ -67,31 +70,18 @@
 </template>
 
 <script>
+import AlertComponent from "@/components/AlertComponent.vue";
+
 export default {
   name: "ConfiguracaoPedidoView",
+  components: { AlertComponent },
   data() {
     return {
       produtos: [
-        {
-          id: 1,
-          nome: "Banho Simples",
-          preco: 40,
-        },
-        {
-          id: 2,
-          nome: "Tosa Completa",
-          preco: 60,
-        },
-        {
-          id: 3,
-          nome: "Hidratação Control",
-          preco: 35,
-        },
-        {
-          id: 4,
-          nome: "Spa de Ofurô",
-          preco: 90,
-        },
+        { id: 1, nome: "Banho Simples", preco: 40 },
+        { id: 2, nome: "Tosa Completa", preco: 60 },
+        { id: 3, nome: "Hidratação Control", preco: 35 },
+        { id: 4, nome: "Spa de Ofurô", preco: 90 },
       ],
       form: {
         nomeCliente: "",
@@ -103,6 +93,7 @@ export default {
         observacoes: "",
       },
       alertaErro: "",
+      alertaAviso: "",
       alertaSucesso: false,
       enviando: false,
     };
@@ -127,6 +118,16 @@ export default {
     }
   },
   methods: {
+    verificarData() {
+      if (!this.form.dataHora) return;
+      const selecionada = new Date(this.form.dataHora);
+      const agora = new Date();
+      if (selecionada < agora) {
+        this.alertaAviso = "A data selecionada está no passado. Por favor, escolha um horário futuro.";
+      } else {
+        this.alertaAviso = "";
+      }
+    },
     validar() {
       const faltando = [];
       if (!this.form.nomeCliente.trim()) faltando.push("Nome do Cliente");
@@ -140,8 +141,14 @@ export default {
     confirmarAgendamento() {
       const faltando = this.validar();
       if (faltando.length > 0) {
-        this.alertaErro = `Preencha: ${faltando.join(", ")}.`;
+        this.alertaErro = `Preencha os campos obrigatórios: ${faltando.join(", ")}.`;
         this.alertaSucesso = false;
+        return;
+      }
+
+      const selecionada = new Date(this.form.dataHora);
+      if (selecionada < new Date()) {
+        this.alertaErro = "Não é possível agendar em uma data passada.";
         return;
       }
 
@@ -161,7 +168,6 @@ export default {
         valor: this.valorEstimado,
       };
 
-      // Salva no localStorage
       const pedidosExistentes = JSON.parse(localStorage.getItem("pedidos") || "[]");
       pedidosExistentes.push(novoPedido);
       localStorage.setItem("pedidos", JSON.stringify(pedidosExistentes));
