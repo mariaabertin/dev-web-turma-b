@@ -68,7 +68,7 @@
       </div>
 
       <div id="btn-container">
-        <button type="submit">Fazer Pedido</button>
+        <button type="submit" class="btn-pedido">Fazer Pedido</button>
       </div>
     </form>
   </div>
