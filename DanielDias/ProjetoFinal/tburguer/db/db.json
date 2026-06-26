@@ -1,12 +1,48 @@
 {
   "menu": {
     "pratos": [
-      { "id": 1, "nome": "Boeuf Bourguignon", "valor": 55.00, "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/ninth/Boeuf-Bourguignon.jpg/320px-Boeuf-Bourguignon.jpg", "eh_novidade": true },
-      { "id": 2, "nome": "Coq au Vin", "valor": 48.00, "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Coq_au_vin.jpg/320px-Coq_au_vin.jpg", "eh_novidade": true },
-      { "id": 3, "nome": "Ratatouille", "valor": 38.00, "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ratatouille.jpg/320px-Ratatouille.jpg", "eh_novidade": false },
-      { "id": 4, "nome": "Quiche Lorraine", "valor": 32.00, "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Quiche_Lorraine.jpg/320px-Quiche_Lorraine.jpg", "eh_novidade": false },
-      { "id": 5, "nome": "Croque Monsieur", "valor": 28.00, "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Croque_monsieur.jpg/320px-Croque_monsieur.jpg", "eh_novidade": false },
-      { "id": 6, "nome": "Soupe à l'Oignon", "valor": 25.00, "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Soupe_oignon.jpg/320px-Soupe_oignon.jpg", "eh_novidade": false }
+      {
+        "id": 1,
+        "nome": "Boeuf Bourguignon",
+        "valor": 55.00,
+        "foto": "https://www.themealdb.com/images/media/meals/vrspxv1511722107.jpg",
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Coq au Vin",
+        "valor": 48.00,
+        "foto": "https://www.themealdb.com/images/media/meals/qstyvs1505931190.jpg",
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Ratatouille",
+        "valor": 38.00,
+        "foto": "https://www.themealdb.com/images/media/meals/wrpwuu1511786491.jpg",
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Quiche Lorraine",
+        "valor": 32.00,
+        "foto": "https://www.themealdb.com/images/media/meals/quuxsx1511476154.jpg",
+        "eh_novidade": false
+      },
+      {
+        "id": 5,
+        "nome": "Croque Monsieur",
+        "valor": 28.00,
+        "foto": "https://www.themealdb.com/images/media/meals/sywwoj1511383727.jpg",
+        "eh_novidade": false
+      },
+      {
+        "id": 6,
+        "nome": "Soupe à l'Oignon",
+        "valor": 25.00,
+        "foto": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg",
+        "eh_novidade": false
+      }
     ]
   },
   "opcionais": {
