@@ -250,7 +250,7 @@ export default {
   margin-top: 28px;
 }
 
-button {
+.btn-pedido {
   background-color: #1e1e1e;
   color: #f0e6cc;
   border: none;
@@ -263,7 +263,7 @@ button {
   transition: background-color 0.2s;
 }
 
-button:hover {
+.btn-pedido:hover {
   background-color: #d4a847;
   color: #1e1e1e;
 }
