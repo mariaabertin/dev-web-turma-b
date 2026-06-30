@@ -1,0 +1,138 @@
+{
+  "tipos_switch": [
+    {
+      "id": 1,
+      "descricao": "Linear (Vermelho)"
+    },
+    {
+      "id": 2,
+      "descricao": "Tátil (Marrom)"
+    },
+    {
+      "id": 3,
+      "descricao": "Clicky (Azul)"
+    },
+    {
+      "id": 4,
+      "descricao": "Speed (Prata)"
+    }
+  ],
+  "status_pedido": [
+    {
+      "id": 1,
+      "descricao": "Pedido em espera"
+    },
+    {
+      "id": 2,
+      "descricao": "Em separação"
+    },
+    {
+      "id": 3,
+      "descricao": "Enviado"
+    },
+    {
+      "id": 4,
+      "descricao": "Entregue"
+    },
+    {
+      "id": 5,
+      "descricao": "Pedido pendente"
+    },
+    {
+      "id": 6,
+      "descricao": "Pedido realizado"
+    }
+  ],
+  "pedidos": [],
+  "opcionais": {
+    "acessorios": [
+      {
+        "id": 1,
+        "nome": "Keycap Set PBT Doubleshot",
+        "descricao": "Conjunto de teclas em PBT com impressão doubleshot, durável e sem desgaste com uso prolongado",
+        "valor": 89
+      },
+      {
+        "id": 2,
+        "nome": "Wrist Rest de Madeira",
+        "descricao": "Apoio de pulso em madeira natural com acabamento envernizado, compatível com TKL e Full Size",
+        "valor": 59
+      },
+      {
+        "id": 3,
+        "nome": "Switch Puller + Keycap Puller",
+        "descricao": "Kit removedor de switch e keycap em metal, essencial para personalização e manutenção",
+        "valor": 29
+      }
+    ],
+    "cabos": [
+      {
+        "id": 1,
+        "nome": "Cabo USB-C Padrão 1.5m",
+        "valor": 19
+      },
+      {
+        "id": 2,
+        "nome": "Cabo Coiled USB-C Roxo 1.8m",
+        "valor": 79
+      },
+      {
+        "id": 3,
+        "nome": "Cabo Braided USB-C Branco 1.5m",
+        "valor": 49
+      }
+    ]
+  },
+  "menu": {
+    "teclados": [
+      {
+        "id": 1,
+        "nome": "Attack Shark K86",
+        "foto": "/img/attack_shark_k86.png",
+        "descricao": "Layout 75% TKL com conectividade tri-mode (USB-C, 2.4GHz e Bluetooth 5.0). Estrutura com gasket mount para som mais suave, hot-swap em todas as teclas e iluminação RGB por tecla. Bateria de 4000mAh com mais de 200h de autonomia sem RGB.",
+        "valor": 279,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Attack Shark AKS068",
+        "foto": "/img/attack_shark_aks068.png",
+        "descricao": "Teclado 65% com estrutura gasket mount e tri-mode de conectividade (USB-C, 2.4GHz e Bluetooth 5.0). PCB com hot-swap universal, foam interno para isolamento acústico e RGB south-facing. Compatível com switches de 3 e 5 pinos.",
+        "valor": 329,
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Ninja Leap 60%",
+        "foto": "/img/ninja_leap_60.png",
+        "descricao": "Teclado mecânico compacto no formato 60%, com Bluetooth 5.0 e cabo USB-C desmontável. Design clean e minimalista ideal para setups com pouco espaço. RGB por tecla com múltiplos efeitos e bateria interna de longa duração.",
+        "valor": 189,
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Fizz Sunrise",
+        "foto": "/img/teclado_fizz_sunrise.png",
+        "descricao": "Teclado gamer com colorway Sunrise exclusivo — gradiente entre laranja, amarelo e vermelho nas keycaps. Layout ABNT2 full size, retroiluminação RGB, switches Outemu linear pré-lubrificados e placa de aço inoxidável para rigidez máxima.",
+        "valor": 149,
+        "eh_novidade": true
+      },
+      {
+        "id": 5,
+        "nome": "Keychron K8",
+        "foto": "/img/keychron_k8.jpg",
+        "descricao": "Referência no mercado enthusiast: layout TKL (80%) com suporte a switches Gateron hot-swap, retroiluminação RGB e estrutura em plástico de alta resistência. Compatível nativamente com Windows e macOS, com teclas dedicadas para ambos os sistemas.",
+        "valor": 459,
+        "eh_novidade": false
+      },
+      {
+        "id": 6,
+        "nome": "Ducky One 3",
+        "foto": "/img/ducky_one3.jpg",
+        "descricao": "Ícone do mundo dos teclados mecânicos: Full Size com keycaps PBT Doubleshot de altíssima durabilidade, PCB hot-swap compatível com switches de 3 e 5 pinos e RGB por tecla. Construção sólida com placa de aço, reconhecida mundialmente pela qualidade de digitação.",
+        "valor": 699,
+        "eh_novidade": false
+      }
+    ]
+  }
+}

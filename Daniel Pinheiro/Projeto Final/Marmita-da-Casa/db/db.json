@@ -1,0 +1,442 @@
+{
+  "tamanhos": [
+    {
+      "id": 1,
+      "descricao": "Pequena (P)"
+    },
+    {
+      "id": 2,
+      "descricao": "Média (M)"
+    },
+    {
+      "id": 3,
+      "descricao": "Grande (G)"
+    },
+    {
+      "id": 4,
+      "descricao": "Família (GG)"
+    }
+  ],
+  "status_pedido": [
+    {
+      "id": 1,
+      "descricao": "Pedido recebido"
+    },
+    {
+      "id": 2,
+      "descricao": "Em preparo"
+    },
+    {
+      "id": 3,
+      "descricao": "Saiu para entrega"
+    },
+    {
+      "id": 4,
+      "descricao": "Entregue"
+    },
+    {
+      "id": 5,
+      "descricao": "Cancelado"
+    }
+  ],
+  "pedidos": [
+    {
+      "nome": "Daniel Pinheiro",
+      "tamanho": {
+        "id": 3,
+        "descricao": "Grande (G)"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Coca-Cola Lata 350ml",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Coca-Cola",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "acompanhamentos": [
+        {
+          "id": 1,
+          "nome": "Farofa crocante",
+          "descricao": "Farofa de bacon temperada da casa",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Farofa",
+          "valor": 4,
+          "eh_novidade": false
+        }
+      ],
+      "prato": {
+        "id": 1,
+        "nome": "Feijoada Completa",
+        "foto": "https://placehold.co/400x300/e67e22/ffffff?text=Feijoada+Completa",
+        "descricao": "Feijão preto com carnes selecionadas, acompanha arroz branco, couve refogada, farofa e laranja.",
+        "valor": 28,
+        "eh_novidade": true
+      },
+      "statusId": "1",
+      "id": 1
+    },
+    {
+      "nome": "Ana Souza",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Média (M)"
+      },
+      "bebidas": [
+        {
+          "id": 3,
+          "nome": "Suco de Laranja Natural 300ml",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Suco+de+Laranja",
+          "valor": 8,
+          "eh_novidade": false
+        }
+      ],
+      "acompanhamentos": [
+        {
+          "id": 2,
+          "nome": "Vinagrete da casa",
+          "descricao": "Tomate, cebola e cheiro-verde",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Vinagrete",
+          "valor": 4,
+          "eh_novidade": false
+        },
+        {
+          "id": 3,
+          "nome": "Ovo frito",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Ovo+Frito",
+          "valor": 3,
+          "eh_novidade": false
+        }
+      ],
+      "prato": {
+        "id": 5,
+        "nome": "Marmita Fitness",
+        "foto": "https://placehold.co/400x300/e67e22/ffffff?text=Marmita+Fitness",
+        "descricao": "Frango grelhado, arroz integral, brócolis no vapor e legumes salteados.",
+        "valor": 25,
+        "eh_novidade": true
+      },
+      "statusId": "3",
+      "id": 2
+    },
+    {
+      "nome": "Davi",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Média (M)"
+      },
+      "bebidas": [
+        {
+          "id": 5,
+          "nome": "Suco de Maracujá 300ml",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Suco+de+Maracuja",
+          "valor": 8,
+          "eh_novidade": true
+        }
+      ],
+      "acompanhamentos": [
+        {
+          "id": 4,
+          "nome": "Banana à milanesa",
+          "descricao": "Acompanhamento tradicional do virado",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Banana",
+          "valor": 5,
+          "eh_novidade": true
+        },
+        {
+          "id": 3,
+          "nome": "Ovo frito",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Ovo+Frito",
+          "valor": 3,
+          "eh_novidade": false
+        },
+        {
+          "id": 2,
+          "nome": "Vinagrete da casa",
+          "descricao": "Tomate, cebola e cheiro-verde",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Vinagrete",
+          "valor": 4,
+          "eh_novidade": false
+        }
+      ],
+      "prato": {
+        "id": 3,
+        "nome": "Bife Acebolado",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZVO1Qx_xokubVgA16JcDSJkt6MPVP4_ZTtRATwninTg&s=10",
+        "descricao": "Bife grelhado ao ponto com cebolas douradas, arroz, feijão e salada da casa.",
+        "valor": 26,
+        "eh_novidade": false
+      },
+      "statusId": 1,
+      "id": 3
+    },
+    {
+      "nome": "Davi",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Média (M)"
+      },
+      "bebidas": [
+        {
+          "id": 3,
+          "nome": "Suco de Laranja Natural 300ml",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Suco+de+Laranja",
+          "valor": 8,
+          "eh_novidade": false
+        },
+        {
+          "id": 4,
+          "nome": "Água Mineral 500ml",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Agua",
+          "valor": 4,
+          "eh_novidade": false
+        },
+        {
+          "id": 5,
+          "nome": "Suco de Maracujá 300ml",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Suco+de+Maracuja",
+          "valor": 8,
+          "eh_novidade": true
+        }
+      ],
+      "acompanhamentos": [
+        {
+          "id": 1,
+          "nome": "Farofa crocante",
+          "descricao": "Farofa de bacon temperada da casa",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Farofa",
+          "valor": 4,
+          "eh_novidade": false
+        },
+        {
+          "id": 2,
+          "nome": "Vinagrete da casa",
+          "descricao": "Tomate, cebola e cheiro-verde",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Vinagrete",
+          "valor": 4,
+          "eh_novidade": false
+        },
+        {
+          "id": 3,
+          "nome": "Ovo frito",
+          "descricao": "",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Ovo+Frito",
+          "valor": 3,
+          "eh_novidade": false
+        }
+      ],
+      "prato": {
+        "id": 7,
+        "nome": "Lasanha à Bolonhesa",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5WkTvbdOevAdJXkkadAvOLH6eutLRK6mdu-YW9hGjDA&s=10",
+        "descricao": "Lasanha caseira de carne com molho bolonhesa e bastante queijo gratinado.",
+        "valor": 26,
+        "eh_novidade": false
+      },
+      "valorTotal": 57,
+      "statusId": 1,
+      "id": 4
+    },
+    {
+      "nome": "Davi",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Média (M)"
+      },
+      "bebidas": [],
+      "acompanhamentos": [
+        {
+          "id": 1,
+          "nome": "Farofa crocante",
+          "descricao": "Farofa de bacon temperada da casa",
+          "foto": "https://placehold.co/300x200/d35400/ffffff?text=Farofa",
+          "valor": 4,
+          "eh_novidade": false
+        }
+      ],
+      "prato": {
+        "id": 7,
+        "nome": "Lasanha à Bolonhesa",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5WkTvbdOevAdJXkkadAvOLH6eutLRK6mdu-YW9hGjDA&s=10",
+        "descricao": "Lasanha caseira de carne com molho bolonhesa e bastante queijo gratinado.",
+        "valor": 26,
+        "eh_novidade": false
+      },
+      "valorTotal": 30,
+      "statusId": 1,
+      "id": 5
+    }
+  ],
+  "opcionais": {
+    "acompanhamentos": [
+      {
+        "id": 1,
+        "nome": "Farofa crocante",
+        "descricao": "Farofa de bacon temperada da casa",
+        "foto": "https://placehold.co/300x200/d35400/ffffff?text=Farofa",
+        "valor": 4,
+        "eh_novidade": false
+      },
+      {
+        "id": 2,
+        "nome": "Vinagrete da casa",
+        "descricao": "Tomate, cebola e cheiro-verde",
+        "foto": "https://placehold.co/300x200/d35400/ffffff?text=Vinagrete",
+        "valor": 4,
+        "eh_novidade": false
+      },
+      {
+        "id": 3,
+        "nome": "Ovo frito",
+        "descricao": "",
+        "foto": "https://placehold.co/300x200/d35400/ffffff?text=Ovo+Frito",
+        "valor": 3,
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Banana à milanesa",
+        "descricao": "Acompanhamento tradicional do virado",
+        "foto": "https://placehold.co/300x200/d35400/ffffff?text=Banana",
+        "valor": 5,
+        "eh_novidade": true
+      },
+      {
+        "id": 5,
+        "nome": "Porção extra de fritas",
+        "descricao": "Batata frita sequinha",
+        "foto": "https://placehold.co/300x200/d35400/ffffff?text=Fritas",
+        "valor": 8,
+        "eh_novidade": false
+      }
+    ],
+    "bebidas": [
+      {
+        "id": 1,
+        "nome": "Coca-Cola Lata 350ml",
+        "descricao": "",
+        "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Coca-Cola",
+        "valor": 6,
+        "eh_novidade": false
+      },
+      {
+        "id": 2,
+        "nome": "Guaraná Antarctica Lata 350ml",
+        "descricao": "",
+        "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Guarana",
+        "valor": 6,
+        "eh_novidade": false
+      },
+      {
+        "id": 3,
+        "nome": "Suco de Laranja Natural 300ml",
+        "descricao": "",
+        "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Suco+de+Laranja",
+        "valor": 8,
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Água Mineral 500ml",
+        "descricao": "",
+        "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Agua",
+        "valor": 4,
+        "eh_novidade": false
+      },
+      {
+        "id": 5,
+        "nome": "Suco de Maracujá 300ml",
+        "descricao": "",
+        "foto": "https://placehold.co/300x200/27ae60/ffffff?text=Suco+de+Maracuja",
+        "valor": 8,
+        "eh_novidade": true
+      }
+    ]
+  },
+  "menu": {
+    "especiais": [
+      {
+        "id": 1,
+        "nome": "Virado à Paulista",
+        "foto": "https://placehold.co/400x300/c0392b/ffffff?text=Virado+a+Paulista",
+        "descricao": "Tutu de feijão, bisteca suína, linguiça, couve refogada, ovo frito e banana à milanesa. Edição especial do dia.",
+        "valor": 29,
+        "eh_novidade": true
+      }
+    ],
+    "pratos": [
+      {
+        "id": 1,
+        "nome": "Feijoada Completa",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLWlc5pUrt6kf_vpd7GZevfjtVhZgjg2tQoIDmOvAq_A&s=10",
+        "descricao": "Feijão preto com carnes selecionadas, acompanha arroz branco, couve refogada, farofa e laranja.",
+        "valor": 28,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Strogonoff de Frango",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUMxZA1YiWfak6ntkQcKjC5T-gAr6IP8cR-TdEBuUZvg&s=10",
+        "descricao": "Strogonoff cremoso de frango com arroz branco e batata palha crocante.",
+        "valor": 24,
+        "eh_novidade": false
+      },
+      {
+        "id": 3,
+        "nome": "Bife Acebolado",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZVO1Qx_xokubVgA16JcDSJkt6MPVP4_ZTtRATwninTg&s=10",
+        "descricao": "Bife grelhado ao ponto com cebolas douradas, arroz, feijão e salada da casa.",
+        "valor": 26,
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Parmegiana de Frango",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlOqs_vUpbkjFEaUoPNya-H3wTh5sNot1Kiqos90fA2w&s=10",
+        "descricao": "Filé empanado coberto com molho de tomate e queijo derretido, arroz branco e fritas.",
+        "valor": 27,
+        "eh_novidade": true
+      },
+      {
+        "id": 5,
+        "nome": "Marmita Fitness",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrpHNVLsdW-EDgHLc9HQ47NWokemkr_DDpmKbDrYtCw&s=10",
+        "descricao": "Frango grelhado, arroz integral, brócolis no vapor e legumes salteados.",
+        "valor": 25,
+        "eh_novidade": true
+      },
+      {
+        "id": 6,
+        "nome": "Costela com Mandioca",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLBguztH72NugzBcP9abez--BFm3uFrJbhJO-1kKV9rA&s=10",
+        "descricao": "Costela bovina desfiada e macia com mandioca cozida, arroz e vinagrete.",
+        "valor": 30,
+        "eh_novidade": true
+      },
+      {
+        "id": 7,
+        "nome": "Lasanha à Bolonhesa",
+        "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5WkTvbdOevAdJXkkadAvOLH6eutLRK6mdu-YW9hGjDA&s=10",
+        "descricao": "Lasanha caseira de carne com molho bolonhesa e bastante queijo gratinado.",
+        "valor": 26,
+        "eh_novidade": false
+      },
+      {
+        "id": 8,
+        "nome": "Vegetariana da Horta",
+        "foto": "https://veganbusiness.com.br/wp-content/uploads/2022/02/marmitas-veganas-e1645556451830.jpg",
+        "descricao": "Arroz sete grãos, grão-de-bico, abobrinha e berinjela grelhadas e salada fresca.",
+        "valor": 23,
+        "eh_novidade": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+<svg width="140" height="141" viewBox="0 0 140 141" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mask id="path-1-inside-1_1_72" fill="white">
+<path d="M83 106H140V111C140 127.569 126.569 141 110 141H83V106Z"/>
+</mask>
+<path d="M83 96H150L140 111C140 112.675 139.86 114.347 139.581 115.999L113 116H83V96ZM150 111C150 133.091 132.091 151 110 151H83V131H110C121.046 131 130 122.046 130 111H150ZM130 111M83 141V106V141M150 96V111C150 133.091 132.091 151 110 151V131C121.046 131 130 122.046 130 111V116L150 96Z" fill="#F4D78E" mask="url(#path-1-inside-1_1_72)"/>
+<mask id="path-3-inside-2_1_72" fill="white">
+<path d="M0 106H57V141H30C13.4315 141 0 127.569 0 111V106Z"/>
+</mask>
+<path d="M-10 96H57V116H0.414792L0.419467 115.999C0.140313 114.347 -7.32249e-08 112.675 0 111L-10 96ZM57 151H30C7.90861 151 -10 133.091 -10 111H10C10 122.046 18.9543 131 30 131H57V151ZM30 151C7.90861 151 -10 133.091 -10 111V96L10 116V111C10 122.046 18.9543 131 30 131V151ZM30 131M57 106V141V106" fill="#F4D78E" mask="url(#path-3-inside-2_1_72)"/>
+<mask id="path-5-inside-3_1_72" fill="white">
+<path d="M83 71H125C133.284 71 140 77.7157 140 86C140 94.2843 133.284 101 125 101H83V71Z"/>
+</mask>
+<path d="M83 71H125C133.284 71 140 77.7157 140 86C140 94.2843 133.284 101 125 101H83V71Z" fill="url(#pattern0_1_72)"/>
+<path d="M83 66H125C136.046 66 145 74.9543 145 86H135C135 80.4772 130.523 76 125 76H83V66ZM145 86C145 97.0457 136.046 106 125 106H83V96H125C130.523 96 135 91.5228 135 86H145ZM135 86M83 101V71V101M125 66C136.046 66 145 74.9543 145 86C145 97.0457 136.046 106 125 106V96C130.523 96 135 91.5228 135 86C135 80.4772 130.523 76 125 76V66Z" fill="#D95D39" mask="url(#path-5-inside-3_1_72)"/>
+<mask id="path-8-inside-4_1_72" fill="white">
+<path d="M0 86C0 77.7157 6.71573 71 15 71H57V101H15C6.71573 101 0 94.2843 0 86Z"/>
+</mask>
+<path d="M0 86C0 77.7157 6.71573 71 15 71H57V101H15C6.71573 101 0 94.2843 0 86Z" fill="url(#pattern1_1_72)"/>
+<path d="M-5 86C-5 74.9543 3.95431 66 15 66H57V76H15C9.47715 76 5 80.4772 5 86H-5ZM57 106H15C3.95431 106 -5 97.0457 -5 86H5C5 91.5228 9.47715 96 15 96H57V106ZM15 106C3.95431 106 -5 97.0457 -5 86C-5 74.9543 3.95431 66 15 66V76C9.47715 76 5 80.4772 5 86C5 91.5228 9.47715 96 15 96V106ZM15 96M57 71V101V71" fill="#D95D39" mask="url(#path-8-inside-4_1_72)"/>
+<mask id="path-11-inside-5_1_72" fill="white">
+<path d="M0 66C0 29.5492 29.5492 0 66 0H74C110.451 0 140 29.5492 140 66H0Z"/>
+</mask>
+<path d="M-10 66C-10 24.0264 24.0264 -10 66 -10H74C115.974 -10 150 24.0264 150 66H130C130 35.0721 104.928 10 74 10H66C35.0721 10 10 35.0721 10 66H-10ZM150 81H-10L0 66C6.02022e-08 60.9515 0.579242 55.9198 1.72636 51.0034L66 51H138.288L138.274 51.0034C139.421 55.9198 140 60.9515 140 66L150 81ZM-10 81V66C-10 24.0264 24.0264 -10 66 -10V10C35.0721 10 10 35.0721 10 66V51L-10 81ZM74 -10C115.974 -10 150 24.0264 150 66V81L130 51V66C130 35.0721 104.928 10 74 10V-10Z" fill="#F4D78E" mask="url(#path-11-inside-5_1_72)"/>
+<path d="M62 66H78V141H62V66Z" fill="#F4D78E"/>
+<defs>
+<pattern id="pattern0_1_72" patternUnits="userSpaceOnUse" patternTransform="matrix(22.981 0 0 22.981 83 71)" preserveAspectRatio="none" viewBox="-1.43051e-06 0 45.9619 45.9619" width="1" height="1">
+<use xlink:href="#pattern0_1_72_inner" transform="translate(-45.9619 -45.9619)"/>
+<use xlink:href="#pattern0_1_72_inner" transform="translate(0 -45.9619)"/>
+<use xlink:href="#pattern0_1_72_inner" transform="translate(-45.9619 0)"/>
+<g id="pattern0_1_72_inner">
+<path d="M84.8528 0L91.9239 7.07107L7.07107 91.9239L0 84.8528L84.8528 0Z" fill="#D95D39"/>
+</g>
+</pattern><pattern id="pattern1_1_72" patternUnits="userSpaceOnUse" patternTransform="matrix(22.981 0 0 22.981 -7.15256e-07 71)" preserveAspectRatio="none" viewBox="-1.43051e-06 0 45.9619 45.9619" width="1" height="1">
+<use xlink:href="#pattern1_1_72_inner" transform="translate(-45.9619 -45.9619)"/>
+<use xlink:href="#pattern1_1_72_inner" transform="translate(0 -45.9619)"/>
+<use xlink:href="#pattern1_1_72_inner" transform="translate(-45.9619 0)"/>
+<g id="pattern1_1_72_inner">
+<path d="M84.8528 0L91.9239 7.07107L7.07107 91.9239L0 84.8528L84.8528 0Z" fill="#D95D39"/>
+</g>
+</pattern></defs>
+</svg>

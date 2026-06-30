@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #073b2a;
+  --color-secondary: #008c5a;
+  --color-accent: #ffd600;
+  --color-blue: #0866c6;
+  --color-sky: #38bdf8;
+  --color-red: #ef3e36;
+  --color-background: #eef8f1;
+  --color-card: #ffffff;
+  --color-text: #10271e;
+  --color-text-light: #557064;
+  --font-display: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  --font-body: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at 10% 16%, rgba(255, 214, 0, 0.22) 0 4px, transparent 5px),
+    radial-gradient(circle at 90% 12%, rgba(8, 102, 198, 0.16) 0 5px, transparent 6px),
+    linear-gradient(180deg, #e7f7ed 0%, #fffbea 48%, #e9f5ff 100%);
+  background-size: 50px 50px, 70px 70px, auto;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+::selection {
+  color: var(--color-primary);
+  background: var(--color-accent);
+}

@@ -1,0 +1,375 @@
+{
+  "tamanhos_marmita": [
+    {
+      "id": 1,
+      "descricao": "Tamanho P (250g) - Leve"
+    },
+    {
+      "id": 2,
+      "descricao": "Tamanho M (350g) - Equilibrado"
+    },
+    {
+      "id": 3,
+      "descricao": "Tamanho G (450g) - Foco em Massa"
+    },
+    {
+      "id": 4,
+      "descricao": "Tamanho Maromba (600g) - Hipertrófico"
+    }
+  ],
+  "status_pedido": [
+    {
+      "id": 1,
+      "descricao": "Pedido em espera"
+    },
+    {
+      "id": 2,
+      "descricao": "Em produção"
+    },
+    {
+      "id": 3,
+      "descricao": "A caminho"
+    },
+    {
+      "id": 4,
+      "descricao": "Entregue"
+    },
+    {
+      "id": 5,
+      "descricao": "Pedido pendente"
+    },
+    {
+      "id": 6,
+      "descricao": "Pedido realizado"
+    }
+  ],
+  "pedidos": [
+    {
+      "nome": "andre",
+      "tamanho": {
+        "id": 1,
+        "descricao": "Tamanho P (250g) - Leve"
+      },
+      "bebidas": [],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Salada de Frutas",
+          "descricao": "Salada de frutas da estação picadinhas + bebida saudável de sua escolha",
+          "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGo_ogFdw-ar15DEAMBvaBN1aJqo0e5g-Hsg&s",
+          "valor": 14,
+          "novidade": true
+        }
+      ],
+      "marmita": {
+        "id": 1,
+        "nome": "Frango Maromba",
+        "foto": "/marmitasFitness/img/frango_maromba.png",
+        "descricao": "Filé de peito de frango grelhado ao ponto com crosta de ervas finas.",
+        "valor": 26,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 4
+    },
+    {
+      "name": "lucas",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Tamanho M (350g) - Equilibrado"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Suco Verde Detox 310 ml",
+          "descricao": "",
+          "foto": "/marmitasFitness/img/suco_verde.png",
+          "valor": 8,
+          "novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Salada de Frutas",
+          "descricao": "Salada de frutas da estação picadinhas + bebida saudável de sua escolha",
+          "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGo_ogFdw-ar15DEAMBvaBN1aJqo0e5g-Hsg&s",
+          "valor": 14,
+          "novidade": true
+        }
+      ],
+      "marmita": {
+        "id": 1,
+        "nome": "Frango Maromba",
+        "foto": "/marmitasFitness/img/frango_maromba.png",
+        "descricao": "Filé de peito de frango grelhado ao ponto com crosta de ervas finas.",
+        "valor": 26,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 5
+    },
+    {
+      "nome": "carla",
+      "tamanho": "Tamanho M (350g) - Equilibrado",
+      "marmita": "Escondidinho Low Carb",
+      "opcionais": [
+        "Combo Bebida + Salada de Frutas",
+        "Suco Verde Detox 310 ml"
+      ],
+      "status": "Em produção",
+      "statusId": 5,
+      "id": 7
+    },
+    {
+      "nome": "thay",
+      "tamanho": "Tamanho P (250g) - Leve",
+      "marmita": "Escondidinho Low Carb",
+      "opcionais": [
+        "Combo Bebida + Salada de Frutas",
+        "Suco Verde Detox 310 ml"
+      ],
+      "status": "Pedido pendente",
+      "statusId": 5,
+      "id": 8
+    },
+    {
+      "nome": "andre",
+      "tamanho": {
+        "id": 3,
+        "descricao": "Tamanho G (450g) - Foco em Massa"
+      },
+      "bebidas": [
+        "Suco Verde Detox 310 ml"
+      ],
+      "complemento": [],
+      "marmita": {
+        "id": 3,
+        "nome": "Escondidinho Low Carb",
+        "foto": "/marmitasFitness/img/escondidinho_low.png",
+        "descricao": "Delicioso escondidinho com massa leve de purê de couve-flor.",
+        "valor": 28,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 9
+    },
+    {
+      "nome": "cansei",
+      "tamanho": {
+        "id": 3,
+        "descricao": "Tamanho G (450g) - Foco em Massa"
+      },
+      "bebidas": [
+        "Suco Verde Detox 310 ml"
+      ],
+      "complemento": [
+        "Combo Bebida + Salada de Frutas"
+      ],
+      "marmita": {
+        "id": 2,
+        "nome": "Veggie Protein",
+        "foto": "https://www.acasaencantada.com.br/wp-content/uploads/2021/03/Comida-vegana-alface-grao-de-bico-tomatinhos-cereja-abacate-e-folhas-verdes-1-1200x900.webp",
+        "descricao": "Mix de arroz negro com lentilha, purê de batata baroa e Shimeji.",
+        "valor": 32,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 10
+    },
+    {
+      "nome": "thay",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Tamanho M (350g) - Equilibrado"
+      },
+      "bebidas": [
+        "Suco Verde Detox 310 ml"
+      ],
+      "complemento": [
+        "Combo Bebida + Salada de Frutas"
+      ],
+      "marmita": {
+        "id": 3,
+        "nome": "Escondidinho Low Carb",
+        "foto": "/marmitasFitness/img/escondidinho_low.png",
+        "descricao": "Delicioso escondidinho com massa leve de purê de couve-flor.",
+        "valor": 28,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 11
+    },
+    {
+      "nome": "carla",
+      "tamanho": {
+        "id": 3,
+        "descricao": "Tamanho G (450g) - Foco em Massa"
+      },
+      "bebidas": [
+        "Suco Verde Detox 310 ml"
+      ],
+      "complemento": [
+        "Combo Bebida + Salada de Frutas"
+      ],
+      "marmita": {
+        "id": 3,
+        "nome": "Escondidinho Low Carb",
+        "foto": "/marmitasFitness/img/escondidinho_low.png",
+        "descricao": "Delicioso escondidinho com massa leve de purê de couve-flor.",
+        "valor": 28,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 12
+    },
+    {
+      "nome": "FLOQUINHA",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Tamanho M (350g) - Equilibrado"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Suco Verde Detox 310 ml",
+          "descricao": "",
+          "foto": "/marmitasFitness/img/suco_verde.png",
+          "valor": 8,
+          "novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Salada de Frutas",
+          "descricao": "Salada de frutas da estação picadinhas + bebida saudável de sua escolha",
+          "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGo_ogFdw-ar15DEAMBvaBN1aJqo0e5g-Hsg&s",
+          "valor": 14,
+          "novidade": true
+        }
+      ],
+      "opcionais": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Salada de Frutas",
+          "descricao": "Salada de frutas da estação picadinhas + bebida saudável de sua escolha",
+          "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGo_ogFdw-ar15DEAMBvaBN1aJqo0e5g-Hsg&s",
+          "valor": 14,
+          "novidade": true
+        },
+        {
+          "id": 1,
+          "nome": "Suco Verde Detox 310 ml",
+          "descricao": "",
+          "foto": "/marmitasFitness/img/suco_verde.png",
+          "valor": 8,
+          "novidade": false
+        }
+      ],
+      "marmita": {
+        "id": 3,
+        "nome": "Escondidinho Low Carb",
+        "foto": "/marmitasFitness/img/escondidinho_low.png",
+        "descricao": "Delicioso escondidinho com massa leve de purê de couve-flor.",
+        "valor": 28,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 13
+    },
+    {
+      "nome": "andre",
+      "tamanho": {
+        "id": 3,
+        "descricao": "Tamanho G (450g) - Foco em Massa"
+      },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Suco Verde Detox 310 ml",
+          "descricao": "",
+          "foto": "/marmitasFitness/img/suco_verde.png",
+          "valor": 8,
+          "novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Combo Bebida + Salada de Frutas",
+          "descricao": "Salada de frutas da estação picadinhas + bebida saudável de sua escolha",
+          "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGo_ogFdw-ar15DEAMBvaBN1aJqo0e5g-Hsg&s",
+          "valor": 14,
+          "novidade": true
+        }
+      ],
+      "marmita": {
+        "id": 3,
+        "nome": "Escondidinho Low Carb",
+        "foto": "/marmitasFitness/img/escondidinho_low.png",
+        "descricao": "Delicioso escondidinho com massa leve de purê de couve-flor.",
+        "valor": 28,
+        "novidade": true
+      },
+      "statusId": 5,
+      "id": 14
+    }
+  ],
+  "complementos": [
+    {
+      "id": 1,
+      "nome": "Combo Bebida + Salada de Frutas",
+      "descricao": "Salada de frutas da estação picadinhas + bebida saudável de sua escolha",
+      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGo_ogFdw-ar15DEAMBvaBN1aJqo0e5g-Hsg&s",
+      "valor": 14,
+      "novidade": true
+    }
+  ],
+  "bebidas": [
+    {
+      "id": 1,
+      "nome": "Suco Verde Detox 310 ml",
+      "descricao": "",
+      "foto": "/marmitasFitness/img/suco_verde.png",
+      "valor": 8,
+      "novidade": false
+    }
+  ],
+  "menu_limitado": [
+    {
+      "id": 1,
+      "nome": "Nordestina Fit",
+      "foto": "https://vitat.com.br/receitas/images/recipeshandler.jpg",
+      "descricao": "Delicioso purê de macaxeira leve feito com leite desnatado.",
+      "valor": 34,
+      "novidade": true
+    }
+  ],
+  "marmitas": [
+    {
+      "id": 1,
+      "nome": "Frango Maromba",
+      "foto": "/marmitasFitness/img/frango_maromba.png",
+      "descricao": "Filé de peito de frango grelhado ao ponto com crosta de ervas finas.",
+      "valor": 26,
+      "novidade": true
+    },
+    {
+      "id": 2,
+      "nome": "Veggie Protein",
+      "foto": "https://www.acasaencantada.com.br/wp-content/uploads/2021/03/Comida-vegana-alface-grao-de-bico-tomatinhos-cereja-abacate-e-folhas-verdes-1-1200x900.webp",
+      "descricao": "Mix de arroz negro com lentilha, purê de batata baroa e Shimeji.",
+      "valor": 32,
+      "novidade": true
+    },
+    {
+      "id": 3,
+      "nome": "Escondidinho Low Carb",
+      "foto": "/marmitasFitness/img/escondidinho_low.png",
+      "descricao": "Delicioso escondidinho com massa leve de purê de couve-flor.",
+      "valor": 28,
+      "novidade": true
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "tamanhos": [
+    {
+      "id": 1,
+      "descricao": "Pequena (4 fatias)"
+    },
+    {
+      "id": 2,
+      "descricao": "Média (6 fatias)"
+    },
+    {
+      "id": 3,
+      "descricao": "Grande (8 fatias)"
+    },
+    {
+      "id": 4,
+      "descricao": "Família (12 fatias)"
+    }
+  ],
+  "status_pedido": [
+    {
+      "id": 1,
+      "descricao": "Pedido em espera"
+    },
+    {
+      "id": 2,
+      "descricao": "Em produção"
+    },
+    {
+      "id": 3,
+      "descricao": "Saiu para entrega"
+    },
+    {
+      "id": 4,
+      "descricao": "Entregue"
+    },
+    {
+      "id": 5,
+      "descricao": "Pedido pendente"
+    },
+    {
+      "id": 6,
+      "descricao": "Pedido realizado"
+    }
+  ],
+  "pedidos": [],
+  "opcionais": {
+    "bordas": [
+      {
+        "id": 1,
+        "nome": "Borda Tradicional",
+        "valor": 0
+      },
+      {
+        "id": 2,
+        "nome": "Borda de Catupiry",
+        "valor": 12
+      },
+      {
+        "id": 3,
+        "nome": "Borda de Cheddar",
+        "valor": 12
+      },
+      {
+        "id": 4,
+        "nome": "Borda de Chocolate",
+        "valor": 12
+      }
+    ],
+    "bebidas": [
+      {
+        "id": 1,
+        "nome": "Não quero bebida",
+        "valor": 0
+      },
+      {
+        "id": 2,
+        "nome": "Coca Cola 2L",
+        "valor": 14
+      },
+      {
+        "id": 3,
+        "nome": "Coca Cola Zero 2L",
+        "valor": 14
+      },
+      {
+        "id": 4,
+        "nome": "Guaraná Antarctica 2L",
+        "valor": 11
+      },
+      {
+        "id": 5,
+        "nome": "Fanta Laranja 2L",
+        "valor": 11
+      }
+    ]
+  },
+  "menu": {
+    "pizzas": [
+      {
+        "id": 1,
+        "nome": "Margherita",
+        "foto": "https://i.pinimg.com/736x/9d/5d/30/9d5d3011f7771054bbd01b72ab235c68.jpg",
+        "descricao": "Molho de tomate artesanal, mussarela de búfala fresca, manjericão e azeite extravirgem.",
+        "valor": 38,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Calabresa",
+        "foto": "https://i.pinimg.com/736x/cc/d3/23/ccd323f23697707098fabfe06aa2aad6.jpg",
+        "descricao": "Molho de tomate, mussarela, calabresa fatiada grelhada e cebola roxa.",
+        "valor": 36,
+        "eh_novidade": false
+      },
+      {
+        "id": 3,
+        "nome": "Frango com Catupiry",
+        "foto": "https://i.pinimg.com/1200x/67/c8/87/67c88711cf25c71f392aa8d49f7d4b52.jpg",
+        "descricao": "Molho de tomate, mussarela, frango desfiado temperado e catupiry original.",
+        "valor": 39,
+        "eh_novidade": true
+      },
+      {
+        "id": 4,
+        "nome": "Portuguesa",
+        "foto": "https://i.pinimg.com/1200x/a2/6e/aa/a26eaa0564799b2e52b37725aaefcf7b.jpg",
+        "descricao": "Molho de tomate, mussarela, presunto, ovos, cebola, azeitona e pimentão.",
+        "valor": 40,
+        "eh_novidade": false
+      },
+      {
+        "id": 5,
+        "nome": "Quatro Queijos",
+        "foto": "https://i.pinimg.com/1200x/b8/56/da/b856da36c0cff61470ddbf15c3fdf639.jpg",
+        "descricao": "Molho branco, mussarela, provolone, gorgonzola e parmesão ralado.",
+        "valor": 45,
+        "eh_novidade": true
+      },
+      {
+        "id": 6,
+        "nome": "Pepperoni",
+        "foto": "https://i.pinimg.com/1200x/5c/c2/47/5cc24780b399f601cd026c36a8a45e84.jpg",
+        "descricao": "Molho de tomate, mussarela e pepperoni fatiado generosamente.",
+        "valor": 42,
+        "eh_novidade": true
+      }
+    ]
+  }
+}
