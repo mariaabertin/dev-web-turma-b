@@ -1,0 +1,207 @@
+{
+  "tamanhos": [
+    {
+      "id": 1,
+      "descricao": "Pequeno",
+      "valor": 0
+    },
+    {
+      "id": 2,
+      "descricao": "Médio",
+      "valor": 18
+    },
+    {
+      "id": 3,
+      "descricao": "Grande",
+      "valor": 32
+    }
+  ],
+  "status_pedido": [
+    {
+      "id": 1,
+      "descricao": "Pedido recebido"
+    },
+    {
+      "id": 2,
+      "descricao": "Em montagem"
+    },
+    {
+      "id": 3,
+      "descricao": "Saiu para entrega"
+    },
+    {
+      "id": 4,
+      "descricao": "Entregue"
+    },
+    {
+      "id": 5,
+      "descricao": "Cancelado"
+    }
+  ],
+  "pedidos": [
+    {
+      "nome": "Mariana Costa",
+      "tamanho": {
+        "id": 2,
+        "descricao": "Médio",
+        "valor": 18
+      },
+      "flores": [
+        {
+          "id": 2,
+          "nome": "Girassóis",
+          "descricao": "Flores vibrantes para presentes alegres.",
+          "valor": 12,
+          "eh_novidade": true
+        },
+        {
+          "id": 4,
+          "nome": "Eucalipto",
+          "descricao": "Folhagem aromática para composição natural.",
+          "valor": 8,
+          "eh_novidade": false
+        }
+      ],
+      "embalagem": {
+        "id": 1,
+        "nome": "Papel kraft com laço",
+        "descricao": "Embalagem artesanal com laço de juta.",
+        "valor": 10
+      },
+      "entrega": {
+        "id": 1,
+        "nome": "Retirada na loja",
+        "prazo": "Hoje",
+        "valor": 0
+      },
+      "mensagem": "Com carinho para alegrar o dia.",
+      "dataEntrega": "",
+      "arranjo": {
+        "id": 1,
+        "nome": "Buquê Campo Vivo",
+        "foto": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Arranjo leve com flores de estação e folhagens frescas para presentear sem exagero.",
+        "valor": 89,
+        "eh_novidade": true
+      },
+      "total": 137,
+      "statusId": 1,
+      "id": 1
+    }
+  ],
+  "opcionais": {
+    "flores": [
+      {
+        "id": 1,
+        "nome": "Rosas",
+        "descricao": "Flores clássicas para ocasiões românticas.",
+        "valor": 14,
+        "eh_novidade": false
+      },
+      {
+        "id": 2,
+        "nome": "Girassóis",
+        "descricao": "Flores vibrantes para presentes alegres.",
+        "valor": 12,
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Lírios",
+        "descricao": "Flores elegantes para composições sofisticadas.",
+        "valor": 16,
+        "eh_novidade": true
+      },
+      {
+        "id": 4,
+        "nome": "Eucalipto",
+        "descricao": "Folhagem aromática para composição natural.",
+        "valor": 8,
+        "eh_novidade": false
+      },
+      {
+        "id": 5,
+        "nome": "Astromélias",
+        "descricao": "Flores delicadas para dar volume e cor.",
+        "valor": 10,
+        "eh_novidade": false
+      }
+    ],
+    "embalagens": [
+      {
+        "id": 1,
+        "nome": "Papel kraft com laço",
+        "descricao": "Embalagem artesanal com laço de juta.",
+        "valor": 10
+      },
+      {
+        "id": 2,
+        "nome": "Caixa presente",
+        "descricao": "Caixa rígida para entrega especial.",
+        "valor": 22
+      },
+      {
+        "id": 3,
+        "nome": "Vaso de vidro",
+        "descricao": "Vaso decorativo para manter o arranjo montado.",
+        "valor": 38
+      }
+    ],
+    "entregas": [
+      {
+        "id": 1,
+        "nome": "Retirada na loja",
+        "prazo": "Hoje",
+        "valor": 0
+      },
+      {
+        "id": 2,
+        "nome": "Entrega expressa",
+        "prazo": "Até 3 horas",
+        "valor": 18
+      },
+      {
+        "id": 3,
+        "nome": "Entrega agendada",
+        "prazo": "Data escolhida",
+        "valor": 12
+      }
+    ]
+  },
+  "menu": {
+    "arranjos": [
+      {
+        "id": 1,
+        "nome": "Buquê Campo Vivo",
+        "foto": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Arranjo leve com flores de estação e folhagens frescas para presentear sem exagero.",
+        "valor": 89,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Cesta Jardim Afetivo",
+        "foto": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Cesta decorada para datas especiais, com flores coloridas e acabamento artesanal.",
+        "valor": 128,
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Vaso Celebração",
+        "foto": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Composição em vaso para ambientes, aniversários, recepções e presentes corporativos.",
+        "valor": 156,
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Arranjo Sereno",
+        "foto": "https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Composição delicada em tons claros, ideal para mensagens de cuidado e agradecimento.",
+        "valor": 98,
+        "eh_novidade": false
+      }
+    ]
+  }
+}
