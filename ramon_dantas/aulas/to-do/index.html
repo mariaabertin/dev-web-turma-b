@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvimento Web - To-do 1</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            background-color: #d4d4d4;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 5em 25%;
+
+        }
+
+        h1 {
+            color: #292963;
+            text-align: start;
+        }
+
+        .inputArea {
+            text-align: start;
+            margin-bottom: 1.5em;
+            border: solid rgba(0, 0, 0, 0.25) 2px;
+            border-radius: 1em;
+            padding: 0.5em 1em;
+            background-color: white;
+        }
+
+        .inputArea2 {
+            display: flex;
+            justify-content: space-between;
+            gap: 1em;
+            align-items: center;
+        }
+
+        #tarefaInput {
+            flex: 1;
+            height: 2.5em;
+            padding: 0 0.5em;
+            border-radius: 50vh;
+            border: solid #292963 1px;
+        }
+
+        #btnAdicionar {
+            width: 2.5em;
+            height: 2.5em;
+            border-radius: 50vh;
+            border: none;
+            background-color: #292963;
+            color: white;
+            font-weight: bold;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        #btnAdicionar:hover {
+            background-color: #151533;
+        }
+
+        #listaTarefas {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            gap: 0.2em;
+        }
+
+        li {
+            display: flex;
+            background-color: white;
+            padding: 1em 2em;
+            border-radius: 1em;
+            border: solid rgba(0, 0, 0, 0.25) 2px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .concluido {
+            opacity: 40%;
+            text-decoration: line-through;
+        }
+
+        .btnRemover {
+            flex-shrink: 0;
+            width: 2em;
+            height: 2em;
+            border-radius: 50vh;
+            border: none;
+            background-color: #9f0909;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inputArea">
+        <h1>Tarefas</h1>
+        <div class="inputArea2">
+            <input id="tarefaInput" type="text" placeholder="Digite sua Tarefa!">
+            <button id="btnAdicionar">+</button>
+        </div>
+    </div>
+    <ul id="listaTarefas">
+        
+    </ul>
+</body>
+
+</html>

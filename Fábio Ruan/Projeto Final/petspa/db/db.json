@@ -1,0 +1,61 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Banho Tradicional",
+      "descricao": "Banho com shampoo neutro, secagem e perfume.",
+      "precoBase": 35,
+      "categoria": "banho"
+    },
+    {
+      "id": 2,
+      "nome": "Banho Especial Hidratante",
+      "descricao": "Banho com hidratação profunda para pelos e pele sensível.",
+      "precoBase": 55,
+      "categoria": "banho"
+    },
+    {
+      "id": 3,
+      "nome": "Tosa Higiênica",
+      "descricao": "Tosa das áreas íntimas, patinhas e barriga.",
+      "precoBase": 25,
+      "categoria": "tosa"
+    },
+    {
+      "id": 4,
+      "nome": "Tosa na Máquina (Geral)",
+      "descricao": "Tosa completa do corpo com máquina, pelo curto e uniforme.",
+      "precoBase": 45,
+      "categoria": "tosa"
+    },
+    {
+      "id": 5,
+      "nome": "Tosa na Tesoura (Estilizada)",
+      "descricao": "Tosa artística feita à tesoura, respeitando o formato da raça.",
+      "precoBase": 70,
+      "categoria": "tosa"
+    },
+    {
+      "id": 6,
+      "nome": "Banho + Tosa Completa",
+      "descricao": "Combo com banho hidratante e tosa na máquina.",
+      "precoBase": 80,
+      "categoria": "banho+tosa"
+    },
+    {
+      "id": 7,
+      "nome": "Corte de Unhas e Limpeza de Ouvidos",
+      "descricao": "Cuidados extras: unhas, ouvidos e olhos.",
+      "precoBase": 20,
+      "categoria": "spa"
+    },
+    {
+      "id": 8,
+      "nome": "Day Spa Completo",
+      "descricao": "Banho hidratante, tosa higiênica, hidratação, perfumaria e laço.",
+      "precoBase": 95,
+      "categoria": "spa"
+    }
+  ],
+  "pedidos": []
+}

@@ -1,0 +1,26 @@
+/* Estilos globais aplicados ao body e root */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Tema escuro (padrão) */
+body:has(#app.tema-escuro) {
+  background: #0a1628;
+  color: #ffffff;
+}
+
+/* Tema claro */
+body:has(#app.tema-claro) {
+  background: #f0f4f8;
+  color: #1a2a3a;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}

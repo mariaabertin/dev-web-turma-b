@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- vapor -->
+  <path d="M24 15c-2.5-3 2-5 -.2-8.5M32 13c-2.5-3 2-5 -.2-8.5M40 15c-2.5-3 2-5 -.2-8.5"
+        stroke="#f4f1de" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- tampa -->
+  <rect x="11" y="28" width="42" height="6" rx="3" fill="#d35400"/>
+  <path d="M16 28c0-3.3 2.5-5 5.5-5h21c3 0 5.5 1.7 5.5 5z" fill="#e67e22"/>
+  <!-- tigela -->
+  <path d="M14 35h36l-3.2 14.5c-.7 3.2-3.3 5.5-6.6 5.5H23.8c-3.3 0-5.9-2.3-6.6-5.5L14 35z" fill="#f4d03f"/>
+  <path d="M14 35h36l-1.1 5H15.1L14 35z" fill="#27ae60"/>
+</svg>

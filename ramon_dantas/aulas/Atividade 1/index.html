@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1 - Desenvolvimento Web</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #141422;
+        }
+
+        .img {
+            width: 500px;
+            height: auto;
+            border-radius: 2em;
+            transition: 0.5s;
+        }
+
+        .img.escondida {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .botao {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50vh;
+            cursor: pointer;
+        }
+
+        .botao:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <img class="img escondida" id="img" src="img/danel.png" alt="Danel Shrek">
+    <button class="botao" id="botao" onclick="alternarImagem()">Clique aqui para ver o Danel</button>
+</body>
+</html>

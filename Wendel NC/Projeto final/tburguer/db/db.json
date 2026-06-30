@@ -1,0 +1,137 @@
+{
+  "tamanhos": [
+    {
+      "id": 1,
+      "descricao": "Pequeno (300ml)"
+    },
+    {
+      "id": 2,
+      "descricao": "Médio (500ml)"
+    },
+    {
+      "id": 3,
+      "descricao": "Grande (700ml)"
+    },
+    {
+      "id": 4,
+      "descricao": "Gigante (1L)"
+    }
+  ],
+  "status_pedido": [
+    {
+      "id": 1,
+      "descricao": "Pedido em espera"
+    },
+    {
+      "id": 2,
+      "descricao": "Em produção"
+    },
+    {
+      "id": 3,
+      "descricao": "A caminho"
+    },
+    {
+      "id": 4,
+      "descricao": "Entregue"
+    },
+    {
+      "id": 5,
+      "descricao": "Pedido pendente"
+    },
+    {
+      "id": 6,
+      "descricao": "Pedido realizado"
+    }
+  ],
+  "pedidos": [],
+  "opcionais": {
+    "recheios": [
+      {
+        "id": 1,
+        "nome": "Morango"
+      },
+      {
+        "id": 2,
+        "nome": "Banana"
+      },
+      {
+        "id": 3,
+        "nome": "Kiwi"
+      },
+      {
+        "id": 4,
+        "nome": "Manga"
+      }
+    ],
+    "adicionais": [
+      {
+        "id": 1,
+        "nome": "Granola"
+      },
+      {
+        "id": 2,
+        "nome": "Leite em Pó"
+      },
+      {
+        "id": 3,
+        "nome": "Mel"
+      },
+      {
+        "id": 4,
+        "nome": "Paçoca"
+      },
+      {
+        "id": 5,
+        "nome": "Nutella"
+      },
+      {
+        "id": 6,
+        "nome": "Leite Condensado"
+      }
+    ]
+  },
+  "menu": {
+    "acais": [
+      {
+        "id": 1,
+        "nome": "Açaí Tradicional",
+        "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Screened_a%C3%A7a%C3%AD.jpg/320px-Screened_a%C3%A7a%C3%AD.jpg",
+        "descricao": "Puro açaí da Amazônia batido na hora, cremoso e naturalmente adoçado. Rico em antioxidantes e energia para o seu dia.",
+        "valor": 18,
+        "eh_novidade": false
+      },
+      {
+        "id": 2,
+        "nome": "Açaí com Granola",
+        "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Screened_a%C3%A7a%C3%AD.jpg/320px-Screened_a%C3%A7a%C3%AD.jpg",
+        "descricao": "Açaí cremoso coberto com granola crocante e mel. Combinação perfeita de sabor e textura para qualquer hora do dia.",
+        "valor": 22,
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Açaí com Frutas",
+        "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Screened_a%C3%A7a%C3%AD.jpg/320px-Screened_a%C3%A7a%C3%AD.jpg",
+        "descricao": "Açaí batido com banana e morango frescos, coberto com fatias de frutas da estação. Fresco, nutritivo e delicioso!",
+        "valor": 25,
+        "eh_novidade": true
+      },
+      {
+        "id": 4,
+        "nome": "Açaí Premium",
+        "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Screened_a%C3%A7a%C3%AD.jpg/320px-Screened_a%C3%A7a%C3%AD.jpg",
+        "descricao": "Nossa versão especial: açaí premium com leite condensado, granola, morango, banana, Nutella e paçoca. O mais completo da casa!",
+        "valor": 35,
+        "eh_novidade": true
+      },
+      {
+        "id": 5,
+        "nome": "Açaí Fitness",
+        "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Screened_a%C3%A7a%C3%AD.jpg/320px-Screened_a%C3%A7a%C3%AD.jpg",
+        "descricao": "Açaí sem adição de açúcar, com granola integral, chia e mel. Ideal para quem quer manter a saúde sem abrir mão do sabor.",
+        "valor": 28,
+        "eh_novidade": false
+      }
+    ]
+  }
+}

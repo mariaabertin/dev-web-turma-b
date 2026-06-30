@@ -1,0 +1,253 @@
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --verde:        #00875A;
+  --verde-escuro: #005C3B;
+  --amarelo:      #FFD700;
+  --azul-escuro:  #1a1a2e;
+  --azul-medio:   #16213e;
+  --sombra:       0 4px 20px rgba(0,0,0,0.25);
+  --gl-cor:  #FFD700;
+  --zag-cor: #4FC3F7;
+  --mei-cor: #81C784;
+  --ata-cor: #EF5350;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--azul-escuro);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.app-header {
+  background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+  padding: 1.5rem 2rem;
+  box-shadow: var(--sombra);
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header-icon { font-size: 3rem; }
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--amarelo);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.app-header p { font-size: 0.9rem; opacity: 0.85; }
+
+/* ── Container ──────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ── Seletor de País ────────────────────────────────────── */
+.selector-wrapper {
+  background: var(--azul-medio);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--sombra);
+}
+.selector-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--amarelo);
+}
+.select-container { position: relative; }
+.country-select {
+  width: 100%;
+  padding: 0.85rem 3rem 0.85rem 1.25rem;
+  font-size: 1rem;
+  background: var(--azul-escuro);
+  color: #ffffff;
+  border: 2px solid var(--verde);
+  border-radius: 10px;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.country-select:focus  { border-color: var(--amarelo); }
+.country-select:disabled { opacity: 0.6; cursor: not-allowed; }
+.select-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--verde);
+  pointer-events: none;
+  font-size: 0.75rem;
+}
+
+/* ── País Selecionado ───────────────────────────────────── */
+.country-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--azul-medio);
+  border-radius: 12px;
+  border-left: 4px solid var(--amarelo);
+}
+.country-flag {
+  width: 60px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: var(--sombra);
+}
+.country-info h2 { font-size: 1.5rem; color: var(--amarelo); }
+
+/* ── Estados ────────────────────────────────────────────── */
+.loading-state { text-align: center; padding: 3rem; }
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.15);
+  border-top-color: var(--amarelo);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-message {
+  background: rgba(239,83,80,0.15);
+  border: 1px solid var(--ata-cor);
+  color: #ff8a80;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* ── Seção do Álbum ─────────────────────────────────────── */
+.album-title {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--verde);
+}
+.album-count {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--amarelo);
+}
+
+/* ── Grid ───────────────────────────────────────────────── */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Card da Figurinha ──────────────────────────────────── */
+.player-card {
+  position: relative;
+  background: linear-gradient(160deg, #ffffff 0%, #ebebeb 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #1a1a2e;
+}
+.player-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+}
+
+/* Barra colorida no topo conforme posição */
+.player-card::before {
+  content: '';
+  display: block;
+  height: 6px;
+  width: 100%;
+}
+.player-card.pos-goalkeeper::before { background: var(--gl-cor); }
+.player-card.pos-defender::before   { background: var(--zag-cor); }
+.player-card.pos-midfielder::before { background: var(--mei-cor); }
+.player-card.pos-attacker::before   { background: var(--ata-cor); }
+.player-card.pos-unknown::before    { background: #aaa; }
+
+/* Efeito de brilho no hover */
+.card-shine {
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.player-card:hover .card-shine { left: 120%; }
+
+/* Topo do card */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+}
+.player-number { font-size: 0.75rem; font-weight: 700; color: #888; }
+.player-position-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 20px;
+  color: white;
+}
+.player-position-badge.pos-goalkeeper { background: #b8860b; color: #000; }
+.player-position-badge.pos-defender   { background: #0288d1; }
+.player-position-badge.pos-midfielder { background: #2e7d32; }
+.player-position-badge.pos-attacker   { background: #c62828; }
+
+/* Foto */
+.card-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Rodapé */
+.card-footer {
+  padding: 0.6rem 0.75rem 0.75rem;
+  background: white;
+}
+.player-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+.player-position-full { font-size: 0.7rem; color: #888; }
+
+/* ── Responsivo ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .app-header h1 { font-size: 1.4rem; }
+  .header-icon   { font-size: 2rem; }
+  .album-grid    { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1rem; }
+}

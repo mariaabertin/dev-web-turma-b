@@ -1,0 +1,5 @@
+{
+    "/teams/countries": "/countries",
+    "/teams\\?name=:nome": "/teams",
+    "/players/squads\\?team=:id": "/squads"
+}

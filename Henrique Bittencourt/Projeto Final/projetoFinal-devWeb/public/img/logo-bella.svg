@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bella Pizza">
+  <!-- crust -->
+  <path d="M6 17C6 17 18 7 32 7C46 7 58 17 58 17L32 61L6 17Z" fill="#E2A86A"/>
+  <path d="M6 17C6 17 18 7 32 7C46 7 58 17 58 17" stroke="#C2823F" stroke-width="3" stroke-linecap="round"/>
+  <!-- cheese -->
+  <path d="M11 19C11 19 20.5 11 32 11C43.5 11 53 19 53 19L32 54L11 19Z" fill="#F4C545"/>
+  <!-- toppings -->
+  <circle cx="25" cy="23" r="3.4" fill="#C8201F"/>
+  <circle cx="40" cy="25" r="3.4" fill="#C8201F"/>
+  <circle cx="32" cy="38" r="3.4" fill="#C8201F"/>
+  <circle cx="33" cy="22" r="2.1" fill="#2E7D32"/>
+  <circle cx="28" cy="33" r="2.1" fill="#2E7D32"/>
+  <circle cx="41" cy="35" r="2.1" fill="#2E7D32"/>
+</svg>

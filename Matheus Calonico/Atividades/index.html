@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atvidade 1</title>
+    <style>
+        body {
+            display: flex ;
+            flex-direction: column;
+            justify-content:center;
+            align-items: center;
+        }
+        .pokemon36{
+            transition: 0.7s;
+             width: 1500px;
+        }
+           .escondida{
+            filter: brightness(0%);
+            width: 1000px;
+            opacity: 90%;
+        }
+        .botao{
+            font-size: 2em;
+            padding: 1em;
+            border-style: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <button class= "botao" onclick="mostrarPokemon()"> Quem é esse Pokemon?</button>
+    <img class="pokemon36 escondida" id="pokemon36" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.pokemon.com%2Fassets%2Fcms2%2Fimg%2Fpokedex%2Ffull%2F036.png&f=1&nofb=1&ipt=537667900558863d69a2695195b3930285cb2aedd8e733e1fde7516b9dc30f38">
+</body>
+</html>

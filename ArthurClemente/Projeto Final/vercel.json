@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "builds": [
+        {
+            "src": "tpizzaria/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ],
+    "installCommand": "cd tpizzaria && npm install",
+    "buildCommand": "cd tpizzaria && npm run build"
+}

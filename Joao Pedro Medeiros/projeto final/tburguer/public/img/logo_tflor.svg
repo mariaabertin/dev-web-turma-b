@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">T-Flor</title>
+  <desc id="desc">Logo circular da floricultura T-Flor.</desc>
+  <rect width="160" height="160" rx="28" fill="#24473c"/>
+  <circle cx="80" cy="65" r="18" fill="#d9b253"/>
+  <path d="M80 28c19 15 19 30 0 45-19-15-19-30 0-45Z" fill="#f4d98c"/>
+  <path d="M117 65c-15 19-30 19-45 0 15-19 30-19 45 0Z" fill="#f4d98c"/>
+  <path d="M80 102c-19-15-19-30 0-45 19 15 19 30 0 45Z" fill="#f4d98c"/>
+  <path d="M43 65c15-19 30-19 45 0-15 19-30 19-45 0Z" fill="#f4d98c"/>
+  <path d="M80 80c14 18 21 35 21 52H90c0-17-4-31-10-42-6 11-10 25-10 42H59c0-17 7-34 21-52Z" fill="#8cc6a3"/>
+  <text x="80" y="145" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#ffffff">T-Flor</text>
+</svg>

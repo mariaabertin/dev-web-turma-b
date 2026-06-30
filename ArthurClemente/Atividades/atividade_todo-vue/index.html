@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarefas - Vue 3</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: "Gill Sans";
+            background: #e4f9ff;
+            padding: 16px;
+        }
+
+        h1 {
+            color: cadetblue;
+            text-align: left;
+        }
+
+        .input-area {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        #tarefaInput {
+            padding: 8px;
+            border-radius: 8px;
+            border: cadetblue solid 1px;
+        }
+
+        #btnAdicionar {
+            padding: 8px 12px;
+            color: #f2f2f2;
+            background-color: cadetblue;
+            border: 0px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        #btnAdicionar:hover {
+            background-color: rgb(65, 107, 108);
+            color: white;
+            transition: 0.5s;
+        }
+
+        #listaTarefas {
+            padding: 0px;
+        }
+
+        li {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            width: 130px;
+            border: cadetblue dotted 2px;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+           
+        }
+
+        .fechar {
+            background-color: darkred;
+            border-radius: 100px;
+            border: 0px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .concluida {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Tarefas</h1>
+
+        <div class="input-area">
+            <input id="tarefaInput" type="text" placeholder="Digite sua Tarefa!" v-model="novaTarefa"
+                @keyup.enter="adicionarTarefa" />
+            <button id="btnAdicionar" @click="adicionarTarefa">+</button>
+        </div>
+
+        <ul id="listaTarefas">
+            <li v-for="(tarefa, index) in tarefas" :key="index" :class="{ concluida: tarefa.concluida }"
+                @click="alternarConclusao(tarefa)">
+                {{ tarefa.texto }}
+
+                <button class="fechar" @click.stop="removerTarefa(index)">x</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    novaTarefa: '', 
+                    tarefas: []     
+                }
+            },
+            methods: {
+                adicionarTarefa() {
+                    const texto = this.novaTarefa.trim();
+                    if (texto !== '') {
+                        
+                        this.tarefas.push({
+                            texto: texto,
+                            concluida: false
+                        });
+                        
+                        this.novaTarefa = '';
+                    }
+                },
+                removerTarefa(index) {
+                    
+                    this.tarefas.splice(index, 1);
+                },
+                alternarConclusao(tarefa) {
+                    
+                    tarefa.concluida = !tarefa.concluida;
+                }
+            }
+        }).mount('#app'); 
+    </script>
+</body>
+
+</html>

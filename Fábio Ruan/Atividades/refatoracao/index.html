@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarefas Vue 3</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body { font-family: "Gill Sans"; background: #e4f9ff; padding: 16px; }
+    h1 { color: cadetblue; text-align: left; }
+    .input-area { text-align: left; margin-bottom: 25px; }
+    #tarefaInput { padding: 8px; border-radius: 8px; border: cadetblue solid 1px; }
+    #btnAdicionar { padding: 8px 12px; color: #f2f2f2; background-color: cadetblue; border: 0; border-radius: 8px; cursor: pointer; }
+    #listaTarefas { padding: 0; list-style: none; }
+    li { 
+      background-color: white; padding: 10px; margin-bottom: 12px; 
+      border-radius: 8px; width: 250px; border: cadetblue dotted 2px; 
+      display: flex; justify-content: space-between; cursor: pointer;
+    }
+    .fechar { background-color: darkred; border-radius: 50%; border: 0; color: white; cursor: pointer; height: 20px; width: 20px; }
+    .concluida { text-decoration: line-through; color: gray; opacity: 0.6; }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <h1>Tarefas</h1>
+    
+    <div class="input-area">
+      <input 
+        id="tarefaInput" 
+        v-model="novaTarefa" 
+        type="text" 
+        placeholder="Digite sua Tarefa!"
+        @keyup.enter="adicionarTarefa"
+      />
+      <button id="btnAdicionar" @click="adicionarTarefa">+</button>
+    </div>
+
+    <ul id="listaTarefas">
+      <li 
+        v-for="(tarefa, index) in tarefas" 
+        :key="index"
+        :class="{ concluida: tarefa.feita }"
+        @click="alternarConcluida(tarefa)"
+      >
+        {{ tarefa.texto }}
+        
+        <button class="fechar" @click.stop="removerTarefa(index)">x</button>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue;
+
+    createApp({
+      setup() {
+        const novaTarefa = ref("");
+        const tarefas = ref([]);
+
+        
+        const adicionarTarefa = () => {
+          if (novaTarefa.value.trim() !== "") {
+            tarefas.value.push({
+              texto: novaTarefa.value,
+              feita: false
+            });
+            novaTarefa.value = "";
+          }
+        };
+
+       
+        const removerTarefa = (index) => {
+          tarefas.value.splice(index, 1);
+        };
+
+       
+        const alternarConcluida = (tarefa) => {
+          tarefa.feita = !tarefa.feita;
+        };
+
+        return {
+          novaTarefa,
+          tarefas,
+          adicionarTarefa,
+          removerTarefa,
+          alternarConcluida
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
